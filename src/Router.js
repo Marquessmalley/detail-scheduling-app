@@ -3,7 +3,7 @@ import RootLayout from "components/layouts/RootLayout";
 import Home from "pages/Home";
 import Booking from "pages/Booking";
 
-const routes = [
+const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
@@ -18,6 +18,6 @@ const routes = [
       },
     ],
   },
-];
+]);
 
-export const router = createBrowserRouter(routes);
+export default router;
