@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { bookingSteps } from "constants/bookingSteps";
 import { carType } from "constants/carType";
+import { detailMenu } from "constants/detail-menu";
 import { MobileStepper } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
@@ -19,6 +20,9 @@ const BookingStepper: React.FC = () => {
     setActiveStep((prevStep) => prevStep - 1);
   };
 
+  const firstRowDetails = detailMenu.slice(0, 3);
+  const secondRowDetails = detailMenu.slice(3);
+
   return (
     <div className="flex flex-col h-full">
       {/* HEADER */}
@@ -30,23 +34,51 @@ const BookingStepper: React.FC = () => {
       </div>
 
       {/* CONTENT */}
-      <div className="flex-grow  flex justify-around items-center flex-wrap">
-        {activeStep === 0 && (
-          <>
-            {carType.map((car) => {
-              return (
-                <div
-                  key={car.id}
-                  className="p-4 border border-slate-300 rounded-2xl shadow h-32 w-32 flex flex-col items-center justify-center cursor-pointer "
-                >
-                  <img src={car.img} alt="car_type" />
-                  <p className="text-lg font-semibold">{car.type}</p>
-                </div>
-              );
-            })}
-          </>
-        )}
-      </div>
+      {activeStep === 0 && (
+        <div className="flex-grow flex justify-around items-center flex-wrap">
+          {carType.map((car) => {
+            return (
+              <div
+                key={car.id}
+                className="p-4 border border-slate-300 rounded-2xl shadow h-32 w-32 flex flex-col items-center justify-center cursor-pointer "
+              >
+                <img src={car.img} alt="car_type" />
+                <p className="text-lg font-semibold">{car.type}</p>
+              </div>
+            );
+          })}
+        </div>
+      )}
+
+      {/* SELECT PACKAGE */}
+      {activeStep === 1 && (
+        <div className="flex-grow flex flex-col justify-around items-center">
+          <div className="flex justify-around w-full mb-4">
+            {firstRowDetails.map((detail) => (
+              <div
+                key={detail.id}
+                className="p-4 border border-slate-300 rounded-2xl shadow h-32 w-32 flex items-center justify-center cursor-pointer"
+              >
+                <p className="text-lg font-semibold text-center">
+                  {detail.packageName}
+                </p>
+              </div>
+            ))}
+          </div>
+          <div className="flex justify-around w-full">
+            {secondRowDetails.map((detail) => (
+              <div
+                key={detail.id}
+                className="p-4 border border-slate-300 rounded-2xl shadow h-32 w-32 flex items-center justify-center cursor-pointer"
+              >
+                <p className="text-lg font-semibold text-center">
+                  {detail.packageName}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* STEPPER */}
       <div className="flex-none">
