@@ -1,5 +1,5 @@
 export const bookingSteps: string[] = [
-  "Select Vehicle",
+  "Select Vehicle Type",
   "Select Package",
   "Select Date",
   "Contact Info",
