@@ -6,15 +6,11 @@ import {
 } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import shinelogo from "assets/images/logo.png";
-const navigation = [
-  { name: "Services", href: "#", current: true },
-  { name: "Pricing", href: "#", current: false },
-  { name: "FAQs", href: "#", current: false },
-];
+import { navigation } from "constants/navmenu";
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
+// function classNames(...classes) {
+//   return classes.filter(Boolean).join(" ");
+// }
 
 export default function Navbar() {
   return (

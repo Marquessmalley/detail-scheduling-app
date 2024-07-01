@@ -5,7 +5,7 @@ import Faq from "sections/Faq";
 import Services from "sections/Services";
 // import CompanyLogos from "sections/CompanyLogos";
 
-const Home = () => {
+const Home: React.FC = () => {
   return (
     <div>
       <Landing />

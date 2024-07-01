@@ -1,4 +1,4 @@
-const BookingStepper = () => {
+const BookingStepper: React.FC = () => {
   return <div>stepper</div>;
 };
 

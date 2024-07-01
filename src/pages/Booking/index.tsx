@@ -1,11 +1,12 @@
 import { useState } from "react";
+import { BookingInfo } from "pages/Booking/types";
 import BookingStepper from "components/ui/bookingStepper";
-const Booking = () => {
-  const bookingInfo = useState({
+
+const Booking: React.FC = () => {
+  const bookingInfo = useState<BookingInfo>({
     selectedPackage: "",
     vehicleType: "",
     price: 0,
-    time: "",
     date: {
       day: "",
       startTime: "",

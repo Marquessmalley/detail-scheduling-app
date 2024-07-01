@@ -1,4 +1,10 @@
-export const faq = [
+interface Faq {
+  id: number;
+  question: string;
+  answer: string;
+}
+
+export const faq: Faq[] = [
   {
     id: 0,
     question: "What is included in a detailing package?",

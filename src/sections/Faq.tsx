@@ -6,7 +6,7 @@ import {
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { faq } from "constants/faq";
 
-const Faq = () => {
+const Faq: React.FC = () => {
   return (
     <div className="h-screen w-full pt-32 px-4">
       <div className="grid grid-cols-1 mb-5  mx-auto w-full max-w-4xl ">

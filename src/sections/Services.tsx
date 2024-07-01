@@ -1,7 +1,7 @@
 import ServiceCard from "components/ui/cards/ServiceCard";
 import { services } from "constants/service";
 
-const Services = () => {
+const Services: React.FC = () => {
   return (
     <div className="mb-32 mt-56">
       {/* SERVICE HEADER */}

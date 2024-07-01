@@ -2,7 +2,14 @@ import carDetailImage from "assets/images/car-detail.png";
 import carSeatImage from "assets/images/car-seat.png";
 import carCleanImage from "assets/images/car-clean.png";
 
-export const services = [
+interface Services {
+  id: number;
+  service: string;
+  img: string;
+  details: string;
+}
+
+export const services: Services[] = [
   {
     id: 0,
     service: "Full Detail",

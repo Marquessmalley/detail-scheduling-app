@@ -1,4 +1,4 @@
-export const bookingSteps = [
+export const bookingSteps: string[] = [
   "Select Vehicle",
   "Select Package",
   "Select Date",

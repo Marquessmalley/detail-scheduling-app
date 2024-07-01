@@ -1,9 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
-import RootLayout from "components/layouts/RootLayout";
+import RootLayout from "components/layouts/rootlayout/RootLayout";
 import Home from "pages/Home";
 import Booking from "pages/Booking";
 
-const router = createBrowserRouter([
+const router: any = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,

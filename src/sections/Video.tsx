@@ -16,7 +16,7 @@ const Video = () => {
 
         {/* VIDEO */}
         <div className="flex justify-center">
-          <video class=" w-5/12 rounded-lg sm:h-full " controls autoPlay>
+          <video className=" w-5/12 rounded-lg sm:h-full " controls autoPlay>
             <source src={carDetailingVideo} type="video/mp4" />
             Your browser does not support the video tag.
           </video>

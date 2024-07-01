@@ -1,4 +1,11 @@
-const ServiceCard = ({ id, header, text, img }) => {
+interface ServiceCardProps {
+  id: number;
+  header: string;
+  text: string;
+  img: string;
+}
+
+const ServiceCard: React.FC<ServiceCardProps> = ({ id, header, text, img }) => {
   return (
     <div
       key={id}

@@ -1,8 +1,9 @@
-import { pricingMenu } from "constants/price-menu";
+import { detailMenu } from "constants/detail-menu";
+import { DetailPackage } from "constants/detail-menu";
 import PriceCard from "components/ui/cards/PriceCard";
 
-const Pricing = () => {
-  const specialPackages = pricingMenu.slice(0, 3);
+const Pricing: React.FC = () => {
+  const specialPackages: DetailPackage[] = detailMenu.slice(0, 3);
 
   return (
     <div className="my-10 pt-24">
@@ -22,7 +23,7 @@ const Pricing = () => {
 
       <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 ">
         {specialPackages.map((plan) => {
-          return <PriceCard key={plan.id} plan={plan} />;
+          return <PriceCard plan={plan} />;
         })}
       </div>
     </div>
