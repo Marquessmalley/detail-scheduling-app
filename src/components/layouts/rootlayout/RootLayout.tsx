@@ -1,7 +1,7 @@
 import Navbar from "components/ui/navbar/Navbar";
 import { Outlet } from "react-router-dom";
 
-const RootLayout = () => {
+const RootLayout: React.FC = () => {
   return (
     <div className=" min-h-screen">
       <Navbar />

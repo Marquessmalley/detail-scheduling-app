@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BookingInfo } from "pages/Booking/types";
+import { BookingInfo } from "pages/booking/types";
 import BookingStepper from "components/ui/bookingStepper";
 
 const Booking: React.FC = () => {

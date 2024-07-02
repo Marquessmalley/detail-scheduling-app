@@ -9,14 +9,24 @@ declare module "components/layouts/rootlayout/RootLayout" {
 }
 
 // PAGES
-declare module "pages/Home" {
+declare module "pages/home" {
   const Home: React.ComponentType;
   export default Home;
 }
 
-declare module "pages/Booking" {
+declare module "pages/booking" {
   const Booking: React.ComponentType;
   export default Booking;
+}
+
+declare module "pages/auth/signup" {
+  const Signup: React.FC;
+  export default Signup;
+}
+
+declare module "pages/auth/login" {
+  const Login: React.FC;
+  export default Login;
 }
 
 // SECTIONS
@@ -48,6 +58,14 @@ declare module "sections/CompanyLogos" {
 }
 
 // COMPONENTS
+declare module "components/layouts/adminlayout" {
+  const AdminLayout: React.FC;
+  export default AdminLayout;
+}
+declare module "components/layouts/rootlayout" {
+  const RootLayout: React.FC;
+  export default RootLayout;
+}
 declare module "components/ui/bookingStepper" {
   const BookingStepper: React.FC;
   export default BookingStepper;
