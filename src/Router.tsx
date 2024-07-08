@@ -1,4 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
+import AuthProvider from "context/AuthProvider";
+import PrivateRoute from "components/routes/PrivateRoute";
 import RootLayout from "components/layouts/rootlayout/RootLayout";
 import AdminLayout from "components/layouts/adminlayout/AdminLayout";
 import Home from "pages/home";
@@ -23,15 +25,30 @@ const router: any = createBrowserRouter([
   },
   {
     path: "/signup",
-    element: <Signup />,
+    element: (
+      <AuthProvider>
+        <Signup />,
+      </AuthProvider>
+    ),
   },
   {
     path: "/login",
-    element: <Login />,
+    element: (
+      <AuthProvider>
+        <Login />
+      </AuthProvider>
+    ),
   },
   {
     path: "/admin",
-    element: <AdminLayout />,
+    element: (
+      <AuthProvider>
+        <PrivateRoute>
+          <AdminLayout />
+        </PrivateRoute>
+      </AuthProvider>
+    ),
+
     children: [],
   },
 ]);

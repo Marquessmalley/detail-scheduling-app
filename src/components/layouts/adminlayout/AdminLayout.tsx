@@ -1,7 +1,23 @@
-import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "context/AuthProvider";
 
 const AdminLayout = () => {
-  return <div className="min-h-screen">AdminLayout</div>;
+  const navigate = useNavigate();
+
+  const { user, signUserOut } = useAuth();
+
+  const handleSignOut = () => {
+    signUserOut();
+    navigate("/login");
+  };
+
+  console.log(user);
+  return (
+    <div className="min-h-screen">
+      AdminLayout
+      <button onClick={handleSignOut}>Sign Out</button>
+    </div>
+  );
 };
 
 export default AdminLayout;

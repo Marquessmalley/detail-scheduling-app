@@ -1,13 +1,29 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "assets/images/logo.png";
+import { useAuth } from "context/AuthProvider";
+import Alert from "components/ui/alert";
 
 const Signup: React.FC = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
 
-  const handleSignup = (): void => {};
+  const { signUp, error, setError } = useAuth();
+
+  const handleSignup = (e: any): void => {
+    e.preventDefault();
+    if (password !== confirmPassword) {
+      setError({ name: "Error", message: "Passwords must match." });
+      return;
+    }
+
+    signUp(email, password);
+    setEmail("");
+    setPassword("");
+    setConfirmPassword("");
+    setError(null);
+  };
 
   return (
     <>
@@ -19,13 +35,12 @@ const Signup: React.FC = () => {
           </h2>
         </div>
 
+        {error !== null && (
+          <Alert alertType={error?.name} alertMsg={error?.message} />
+        )}
+
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form
-            className="space-y-6"
-            action="#"
-            method="POST"
-            onSubmit={handleSignup}
-          >
+          <form className="space-y-6" onSubmit={handleSignup}>
             <div>
               <label
                 htmlFor="email"

@@ -1,12 +1,21 @@
 import { useState } from "react";
 import logo from "assets/images/logo.png";
 import { Link } from "react-router-dom";
+import { useAuth } from "context/AuthProvider";
+import Alert from "components/ui/alert";
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
-  const handleLogin = (): void => {};
+  const { login, error, setError } = useAuth();
+
+  const handleLogin = (e: any): void => {
+    e.preventDefault();
+
+    login(email, password);
+    setError(null);
+  };
 
   return (
     <>
@@ -17,6 +26,9 @@ const Login: React.FC = () => {
             Login to your account
           </h2>
         </div>
+        {error !== null && (
+          <Alert alertType={error?.name} alertMsg={error?.message} />
+        )}
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form
