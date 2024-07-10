@@ -16,7 +16,7 @@ const AdminNavbar = () => {
     <nav className="mt-3">
       <div className="mx-auto max-w-7xl px-2 flex sm:px-6 lg:px-8 rounded-xl shadow-xl shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur ">
         <div className="flex flex-1">
-          <div className="flex flex-shrink-0 items-center">
+          <div className="sm:flex flex-shrink-0 items-center hidden ">
             <img className="h-16 w-auto" src={shinelogo} alt="Your Company" />
           </div>
         </div>
@@ -44,7 +44,7 @@ const AdminNavbar = () => {
           >
             <MenuItem
               as="div"
-              className="flex justify-between items-center cursor-pointer"
+              className="flex justify-between items-center cursor-pointer hover:bg-slate-100"
             >
               <p className="block px-4 py-2 text-sm text-gray-700">Profile</p>
               <svg
@@ -64,10 +64,15 @@ const AdminNavbar = () => {
             </MenuItem>
             <MenuItem
               as="div"
-              className="flex justify-between items-center cursor-pointer"
+              className="flex justify-between items-center cursor-pointer hover:bg-slate-100"
               onClick={handleSignOut}
             >
-              <p className="block px-4 py-2 text-sm text-gray-700">Sign out</p>
+              <p
+                className="block px-4 py-2 text-sm text-gray-700"
+                tabIndex={-1}
+              >
+                Sign out
+              </p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
