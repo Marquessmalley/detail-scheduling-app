@@ -7,15 +7,13 @@ interface PrivateRouteProps {
 }
 const PrivateRoute: React.FC<PrivateRouteProps> = ({ children }) => {
   const navigate = useNavigate();
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
 
-  useEffect(() => {
-    if (user === null) {
-      navigate("/login");
-    }
-  }, [user, navigate]);
+  if (loading) {
+    return <div>loading...</div>;
+  }
 
-  return <>{user ? children : null}</>;
+  return <>{user ? children : navigate("/login")}</>;
 };
 
 export default PrivateRoute;

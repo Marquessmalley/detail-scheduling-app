@@ -3,8 +3,10 @@ import {
   User,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  onAuthStateChanged,
   signOut,
+  onAuthStateChanged,
+  setPersistence,
+  browserLocalPersistence,
 } from "firebase/auth";
 import { auth } from "firebaseConfig";
 import { useNavigate } from "react-router-dom";
@@ -20,6 +22,7 @@ interface AuthContextType {
   login: (email: string, password: string) => void;
   signUp: (email: string, password: string) => void;
   signUserOut: () => void;
+  loading: boolean;
   error: FirebaseError | null;
   setError: (error: FirebaseError | null) => void;
 }
@@ -41,13 +44,25 @@ export const useAuth = (): AuthContextType => {
 
 const AuthProvider: React.FC<AuthProps> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<FirebaseError | null>(null);
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => setUser(user));
-    return () => unsubscribe();
+    setPersistence(auth, browserLocalPersistence)
+      .then(() => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+          setUser(user);
+          setLoading(false);
+        });
+
+        return () => unsubscribe();
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading(false);
+      });
   }, []);
 
   // FIREBASE LOGIN
@@ -56,10 +71,6 @@ const AuthProvider: React.FC<AuthProps> = ({ children }) => {
       await signInWithEmailAndPassword(auth, email, password);
       navigate("/admin");
     } catch (err: any) {
-      console.log("login error:");
-      console.log(err.code);
-      console.log(err.name);
-      console.log(err.message);
       setError({ code: err.code, name: err.name, message: err.message });
     }
   };
@@ -84,22 +95,9 @@ const AuthProvider: React.FC<AuthProps> = ({ children }) => {
     }
   };
 
-  // const handleError = (err: AuthError) => {
-  //   const errorCode = err.code;
-  //   const errorMessage = err.message;
-
-  //   // Handle specific error codes
-  //   if (errorCode === 'auth/weak-password') {
-  //     setError(errorMessage);
-  //   } else {
-  //     setError('An error occurred during authentication.');
-  //   }
-  //   console.error(err);
-  // };
-
   return (
     <AuthContext.Provider
-      value={{ user, login, signUp, signUserOut, error, setError }}
+      value={{ user, login, signUp, signUserOut, loading, error, setError }}
     >
       {children}
     </AuthContext.Provider>
