@@ -66,7 +66,7 @@ export const detailMenu: DetailPackage[] = [
   },
   {
     id: 1,
-    packageName: "GOLD PACKAGE",
+    packageName: "Gold Package",
     startingPrice: "$250/service",
     estimatedTime: "4hr 30min",
     services: {

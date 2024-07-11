@@ -16,8 +16,12 @@ const AdminNavbar = () => {
     <nav className="mt-3">
       <div className="mx-auto max-w-7xl px-2 flex sm:px-6 lg:px-8 rounded-xl shadow-xl shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur ">
         <div className="flex flex-1">
-          <div className="sm:flex flex-shrink-0 items-center hidden ">
-            <img className="h-16 w-auto" src={shinelogo} alt="Your Company" />
+          <div className="flex-shrink-0 items-center">
+            <img
+              className="h-12 w-auto sm:h-16"
+              src={shinelogo}
+              alt="Your Company"
+            />
           </div>
         </div>
         <Menu>

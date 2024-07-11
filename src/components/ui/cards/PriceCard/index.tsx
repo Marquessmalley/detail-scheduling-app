@@ -10,7 +10,7 @@ const PriceCard: React.FC<PriceCardProps> = ({ plan }) => {
     <div
       key={plan.id}
       className={
-        plan.packageName === "GOLD PACKAGE"
+        plan.packageName === "Gold Package"
           ? "p-4 border border-slate-300 rounded-3xl shadow max-w-md m-5 bg-gradient-to-br from-teal-400 via-pink-300 to-teal-500 transform scale-105"
           : "p-4 border border-slate-300 rounded-3xl shadow max-w-md m-5"
       }
@@ -22,14 +22,14 @@ const PriceCard: React.FC<PriceCardProps> = ({ plan }) => {
             src={car}
             alt="car"
             className={
-              plan.packageName === "GOLD PACKAGE"
+              plan.packageName === "Gold Package"
                 ? "h-12 w-12 border shadow rounded-full p-3 bg-gradient-to-br from-amber-500 via-yellow-400 to-amber-500"
                 : "h-12 w-12 border shadow rounded-full p-3 bg-gradient-to-br from-teal-400 via-pink-300 to-teal-500"
             }
           />
           <p
             className={
-              plan.packageName === "GOLD PACKAGE"
+              plan.packageName === "Gold Package"
                 ? "text-xl font-semibold ml-4 text-white"
                 : "text-xl font-semibold ml-4"
             }
@@ -61,14 +61,14 @@ const PriceCard: React.FC<PriceCardProps> = ({ plan }) => {
 
       <div
         className={
-          plan.packageName === "GOLD PACKAGE"
+          plan.packageName === "Gold Package"
             ? "border shadow rounded-full p-2 mt-10 mb-10 text-center max-w-52 mx-auto bg-gradient-to-br from-amber-500 via-yellow-400 to-amber-500"
             : "border shadow rounded-full p-2 mt-10 mb-10 text-center max-w-52 mx-auto bg-gradient-to-br from-teal-400 via-pink-300 to-teal-500"
         }
       >
         <p
           className={
-            plan.packageName === "GOLD PACKAGE" ? "text-white " : "text-white"
+            plan.packageName === "Gold Package" ? "text-white " : "text-white"
           }
         >
           Starting at {plan.startingPrice}
@@ -79,7 +79,7 @@ const PriceCard: React.FC<PriceCardProps> = ({ plan }) => {
       <div className=" ">
         <p
           className={
-            plan.packageName === "GOLD PACKAGE"
+            plan.packageName === "Gold Package"
               ? "text-md font-light ml-2 text-white"
               : "text-md font-light ml-2"
           }
@@ -91,7 +91,7 @@ const PriceCard: React.FC<PriceCardProps> = ({ plan }) => {
             plan.services.interior.map((service) => {
               return (
                 <li key={service} className="flex mt-2 mb-2">
-                  {plan.packageName === "GOLD PACKAGE" ? (
+                  {plan.packageName === "Gold Package" ? (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
@@ -121,7 +121,7 @@ const PriceCard: React.FC<PriceCardProps> = ({ plan }) => {
 
                   <p
                     className={
-                      plan.packageName === "GOLD PACKAGE"
+                      plan.packageName === "Gold Package"
                         ? "ml-2 text-white text-sm"
                         : "ml-2 text-gray-500 text-sm"
                     }
@@ -136,7 +136,7 @@ const PriceCard: React.FC<PriceCardProps> = ({ plan }) => {
       <div className="mt-8">
         <p
           className={
-            plan.packageName === "GOLD PACKAGE"
+            plan.packageName === "Gold Package"
               ? "text-md font-light ml-2 text-white"
               : "text-md font-light ml-2"
           }
@@ -148,7 +148,7 @@ const PriceCard: React.FC<PriceCardProps> = ({ plan }) => {
             plan.services.exterior.map((service) => {
               return (
                 <li key={service} className="flex mt-2 mb-2">
-                  {plan.packageName === "GOLD PACKAGE" ? (
+                  {plan.packageName === "Gold Package" ? (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
@@ -178,7 +178,7 @@ const PriceCard: React.FC<PriceCardProps> = ({ plan }) => {
 
                   <p
                     className={
-                      plan.packageName === "GOLD PACKAGE"
+                      plan.packageName === "Gold Package"
                         ? "ml-2 text-white text-sm"
                         : "ml-2 text-gray-500 text-sm"
                     }
