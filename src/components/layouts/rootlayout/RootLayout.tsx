@@ -1,4 +1,4 @@
-import Navbar from "components/ui/navbar/rootNavbar";
+import Navbar from "components/ui/navbars/rootNavbar";
 import { Outlet } from "react-router-dom";
 
 const RootLayout: React.FC = () => {
