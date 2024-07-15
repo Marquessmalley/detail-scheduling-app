@@ -1,4 +1,4 @@
-export interface AdminAvailability {
+export interface AdminAvailabilityType {
   id: string;
   adminId: string;
   date: string;

@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Backdrop from "@mui/material/Backdrop";
+import AddAvailability from "components/features/AddAvailability";
 
-const SimpleBackdrop = () => {
+const AddVailabilityBackdrop: React.FC = () => {
   const [open, setOpen] = useState<boolean>(false);
 
   const handleClose = (): void => {
@@ -33,13 +34,39 @@ const SimpleBackdrop = () => {
           />
         </svg>
       </button>
-      <Backdrop
-        open={open}
-        onClick={handleClose}
-        sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
-      ></Backdrop>
+      <Backdrop open={open} sx={{}}>
+        {/* CLOSE BACKDROP */}
+        <div className=" w-11/12 h-screen">
+          {/* ADD AVAILABILITY  */}
+          <div className="my-4">
+            <button
+              className="p-2 bg-slate-50 border rounded-lg hover:bg-slate-200 transition"
+              onClick={handleClose}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                className="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 18 18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <div className="mx-auto max-w-lg">
+            <AddAvailability />
+          </div>
+        </div>
+      </Backdrop>
     </div>
   );
 };
 
-export default SimpleBackdrop;
+export default AddVailabilityBackdrop;

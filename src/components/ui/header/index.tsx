@@ -1,6 +1,6 @@
 import React from "react";
 import { useAuth } from "context/AuthProvider";
-import SimpleBackdrop from "components/ui/backdrop";
+import AddVailabilityBackdrop from "components/ui/backdrop";
 
 const AdminHeader = () => {
   const { user } = useAuth();
@@ -15,7 +15,7 @@ const AdminHeader = () => {
           We're glad to have you here.
         </p>
       </div>
-      <SimpleBackdrop />
+      <AddVailabilityBackdrop />
       <div className="border-t border-solid mt-2"></div>
     </div>
   );
