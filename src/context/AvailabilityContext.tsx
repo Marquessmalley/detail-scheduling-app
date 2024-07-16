@@ -1,15 +1,12 @@
 import { ReactNode, useState, createContext, useContext } from "react";
-import dayjs, { Dayjs } from "dayjs";
 
 interface AdminAvailabilityContextType {
-  date: Dayjs | null;
-  setDate: (date: Dayjs) => void;
+  date: string;
+  setDate: (date: string) => void;
   startTime: string;
   setStartTime: (time: string) => void;
   endTime: string;
   setEndTime: (time: string) => void;
-  step: number;
-  setStep: (step: number) => void;
 }
 
 const AvailabilityContext = createContext<
@@ -31,10 +28,9 @@ export const useAvailabilityContext = (): AdminAvailabilityContextType => {
 const AvailabilityProvider: React.FC<AvailabilityProviderProps> = ({
   children,
 }) => {
-  const [date, setDate] = useState<Dayjs | null>(dayjs());
+  const [date, setDate] = useState<string>("");
   const [startTime, setStartTime] = useState<string>("");
   const [endTime, setEndTime] = useState<string>("");
-  const [step, setStep] = useState<number>(0);
 
   return (
     <AvailabilityContext.Provider
@@ -45,8 +41,6 @@ const AvailabilityProvider: React.FC<AvailabilityProviderProps> = ({
         setStartTime,
         endTime,
         setEndTime,
-        step,
-        setStep,
       }}
     >
       {children}

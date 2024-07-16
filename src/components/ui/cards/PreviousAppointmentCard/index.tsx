@@ -11,7 +11,7 @@ const PreviousAppointmentCard = () => {
       </div>
       {previousAppointments &&
         previousAppointments.map((appointment) => {
-          return <Accordion appointment={appointment} />;
+          return <Accordion key={appointment?.id} appointment={appointment} />;
         })}
     </div>
   );

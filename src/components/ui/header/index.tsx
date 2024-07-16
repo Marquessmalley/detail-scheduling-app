@@ -6,7 +6,7 @@ const AdminHeader = () => {
   const { user } = useAuth();
 
   return (
-    <div className="mx-auto max-w-7xl my-8  grid grid-cols-2">
+    <div className="mx-auto max-w-7xl my-8  grid grid-cols-2 ">
       <div className="">
         <h1 className="text-lg font-bold text-gray-900 sm:text-4xl ">
           Welcome, {user?.email ? user.email.split("@")[0] : "Guest"}!
@@ -15,8 +15,11 @@ const AdminHeader = () => {
           We're glad to have you here.
         </p>
       </div>
-      <AddVailabilityBackdrop />
-      <div className="border-t border-solid mt-2"></div>
+
+      <div className="flex justify-end">
+        <AddVailabilityBackdrop />
+      </div>
+      <span className="border-t border-solid col-span-full"></span>
     </div>
   );
 };

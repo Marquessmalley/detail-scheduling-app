@@ -1,13 +1,14 @@
 import { RouterProvider } from "react-router-dom";
+import { NextUIProvider } from "@nextui-org/react";
 import router from "Router";
-import { LocalizationProvider } from "@mui/x-date-pickers";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
 function App() {
   return (
-    <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <RouterProvider router={router} />;
-    </LocalizationProvider>
+    <>
+      <NextUIProvider>
+        <RouterProvider router={router} />;
+      </NextUIProvider>
+    </>
   );
 }
 

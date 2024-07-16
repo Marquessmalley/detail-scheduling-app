@@ -11,7 +11,7 @@ const UpcomingAppointmentsCard = () => {
       </div>
       {upcomingAppointments &&
         upcomingAppointments.map((appointment) => {
-          return <Accordion appointment={appointment} />;
+          return <Accordion key={appointment?.id} appointment={appointment} />;
         })}
     </div>
   );
