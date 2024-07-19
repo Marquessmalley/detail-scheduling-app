@@ -1,4 +1,4 @@
-import { previousAppointments } from "constants/appointment";
+import { previousAppointments } from "constants/appointments";
 import Accordion from "components/ui/accordion";
 
 const PreviousAppointmentCard = () => {

@@ -1,3 +1,4 @@
+import { ContactInfo } from "constants/interfaces";
 import { ReactNode, useState, createContext, useContext } from "react";
 
 interface AdminAvailabilityContextType {
@@ -7,6 +8,12 @@ interface AdminAvailabilityContextType {
   setStartTime: (time: string) => void;
   endTime: string;
   setEndTime: (time: string) => void;
+  isBooked: boolean;
+  setIsBooked: (isBooked: boolean) => void;
+  customerInfo: ContactInfo;
+  setCustomerInfo: (customerInfo: ContactInfo) => void;
+  detailPackage: string;
+  setDetailPackage: (detailPackage: string) => void;
 }
 
 const AvailabilityContext = createContext<
@@ -31,6 +38,14 @@ const AvailabilityProvider: React.FC<AvailabilityProviderProps> = ({
   const [date, setDate] = useState<string>("");
   const [startTime, setStartTime] = useState<string>("");
   const [endTime, setEndTime] = useState<string>("");
+  const [isBooked, setIsBooked] = useState<boolean>(false);
+  const [customerInfo, setCustomerInfo] = useState<ContactInfo>({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+  });
+  const [detailPackage, setDetailPackage] = useState<string>("");
 
   return (
     <AvailabilityContext.Provider
@@ -41,6 +56,12 @@ const AvailabilityProvider: React.FC<AvailabilityProviderProps> = ({
         setStartTime,
         endTime,
         setEndTime,
+        isBooked,
+        setIsBooked,
+        customerInfo,
+        setCustomerInfo,
+        detailPackage,
+        setDetailPackage,
       }}
     >
       {children}

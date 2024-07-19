@@ -1,31 +1,4 @@
-interface Services {
-  interior?: string[];
-  exterior?: string[];
-}
-
-interface VehicleType {
-  sedan: {
-    price: number;
-    estimatedTime: string;
-  };
-  suvTwoRows: {
-    price: number;
-    estimatedTime: string;
-  };
-  suvThreeRows: {
-    price: number;
-    estimatedTime: string;
-  };
-}
-
-export interface DetailPackage {
-  id: number;
-  packageName: string;
-  startingPrice: string;
-  estimatedTime: string;
-  services: Services;
-  vehicleType?: VehicleType;
-}
+import { Services, VehicleType, DetailPackage } from "constants/interfaces";
 
 export const detailMenu: DetailPackage[] = [
   {

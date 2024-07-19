@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Backdrop from "@mui/material/Backdrop";
 import AddAvailability from "components/features/AddAvailability";
-import carwash from "assets/images/car-wash.png";
 
 const AddVailabilityBackdrop: React.FC = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -63,13 +62,6 @@ const AddVailabilityBackdrop: React.FC = () => {
 
           <div className="mx-auto max-w-3xl ">
             <div className="my-10 flex justify-center items-center">
-              {/* <img
-                src={carwash}
-                alt="car"
-                className={
-                  "h-12 w-12 border shadow rounded-full p-3 mr-3 bg-gradient-to-br from-teal-400 via-pink-300 to-teal-500"
-                }
-              /> */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -89,7 +81,7 @@ const AddVailabilityBackdrop: React.FC = () => {
                 Set Availability
               </p>
             </div>
-            <AddAvailability />
+            <AddAvailability handleClose={handleClose} />
           </div>
         </div>
       </Backdrop>

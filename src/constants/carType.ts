@@ -1,11 +1,6 @@
 import sedan from "assets/images/sedan.png";
 import suv from "assets/images/suv.png";
-
-interface CarType {
-  id: number;
-  type: string;
-  img: string;
-}
+import { CarType } from "constants/interfaces";
 
 export const carType: CarType[] = [
   {

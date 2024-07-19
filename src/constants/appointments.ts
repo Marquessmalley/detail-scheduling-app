@@ -1,31 +1,9 @@
-export interface ContactInfo {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: string;
-}
-
-export interface Appointment {
-  id: string;
-  date: string;
-  startTime: string;
-  endTime: string;
-  status: "scheduled" | "completed" | "cancelled";
-  contactInfo: ContactInfo;
-  packageDetail:
-    | "bronze"
-    | "silver"
-    | "gold"
-    | "min interior"
-    | "full interior"
-    | "premium wash & wax";
-  price: number;
-  createdAt: string;
-}
+import { Appointment } from "constants/interfaces";
 
 export const previousAppointments: Appointment[] = [
   {
     id: "1",
+    vehicleType: "Sedan",
     date: "07/18/2024",
     startTime: "10:00am",
     endTime: "11:00am",
@@ -42,6 +20,7 @@ export const previousAppointments: Appointment[] = [
   },
   {
     id: "2",
+    vehicleType: "Sedan",
     date: "08/12/2023",
     startTime: "12:00pm",
     endTime: "2:00pm",
@@ -58,6 +37,7 @@ export const previousAppointments: Appointment[] = [
   },
   {
     id: "3",
+    vehicleType: "Sedan",
     date: "10/10/2023",
     startTime: "1:00pm",
     endTime: "4:00pm",
@@ -77,6 +57,7 @@ export const previousAppointments: Appointment[] = [
 export const upcomingAppointments: Appointment[] = [
   {
     id: "1",
+    vehicleType: "Sedan",
     date: "07/15/2024",
     startTime: "10:00",
     endTime: "11:00",
@@ -93,6 +74,7 @@ export const upcomingAppointments: Appointment[] = [
   },
   {
     id: "2",
+    vehicleType: "Sedan",
     date: "07/16/2024",
     startTime: "12:00",
     endTime: "13:00",
@@ -109,6 +91,7 @@ export const upcomingAppointments: Appointment[] = [
   },
   {
     id: "3",
+    vehicleType: "Sedan",
     date: "07/17/2024",
     startTime: "14:00",
     endTime: "15:00",

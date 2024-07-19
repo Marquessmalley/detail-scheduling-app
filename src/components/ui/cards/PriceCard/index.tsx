@@ -1,5 +1,5 @@
 import car from "assets/images/car-wash.png";
-import { DetailPackage } from "constants/detail-menu";
+import { DetailPackage } from "constants/interfaces";
 
 interface PriceCardProps {
   plan: DetailPackage;

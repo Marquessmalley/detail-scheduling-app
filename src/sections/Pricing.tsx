@@ -1,5 +1,5 @@
 import { detailMenu } from "constants/detail-menu";
-import { DetailPackage } from "constants/detail-menu";
+import { DetailPackage } from "constants/interfaces";
 import PriceCard from "components/ui/cards/PriceCard";
 
 const Pricing: React.FC = () => {

@@ -1,8 +1,4 @@
-interface Faq {
-  id: number;
-  question: string;
-  answer: string;
-}
+import { Faq } from "constants/interfaces";
 
 export const faq: Faq[] = [
   {
