@@ -2,6 +2,8 @@ import { ContactInfo } from "constants/interfaces";
 import { ReactNode, useState, createContext, useContext } from "react";
 
 interface AdminAvailabilityContextType {
+  detailer: string;
+  setDetailer: (deatiler: string) => void;
   date: string;
   setDate: (date: string) => void;
   startTime: string;
@@ -35,6 +37,7 @@ export const useAvailabilityContext = (): AdminAvailabilityContextType => {
 const AvailabilityProvider: React.FC<AvailabilityProviderProps> = ({
   children,
 }) => {
+  const [detailer, setDetailer] = useState<string>("");
   const [date, setDate] = useState<string>("");
   const [startTime, setStartTime] = useState<string>("");
   const [endTime, setEndTime] = useState<string>("");
@@ -44,12 +47,15 @@ const AvailabilityProvider: React.FC<AvailabilityProviderProps> = ({
     lastName: "",
     email: "",
     phone: "",
+    address: "",
   });
   const [detailPackage, setDetailPackage] = useState<string>("");
 
   return (
     <AvailabilityContext.Provider
       value={{
+        detailer,
+        setDetailer,
         date,
         setDate,
         startTime,

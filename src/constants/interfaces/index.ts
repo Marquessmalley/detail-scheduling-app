@@ -3,6 +3,7 @@ export interface ContactInfo {
   lastName: string;
   email: string;
   phone: string;
+  address: string;
 }
 
 export interface Appointment {
@@ -25,6 +26,7 @@ export interface Appointment {
 }
 
 export interface AdminAvailabilityType {
+  detailer: string;
   date: string;
   startTime: string;
   endTime: string;

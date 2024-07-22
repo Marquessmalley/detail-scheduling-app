@@ -8,10 +8,18 @@ interface AddAvailabilityProps {
 }
 
 const AddAvailability: React.FC<AddAvailabilityProps> = ({ handleClose }) => {
-  const { date, startTime, endTime, isBooked, customerInfo, detailPackage } =
-    useAvailabilityContext();
+  const {
+    detailer,
+    date,
+    startTime,
+    endTime,
+    isBooked,
+    customerInfo,
+    detailPackage,
+  } = useAvailabilityContext();
 
   const availability: AdminAvailabilityType = {
+    detailer,
     date,
     startTime,
     endTime,

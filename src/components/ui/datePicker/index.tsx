@@ -8,13 +8,15 @@ import {
 } from "@internationalized/date";
 import { useDateFormatter } from "@react-aria/i18n";
 import { useAvailabilityContext } from "context/AvailabilityContext";
+import { useAuth } from "context/AuthProvider";
 
 const AvailabilityDatePicker: React.FC = () => {
   const [dateValue, setDateValue] = useState<DateValue | null>(
     now(getLocalTimeZone())
   );
+  const { user } = useAuth();
 
-  const { setDate, setStartTime } = useAvailabilityContext();
+  const { setDate, setStartTime, setDetailer } = useAvailabilityContext();
 
   let dateFormatter = useDateFormatter({
     dateStyle: "full",
@@ -28,7 +30,19 @@ const AvailabilityDatePicker: React.FC = () => {
       setDate(dateFormatter.format(dateValue.toDate(getLocalTimeZone())));
       setStartTime(timeFormatter.format(dateValue.toDate(getLocalTimeZone())));
     }
-  }, [dateValue, dateFormatter, setDate, timeFormatter, setStartTime]);
+
+    if (user?.email) {
+      setDetailer(user.email);
+    }
+  }, [
+    dateValue,
+    dateFormatter,
+    setDate,
+    timeFormatter,
+    setStartTime,
+    setDetailer,
+    user?.email,
+  ]);
 
   return (
     <div className="">
