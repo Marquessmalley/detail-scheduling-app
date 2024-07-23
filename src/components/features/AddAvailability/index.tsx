@@ -1,4 +1,4 @@
-import AvailabilityDatePicker from "components/ui/datePicker";
+import AddDatePicker from "components/ui/datePicker/AddDatePicker/AddDatePicker";
 import { useAvailabilityContext } from "context/AvailabilityContext";
 import { addAdminAvailability } from "services/availabilityServices";
 import { AdminAvailabilityType } from "constants/interfaces";
@@ -66,7 +66,7 @@ const AddAvailability: React.FC<AddAvailabilityProps> = ({ handleClose }) => {
         </div>
         <div className=" bg-white w-full p-10 border rounded-xl">
           <div>
-            <AvailabilityDatePicker />
+            <AddDatePicker />
           </div>
           <div className="text-end">
             <button

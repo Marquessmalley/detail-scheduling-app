@@ -6,10 +6,11 @@ import Backdrop from "@mui/material/Backdrop";
 import UpdateAvailability from "components/features/UpdateAvailability";
 
 interface AvailableDateProps {
+  id: string;
   availability: AdminAvailabilityType;
 }
 
-const AvailableDate: React.FC<AvailableDateProps> = ({ availability }) => {
+const AvailableDate: React.FC<AvailableDateProps> = ({ id, availability }) => {
   const day = availability.date.split(" ")[0];
 
   const [open, setOpen] = useState<boolean>(false);
@@ -23,7 +24,7 @@ const AvailableDate: React.FC<AvailableDateProps> = ({ availability }) => {
   };
 
   const month = availability.date.split(" ")[1];
-  const date = availability.date.split(" ")[2];
+  const date = availability.date.split(" ")[2].replace(",", "");
 
   return (
     <div className="lg:max-w-xl lg:mx-auto  mt-2 flex justify-between bg-white rounded-lg border">
@@ -72,7 +73,10 @@ const AvailableDate: React.FC<AvailableDateProps> = ({ availability }) => {
         </Menu>
       </div>
       <Backdrop open={open} sx={{}}>
-        <UpdateAvailability handleClose={handleClose} />
+        <UpdateAvailability
+          availability={availability}
+          handleClose={handleClose}
+        />
       </Backdrop>
     </div>
   );

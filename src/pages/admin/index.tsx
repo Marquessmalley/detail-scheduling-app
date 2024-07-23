@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import PreviousAppointmentCard from "components/ui/cards/PreviousAppointmentCard";
 import { AdminAvailabilityType } from "constants/interfaces";
 import UpcomingDescription from "components/ui/upcomingDescription";
 import AvailableDate from "components/ui/availableDate";
@@ -29,6 +28,7 @@ const AdminPage = () => {
     fetchAvailabilities();
   }, []);
 
+  console.log(availabilities);
   return (
     <div>
       <div className="grid grid-cols-1 gap-10 lg:grid lg:grid-cols-2">
@@ -47,6 +47,7 @@ const AdminPage = () => {
                   return (
                     <>
                       <AvailableDate
+                        id={key}
                         availability={availabilities[key].availability}
                       />
                     </>

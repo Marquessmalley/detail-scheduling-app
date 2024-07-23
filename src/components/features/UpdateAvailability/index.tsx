@@ -1,11 +1,26 @@
+import UpdateDatePicker from "components/ui/datePicker/UpdateDatePicker/UpdateDatePicker";
+import { AdminAvailabilityType } from "constants/interfaces";
 import { CloseIcon } from "components/ui/icons";
+import { CalendarDateTime } from "@internationalized/date";
 
 interface UpdateAvailabilityProps {
+  availability: AdminAvailabilityType;
   handleClose: () => void;
 }
 const UpdateAvailability: React.FC<UpdateAvailabilityProps> = ({
+  availability,
   handleClose,
 }) => {
+  const date = new Date(`${availability.date} ${availability.startTime}`);
+
+  const calendarDate = new CalendarDateTime(
+    date.getFullYear(),
+    date.getMonth(),
+    date.getDate(),
+    date.getHours(),
+    date.getMinutes()
+  );
+
   return (
     <div className=" w-11/12 h-screen">
       {/* ADD AVAILABILITY  */}
@@ -37,7 +52,19 @@ const UpdateAvailability: React.FC<UpdateAvailabilityProps> = ({
 
           <p className="text-4xl text-zinc-50 font-bold">Update Availability</p>
         </div>
-        {/* <AddAvailability handleClose={handleClose} /> */}
+        <div className=" bg-white w-full p-10 border rounded-xl">
+          <div>
+            <UpdateDatePicker savedDate={calendarDate} />
+          </div>
+          <div className="text-end">
+            <button
+              className="border p-2 rounded-2xl shadow text-sm font-extrabold hover:bg-slate-50"
+              // onClick={handleConfirmAvailability}
+            >
+              Confirm
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

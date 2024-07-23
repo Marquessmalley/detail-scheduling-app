@@ -1,22 +1,21 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { DatePicker } from "@nextui-org/react";
-import {
-  now,
-  today,
-  DateValue,
-  getLocalTimeZone,
-} from "@internationalized/date";
+import { today, DateValue, getLocalTimeZone } from "@internationalized/date";
 import { useDateFormatter } from "@react-aria/i18n";
 import { useAvailabilityContext } from "context/AvailabilityContext";
 import { useAuth } from "context/AuthProvider";
 
-const AvailabilityDatePicker: React.FC = () => {
+interface UpdateDatePickerProps {
+  savedDate?: DateValue;
+}
+
+const UpdateDatePicker: React.FC<UpdateDatePickerProps> = ({ savedDate }) => {
   const [dateValue, setDateValue] = useState<DateValue | null>(
-    now(getLocalTimeZone())
+    savedDate ? savedDate : null
   );
-  const { user } = useAuth();
 
   const { setDate, setStartTime, setDetailer } = useAvailabilityContext();
+  const { user } = useAuth();
 
   let dateFormatter = useDateFormatter({
     dateStyle: "full",
@@ -25,27 +24,8 @@ const AvailabilityDatePicker: React.FC = () => {
     timeStyle: "short",
   });
 
-  useEffect(() => {
-    if (dateValue !== null) {
-      setDate(dateFormatter.format(dateValue.toDate(getLocalTimeZone())));
-      setStartTime(timeFormatter.format(dateValue.toDate(getLocalTimeZone())));
-    }
-
-    if (user?.email) {
-      setDetailer(user.email);
-    }
-  }, [
-    dateValue,
-    dateFormatter,
-    setDate,
-    timeFormatter,
-    setStartTime,
-    setDetailer,
-    user?.email,
-  ]);
-
   return (
-    <div className="">
+    <div>
       <DatePicker
         label="Add Available Date"
         variant="flat"
@@ -73,4 +53,4 @@ const AvailabilityDatePicker: React.FC = () => {
   );
 };
 
-export default AvailabilityDatePicker;
+export default UpdateDatePicker;
