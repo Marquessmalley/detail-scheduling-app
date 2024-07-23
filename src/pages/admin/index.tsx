@@ -33,7 +33,7 @@ const AdminPage = () => {
     <div>
       <div className="grid grid-cols-1 gap-10 lg:grid lg:grid-cols-2">
         <div className="">
-          <div className=" max-w-xl mx-auto px-4 sm:px-0">
+          <div className=" lg:max-w-xl lg:mx-auto px-4 sm:px-0">
             <h3 className="text-base font-semibold leading-7 text-gray-900">
               View your available openings
             </h3>
@@ -41,7 +41,7 @@ const AdminPage = () => {
               Scheduled dates.
             </p>
           </div>
-          <div>
+          <div className="">
             {availabilities
               ? Object.keys(availabilities).map((key) => {
                   return (
@@ -56,7 +56,7 @@ const AdminPage = () => {
           </div>
         </div>
         <div className="">
-          <div className=" max-w-xl mx-auto px-4 sm:px-0">
+          <div className=" lg:max-w-xl lg:mx-auto px-4 sm:px-0">
             <h3 className="text-base font-semibold leading-7 text-gray-900">
               Upcoming Appointments...
             </h3>

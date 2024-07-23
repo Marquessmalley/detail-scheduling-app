@@ -1,5 +1,7 @@
 import React from "react";
 import { Appointment } from "constants/interfaces";
+import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
+import { EllipsisIcon, LocationIcon } from "components/ui/icons";
 
 interface UpcomingDescriptionProps {
   appointment: Appointment;
@@ -11,7 +13,7 @@ const UpcomingDescription: React.FC<UpcomingDescriptionProps> = ({
   return (
     <div
       key={appointment.id}
-      className="max-w-xl mx-auto flex justify-between  overflow-hidden border-b border-grey-500"
+      className="lg:max-w-xl lg:mx-auto flex justify-between  overflow-hidden border-b "
     >
       <div className=" w-full p-2 my-2">
         {/* User name */}
@@ -24,7 +26,7 @@ const UpcomingDescription: React.FC<UpcomingDescriptionProps> = ({
 
         {/* DATE & LOCATION */}
         <div className="flex p-2 ">
-          <div className="flex items-center border-r border-gray-500 pr-4">
+          <div className="flex items-center border-r pr-4">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -43,25 +45,7 @@ const UpcomingDescription: React.FC<UpcomingDescriptionProps> = ({
             <p className="text-sm  text-gray-500">{appointment.date}</p>
           </div>
           <div className="flex items-center pl-4">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="size-5 mr-2 text-gray-500"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-              />
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
-              />
-            </svg>
+            <LocationIcon />
 
             <p className="text-sm text-gray-500">
               {appointment.contactInfo.address}
@@ -71,20 +55,25 @@ const UpcomingDescription: React.FC<UpcomingDescriptionProps> = ({
       </div>
       {/* edit icon */}
       <div className="p-2">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="size-5 text-gray-500 hover:text-gray-900 cursor-pointer"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
-          />
-        </svg>
+        <Menu>
+          <MenuButton>
+            <EllipsisIcon />
+          </MenuButton>
+          <MenuItems
+            anchor="bottom end"
+            className=" mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+          >
+            <MenuItem
+              as="div"
+              className="cursor-pointer hover:bg-slate-100  border-b "
+            >
+              <p className="px-4 py-2 text-sm text-gray-700">Edit</p>
+            </MenuItem>
+            <MenuItem as="div" className="cursor-pointer hover:bg-slate-100">
+              <p className="px-4 py-2 text-sm text-gray-700">Cancel</p>
+            </MenuItem>
+          </MenuItems>
+        </Menu>
       </div>
     </div>
   );
