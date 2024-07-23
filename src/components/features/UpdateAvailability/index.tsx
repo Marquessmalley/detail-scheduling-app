@@ -1,38 +1,11 @@
-import AvailabilityDatePicker from "components/ui/datePicker";
-import { useAvailabilityContext } from "context/AvailabilityContext";
-import { addAdminAvailability } from "services/availabilityServices";
-import { AdminAvailabilityType } from "constants/interfaces";
 import { CloseIcon } from "components/ui/icons";
 
-interface AddAvailabilityProps {
+interface UpdateAvailabilityProps {
   handleClose: () => void;
 }
-
-const AddAvailability: React.FC<AddAvailabilityProps> = ({ handleClose }) => {
-  const {
-    detailer,
-    date,
-    startTime,
-    endTime,
-    isBooked,
-    customerInfo,
-    detailPackage,
-  } = useAvailabilityContext();
-
-  const availability: AdminAvailabilityType = {
-    detailer,
-    date,
-    startTime,
-    endTime,
-    isBooked,
-    customerInfo,
-    detailPackage,
-  };
-
-  const handleConfirmAvailability = () => {
-    addAdminAvailability(availability);
-    handleClose();
-  };
+const UpdateAvailability: React.FC<UpdateAvailabilityProps> = ({
+  handleClose,
+}) => {
   return (
     <div className=" w-11/12 h-screen">
       {/* ADD AVAILABILITY  */}
@@ -62,24 +35,12 @@ const AddAvailability: React.FC<AddAvailabilityProps> = ({ handleClose }) => {
             />
           </svg>
 
-          <p className="text-4xl text-zinc-50 font-bold">Set Availability</p>
+          <p className="text-4xl text-zinc-50 font-bold">Update Availability</p>
         </div>
-        <div className=" bg-white w-full p-10 border rounded-xl">
-          <div>
-            <AvailabilityDatePicker />
-          </div>
-          <div className="text-end">
-            <button
-              className="border p-2 rounded-2xl shadow text-sm font-extrabold hover:bg-slate-50"
-              onClick={handleConfirmAvailability}
-            >
-              Confirm
-            </button>
-          </div>
-        </div>
+        {/* <AddAvailability handleClose={handleClose} /> */}
       </div>
     </div>
   );
 };
 
-export default AddAvailability;
+export default UpdateAvailability;
