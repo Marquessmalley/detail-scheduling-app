@@ -1,10 +1,10 @@
-import { Services, VehicleType, DetailPackage } from "constants/interfaces";
+import { DetailPackage } from "constants/interfaces";
 
 export const detailMenu: DetailPackage[] = [
   {
     id: 0,
     packageName: "Bronze Package",
-    startingPrice: "$65/service",
+    startingPrice: "$80/service",
     estimatedTime: "2hr",
     services: {
       interior: [
@@ -24,15 +24,15 @@ export const detailMenu: DetailPackage[] = [
     },
     vehicleType: {
       sedan: {
-        price: 65,
+        price: 80,
         estimatedTime: "1hr 20min",
       },
       suvTwoRows: {
-        price: 70,
+        price: 100,
         estimatedTime: "1hr 45min",
       },
       suvThreeRows: {
-        price: 80,
+        price: 110,
         estimatedTime: "1hr 50min",
       },
     },
