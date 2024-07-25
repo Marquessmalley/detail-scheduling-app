@@ -40,8 +40,8 @@ const PriceCard: React.FC<PriceCardProps> = ({ plan }) => {
         </div>
 
         <div className="flex items-center justify-center rounded-full text-center  w-32 bg-slate-100 border shadow">
-          <ClockIcon size="size-6" />
-          <p className=" ml-1 text-sm">{plan.estimatedTime}</p>
+          <ClockIcon size="size-6 font-bold" />
+          <p className=" ml-1 text-sm font-bold">{plan.estimatedTime}</p>
         </div>
       </div>
 
