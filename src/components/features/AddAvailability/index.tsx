@@ -17,6 +17,7 @@ const AddAvailability: React.FC<AddAvailabilityProps> = ({ handleClose }) => {
     isBooked,
     customerInfo,
     detailPackage,
+    setDate,
   } = useAvailabilityContext();
 
   const availability: AdminAvailabilityType = {
@@ -31,6 +32,7 @@ const AddAvailability: React.FC<AddAvailabilityProps> = ({ handleClose }) => {
 
   const handleConfirmAvailability = () => {
     addAdminAvailability(availability);
+    setDate("");
     handleClose();
   };
   return (

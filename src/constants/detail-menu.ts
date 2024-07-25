@@ -4,7 +4,7 @@ export const detailMenu: DetailPackage[] = [
   {
     id: 0,
     packageName: "Bronze Package",
-    startingPrice: "$80/service",
+    startingPrice: "$80",
     estimatedTime: "2hr",
     services: {
       interior: [
@@ -40,7 +40,7 @@ export const detailMenu: DetailPackage[] = [
   {
     id: 1,
     packageName: "Gold Package",
-    startingPrice: "$250/service",
+    startingPrice: "$250",
     estimatedTime: "4hr 30min",
     services: {
       interior: [
@@ -82,7 +82,7 @@ export const detailMenu: DetailPackage[] = [
   {
     id: 2,
     packageName: "Silver Package",
-    startingPrice: "$175/service",
+    startingPrice: "$175",
     estimatedTime: "4hr",
     services: {
       interior: [

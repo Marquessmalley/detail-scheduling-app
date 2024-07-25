@@ -28,11 +28,10 @@ const AdminPage = () => {
     fetchAvailabilities();
   }, []);
 
-  console.log(availabilities);
   return (
     <div>
       <div className="grid grid-cols-1 gap-10 lg:grid lg:grid-cols-2">
-        <div className="">
+        <div>
           <div className=" lg:max-w-xl lg:mx-auto px-4 sm:px-0">
             <h3 className="text-base font-semibold leading-7 text-gray-900">
               View your available openings
@@ -41,19 +40,23 @@ const AdminPage = () => {
               Scheduled dates.
             </p>
           </div>
-          <div className="">
-            {availabilities
-              ? Object.keys(availabilities).map((key) => {
-                  return (
-                    <>
-                      <AvailableDate
-                        id={key}
-                        availability={availabilities[key].availability}
-                      />
-                    </>
-                  );
-                })
-              : null}
+          <div>
+            {availabilities ? (
+              Object.keys(availabilities).map((key) => {
+                return (
+                  <>
+                    <AvailableDate
+                      id={key}
+                      availability={availabilities[key].availability}
+                    />
+                  </>
+                );
+              })
+            ) : (
+              <div className="text-center  p-4">
+                <p className="text-4xl font-bold ">No Openings Scheduled</p>
+              </div>
+            )}
           </div>
         </div>
         <div className="">

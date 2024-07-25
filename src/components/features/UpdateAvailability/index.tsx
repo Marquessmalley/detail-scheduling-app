@@ -2,24 +2,57 @@ import UpdateDatePicker from "components/ui/datePicker/UpdateDatePicker/UpdateDa
 import { AdminAvailabilityType } from "constants/interfaces";
 import { CloseIcon } from "components/ui/icons";
 import { CalendarDateTime } from "@internationalized/date";
+import { useAvailabilityContext } from "context/AvailabilityContext";
+import { updateAdminAvailability } from "services/availabilityServices";
 
 interface UpdateAvailabilityProps {
+  availabilityKey?: string;
   availability: AdminAvailabilityType;
   handleClose: () => void;
 }
 const UpdateAvailability: React.FC<UpdateAvailabilityProps> = ({
   availability,
+  availabilityKey,
   handleClose,
 }) => {
-  const date = new Date(`${availability.date} ${availability.startTime}`);
+  const {
+    detailer,
+    date,
+    startTime,
+    endTime,
+    customerInfo,
+    detailPackage,
+    isBooked,
+    setDate,
+  } = useAvailabilityContext();
+  const savedDate = new Date(`${availability.date} ${availability.startTime}`);
 
   const calendarDate = new CalendarDateTime(
-    date.getFullYear(),
-    date.getMonth(),
-    date.getDate(),
-    date.getHours(),
-    date.getMinutes()
+    savedDate.getFullYear(),
+    savedDate.getMonth() + 1,
+    savedDate.getDate(),
+    savedDate.getHours(),
+    savedDate.getMinutes()
   );
+
+  const handleConfirmUpdate = () => {
+    if (availabilityKey) {
+      updateAdminAvailability(
+        {
+          detailer,
+          date,
+          startTime,
+          endTime,
+          customerInfo,
+          detailPackage,
+          isBooked,
+        },
+        availabilityKey
+      );
+    }
+    setDate("");
+    handleClose();
+  };
 
   return (
     <div className=" w-11/12 h-screen">
@@ -59,7 +92,7 @@ const UpdateAvailability: React.FC<UpdateAvailabilityProps> = ({
           <div className="text-end">
             <button
               className="border p-2 rounded-2xl shadow text-sm font-extrabold hover:bg-slate-50"
-              // onClick={handleConfirmAvailability}
+              onClick={handleConfirmUpdate}
             >
               Confirm
             </button>

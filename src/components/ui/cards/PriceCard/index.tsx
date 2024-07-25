@@ -1,6 +1,6 @@
 import car from "assets/images/car-wash.png";
 import { DetailPackage } from "constants/interfaces";
-import { CheckIcon } from "components/ui/icons";
+import { CheckIcon, ClockIcon } from "components/ui/icons";
 
 interface PriceCardProps {
   plan: DetailPackage;
@@ -40,20 +40,7 @@ const PriceCard: React.FC<PriceCardProps> = ({ plan }) => {
         </div>
 
         <div className="flex items-center justify-center rounded-full text-center  w-32 bg-slate-100 border shadow">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="size-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-            />
-          </svg>
+          <ClockIcon size="size-6" />
           <p className=" ml-1 text-sm">{plan.estimatedTime}</p>
         </div>
       </div>
@@ -69,7 +56,9 @@ const PriceCard: React.FC<PriceCardProps> = ({ plan }) => {
       >
         <p
           className={
-            plan.packageName === "Gold Package" ? "text-white " : "text-white"
+            plan.packageName === "Gold Package"
+              ? "text-white text-sm font-bold"
+              : "text-white text-sm font-bold"
           }
         >
           Starting at {plan.startingPrice}
@@ -103,7 +92,7 @@ const PriceCard: React.FC<PriceCardProps> = ({ plan }) => {
                       className={
                         plan.packageName === "Gold Package"
                           ? "ml-2 text-white text-sm w-full"
-                          : "ml-2 text-gray-500 text-sm w-full"
+                          : "ml-2 text-gray-600 text-sm w-full"
                       }
                     >
                       {service}
@@ -138,7 +127,7 @@ const PriceCard: React.FC<PriceCardProps> = ({ plan }) => {
                       className={
                         plan.packageName === "Gold Package"
                           ? "ml-2 text-white text-sm w-full"
-                          : "ml-2 text-gray-500 text-sm w-full"
+                          : "ml-2 text-gray-600 text-sm w-full"
                       }
                     >
                       {service}

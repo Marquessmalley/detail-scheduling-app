@@ -1,5 +1,5 @@
 import { AdminAvailabilityType } from "constants/interfaces";
-import { ref, set, push, get, child } from "firebase/database";
+import { ref, set, push, get, update, remove } from "firebase/database";
 import { database } from "firebaseConfig";
 
 // ref: reeference a location in db
@@ -27,6 +27,28 @@ export const readAdminAvailability = async () => {
     if (snapshot.exists()) {
       return snapshot.val();
     }
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const updateAdminAvailability = async (
+  availability: AdminAvailabilityType,
+  key: string
+) => {
+  const dbRef = ref(database, `/availability/${key}/availability`);
+  await update(dbRef, availability);
+
+  try {
+  } catch (err) {
+    console.log(err);
+  }
+};
+export const deleteAdminAvailability = async (key: string) => {
+  const dbRef = ref(database, `/availability/${key}/availability`);
+  await remove(dbRef);
+
+  try {
   } catch (err) {
     console.log(err);
   }

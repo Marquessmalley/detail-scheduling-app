@@ -16,7 +16,7 @@ const AddDatePicker: React.FC = () => {
   );
   const { user } = useAuth();
 
-  const { setDate, setStartTime, setDetailer } = useAvailabilityContext();
+  const { date, setDate, setStartTime, setDetailer } = useAvailabilityContext();
 
   let dateFormatter = useDateFormatter({
     dateStyle: "full",
@@ -53,6 +53,7 @@ const AddDatePicker: React.FC = () => {
         onChange={setDateValue}
         minValue={today(getLocalTimeZone())}
       />
+
       <p className=" my-4 text-sm text-black ">
         Selected date:{" "}
         <span className="text-sm text-black font-semibold">
