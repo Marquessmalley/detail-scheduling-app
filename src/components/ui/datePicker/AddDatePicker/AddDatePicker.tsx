@@ -16,7 +16,7 @@ const AddDatePicker: React.FC = () => {
   );
   const { user } = useAuth();
 
-  const { date, setDate, setStartTime, setDetailer } = useAvailabilityContext();
+  const { setDate, setStartTime, setDetailer } = useAvailabilityContext();
 
   let dateFormatter = useDateFormatter({
     dateStyle: "full",

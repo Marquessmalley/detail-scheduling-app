@@ -2,8 +2,10 @@ import { useState, useEffect } from "react";
 import { AdminAvailabilityType } from "constants/interfaces";
 import UpcomingDescription from "components/ui/upcomingDescription";
 import AvailableDate from "components/ui/availableDate";
-import { readAdminAvailability } from "services/availabilityServices";
 import { upcomingAppointments } from "constants/appointments";
+import { database } from "firebaseConfig";
+import { ref, onValue, off } from "firebase/database";
+import { SpinnerIcon } from "components/ui/icons";
 
 interface FirebaseAvailabilities {
   [key: string]: {
@@ -12,21 +14,52 @@ interface FirebaseAvailabilities {
 }
 
 const AdminPage = () => {
-  const [availabilities, setAvailabilities] =
-    useState<FirebaseAvailabilities | null>();
-
-  const fetchAvailabilities = async () => {
-    try {
-      const slots = await readAdminAvailability();
-      setAvailabilities(slots);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  const [availabilities, setAvailabilities] = useState<
+    [string, { availability: AdminAvailabilityType }][] | null
+  >(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchAvailabilities();
+    const dbRef = ref(database, "/availability");
+    onValue(dbRef, (snapshot) => {
+      if (snapshot.exists()) {
+        const sortedAva = sortedAvailabilities(snapshot.val());
+        setAvailabilities(sortedAva);
+        setLoading(false);
+      } else {
+        setAvailabilities(null);
+        setLoading(false);
+      }
+    });
+
+    return () => {
+      off(dbRef, "value", (snapshot) => {
+        if (snapshot.exists()) {
+          setAvailabilities(snapshot.val());
+          setLoading(false);
+        } else {
+          setAvailabilities(null);
+          setLoading(false);
+        }
+      });
+    };
   }, []);
+
+  const sortedAvailabilities = (data: FirebaseAvailabilities) => {
+    const availabilities = Object.entries(data);
+
+    availabilities.sort((a, b) => {
+      const dateA = new Date(
+        `${a[1].availability.date} ${a[1].availability.startTime}`
+      );
+      const dateB = new Date(
+        `${b[1].availability.date} ${b[1].availability.startTime}`
+      );
+      return dateA.getTime() - dateB.getTime();
+    });
+
+    return availabilities;
+  };
 
   return (
     <div>
@@ -41,20 +74,24 @@ const AdminPage = () => {
             </p>
           </div>
           <div>
-            {availabilities ? (
-              Object.keys(availabilities).map((key) => {
+            {availabilities && availabilities.length > 0 ? (
+              availabilities.map((slot) => {
                 return (
                   <>
                     <AvailableDate
-                      id={key}
-                      availability={availabilities[key].availability}
+                      id={slot[0]}
+                      availability={slot[1].availability}
                     />
                   </>
                 );
               })
             ) : (
               <div className="text-center  p-4">
-                <p className="text-4xl font-bold ">No Openings Scheduled</p>
+                {loading ? (
+                  <SpinnerIcon />
+                ) : (
+                  <p className="text-4xl font-bold ">No Openings Scheduled</p>
+                )}
               </div>
             )}
           </div>

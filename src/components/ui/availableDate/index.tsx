@@ -42,7 +42,8 @@ const AvailableDate: React.FC<AvailableDateProps> = ({ id, availability }) => {
       <div className="m-2 bg-slate-100 py-2 px-4 rounded-lg ">
         <p className="text-gray-400 font-semibold text-lg">{day}</p>
         <p className="text-black font-bold text-3xl">
-          {month} {date}
+          {" "}
+          {month} {date}{" "}
         </p>
       </div>
       <div className="m-2 flex flex-col justify-center ">
@@ -92,15 +93,7 @@ const AvailableDate: React.FC<AvailableDateProps> = ({ id, availability }) => {
           handleClose={handleClose}
         />
       </Backdrop>
-      {/* <Modal
-        key="abc"
-        isOpen={openModal}
-        close={handleCloseModal}
-        title="Removing your availability"
-        description="Are you sure you want to remove your availability? All of
-                    your data will be permanently removed. This action
-                    cannot be undone."
-      /> */}
+
       <Dialog
         open={openModal}
         as="div"
