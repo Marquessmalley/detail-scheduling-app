@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { bookingSteps } from "constants/bookingSteps";
-import { carType } from "constants/carType";
-import { detailMenu } from "constants/detail-menu";
 import { MobileStepper } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
+import ScheduleAppointment from "components/features/ScheduleAppointment/ScheduleAppointment";
 
 const BookingStepper: React.FC = () => {
   const [activeStep, setActiveStep] = useState<number>(0);
@@ -20,9 +19,6 @@ const BookingStepper: React.FC = () => {
     setActiveStep((prevStep) => prevStep - 1);
   };
 
-  const firstRowDetails = detailMenu.slice(0, 3);
-  const secondRowDetails = detailMenu.slice(3);
-
   return (
     <div className="flex flex-col h-full">
       {/* HEADER */}
@@ -34,51 +30,7 @@ const BookingStepper: React.FC = () => {
       </div>
 
       {/* CONTENT */}
-      {activeStep === 0 && (
-        <div className="flex-grow flex justify-around items-center flex-wrap">
-          {carType.map((car) => {
-            return (
-              <div
-                key={car.id}
-                className="p-4 border border-slate-300 rounded-2xl shadow h-32 w-32 flex flex-col items-center justify-center cursor-pointer "
-              >
-                <img src={car.img} alt="car_type" />
-                <p className="text-lg font-semibold">{car.type}</p>
-              </div>
-            );
-          })}
-        </div>
-      )}
-
-      {/* SELECT PACKAGE */}
-      {activeStep === 1 && (
-        <div className="flex-grow flex flex-col justify-around items-center">
-          <div className="flex justify-around w-full mb-4">
-            {firstRowDetails.map((detail) => (
-              <div
-                key={detail.id}
-                className="p-4 border border-slate-300 rounded-2xl shadow h-32 w-32 flex items-center justify-center cursor-pointer"
-              >
-                <p className="text-lg font-semibold text-center">
-                  {detail.packageName}
-                </p>
-              </div>
-            ))}
-          </div>
-          <div className="flex justify-around w-full">
-            {secondRowDetails.map((detail) => (
-              <div
-                key={detail.id}
-                className="p-4 border border-slate-300 rounded-2xl shadow h-32 w-32 flex items-center justify-center cursor-pointer"
-              >
-                <p className="text-lg font-semibold text-center">
-                  {detail.packageName}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
+      <ScheduleAppointment activeStep={activeStep} />
 
       {/* STEPPER */}
       <div className="flex-none">
@@ -87,9 +39,18 @@ const BookingStepper: React.FC = () => {
           steps={maxSteps}
           position="static"
           activeStep={activeStep}
-          sx={{ background: "none", width: "100%", overflowX: "auto" }}
+          sx={{
+            background: "none",
+            width: "100%",
+            overflowX: "auto",
+            fontWeight: "bold",
+          }}
           nextButton={
-            <button onClick={handleNext} disabled={activeStep === maxSteps - 1}>
+            <button
+              onClick={handleNext}
+              disabled={activeStep === maxSteps - 1}
+              className="text-md font-semibold"
+            >
               Next
               {theme.direction === "rtl" ? (
                 <KeyboardArrowLeftIcon />
@@ -99,7 +60,11 @@ const BookingStepper: React.FC = () => {
             </button>
           }
           backButton={
-            <button onClick={handleBack} disabled={activeStep === 0}>
+            <button
+              onClick={handleBack}
+              disabled={activeStep === 0}
+              className="text-md font-semibold"
+            >
               {theme.direction === "rtl" ? (
                 <KeyboardArrowRightIcon />
               ) : (

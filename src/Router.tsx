@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import AuthProvider from "context/AuthProvider";
 import AvailabilityProvider from "context/AvailabilityContext";
+import AppointmentProvider from "context/AppointmentContext";
 import PrivateRoute from "components/routes/PrivateRoute";
 import RootLayout from "components/layouts/rootlayout/RootLayout";
 import AdminLayout from "components/layouts/adminlayout/AdminLayout";
@@ -21,7 +22,11 @@ const router: any = createBrowserRouter([
       },
       {
         path: "/booking",
-        element: <Booking />,
+        element: (
+          <AppointmentProvider>
+            <Booking />,
+          </AppointmentProvider>
+        ),
       },
     ],
   },

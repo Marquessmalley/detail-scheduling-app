@@ -12,7 +12,7 @@ const UpcomingDescription: React.FC<UpcomingDescriptionProps> = ({
 }) => {
   return (
     <div
-      key={appointment.id}
+      key={"i"}
       className="lg:max-w-xl lg:mx-auto flex justify-between  overflow-hidden border-b "
     >
       <div className=" w-full p-2 my-2">

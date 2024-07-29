@@ -1,7 +1,7 @@
 import React from "react";
 
 interface StatusIndicatorProps {
-  status: "scheduled" | "completed" | "cancelled";
+  status: "scheduled" | "completed" | "cancelled" | "incomplete";
 }
 const StatusIndicator: React.FC<StatusIndicatorProps> = ({ status }) => {
   const statusColors: { [key: string]: string } = {

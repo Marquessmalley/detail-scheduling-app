@@ -105,9 +105,9 @@ const AdminPage = () => {
               Apointment details.
             </p>
           </div>
-          {upcomingAppointments.map((appointment) => (
+          {/* {upcomingAppointments.map((appointment) => (
             <UpcomingDescription appointment={appointment} />
-          ))}
+          ))} */}
         </div>
       </div>
     </div>

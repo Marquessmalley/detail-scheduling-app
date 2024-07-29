@@ -96,7 +96,7 @@ const Accordion: React.FC<AccordionProps> = ({ appointment }) => {
             <div className="flex items-center">
               <TagIcon className="w-5 h-5 text-blue-500 mr-2" />
               <p>
-                <strong>Package Detail:</strong> {appointment.packageDetail}
+                <strong>Package Detail:</strong> {appointment.selectedPackage}
               </p>
             </div>
             <div className="flex items-center">
@@ -108,7 +108,7 @@ const Accordion: React.FC<AccordionProps> = ({ appointment }) => {
             <div className="flex items-center">
               <CalendarIcon className="w-5 h-5 text-blue-500 mr-2" />
               <p>
-                <strong>Created At:</strong> {appointment.createdAt}
+                {/* <strong>Created At:</strong> {appointment.createdAt} */}
               </p>
             </div>
           </div>

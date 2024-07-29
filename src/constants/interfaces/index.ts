@@ -7,14 +7,13 @@ export interface ContactInfo {
 }
 
 export interface Appointment {
-  id: string;
   vehicleType: "Sedan" | "SUV/2Row" | "SUV/3Row";
   date: string;
   startTime: string;
   endTime: string;
-  status: "scheduled" | "completed" | "cancelled";
+  status: "scheduled" | "completed" | "cancelled" | "incomplete";
   contactInfo: ContactInfo;
-  packageDetail:
+  selectedPackage:
     | "bronze"
     | "silver"
     | "gold"
@@ -22,7 +21,6 @@ export interface Appointment {
     | "full interior"
     | "premium wash & wax";
   price: number;
-  createdAt: string;
 }
 
 export interface AdminAvailabilityType {
@@ -50,7 +48,7 @@ export interface Navigation {
 export interface CarType {
   id: number;
   type: string;
-  img: string;
+  img: string[];
 }
 
 export interface Services {

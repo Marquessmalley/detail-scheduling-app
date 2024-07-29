@@ -2,7 +2,7 @@ import { Appointment } from "constants/interfaces";
 
 export const previousAppointments: Appointment[] = [
   {
-    id: "1",
+    // id: "1",
     vehicleType: "Sedan",
     date: "07/18/2024",
     startTime: "10:00am",
@@ -15,12 +15,11 @@ export const previousAppointments: Appointment[] = [
       phone: "123-456-7890",
       address: "1130 Watkins st se",
     },
-    packageDetail: "bronze",
+    selectedPackage: "bronze",
     price: 50,
-    createdAt: "2023-05-25T08:00:00Z",
   },
   {
-    id: "2",
+    // id: "2",
     vehicleType: "Sedan",
     date: "08/12/2023",
     startTime: "12:00pm",
@@ -33,12 +32,11 @@ export const previousAppointments: Appointment[] = [
       phone: "987-654-3210",
       address: "1130 Watkins st se",
     },
-    packageDetail: "silver",
+    selectedPackage: "silver",
     price: 75,
-    createdAt: "2023-05-26T09:00:00Z",
   },
   {
-    id: "3",
+    // id: "3",
     vehicleType: "Sedan",
     date: "10/10/2023",
     startTime: "1:00pm",
@@ -51,15 +49,14 @@ export const previousAppointments: Appointment[] = [
       phone: "555-555-5555",
       address: "1130 Watkins st se",
     },
-    packageDetail: "gold",
+    selectedPackage: "gold",
     price: 100,
-    createdAt: "2023-05-27T10:00:00Z",
   },
 ];
 
 export const upcomingAppointments: Appointment[] = [
   {
-    id: "1",
+    // id: "1",
     vehicleType: "Sedan",
     date: "August 10th, 2022 at 5:00 PM",
     startTime: "10:00",
@@ -72,12 +69,11 @@ export const upcomingAppointments: Appointment[] = [
       phone: "555-1234",
       address: "1130 Watkins st se",
     },
-    packageDetail: "gold",
+    selectedPackage: "gold",
     price: 100,
-    createdAt: "2024-07-01T10:00:00Z",
   },
   {
-    id: "2",
+    // id: "2",
     vehicleType: "Sedan",
     date: "August 15th, 2022 at 1:00 PM",
     startTime: "12:00",
@@ -90,12 +86,11 @@ export const upcomingAppointments: Appointment[] = [
       phone: "555-5678",
       address: "1130 Watkins st se",
     },
-    packageDetail: "silver",
+    selectedPackage: "silver",
     price: 80,
-    createdAt: "2024-07-02T12:00:00Z",
   },
   {
-    id: "3",
+    // id: "3",
     vehicleType: "Sedan",
     date: "August 22nd, 2022 at 6:00 PM",
     startTime: "14:00",
@@ -108,8 +103,7 @@ export const upcomingAppointments: Appointment[] = [
       phone: "555-8765",
       address: "1130 Watkins st se",
     },
-    packageDetail: "premium wash & wax",
+    selectedPackage: "premium wash & wax",
     price: 150,
-    createdAt: "2024-07-03T14:00:00Z",
   },
 ];
