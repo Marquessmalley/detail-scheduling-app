@@ -1,4 +1,4 @@
-import { previousAppointments } from "constants/appointment";
+import { previousAppointments } from "constants/appointments";
 import Accordion from "components/ui/accordion";
 
 const PreviousAppointmentCard = () => {
@@ -11,7 +11,7 @@ const PreviousAppointmentCard = () => {
       </div>
       {previousAppointments &&
         previousAppointments.map((appointment) => {
-          return <Accordion appointment={appointment} />;
+          return <Accordion key={appointment?.id} appointment={appointment} />;
         })}
     </div>
   );

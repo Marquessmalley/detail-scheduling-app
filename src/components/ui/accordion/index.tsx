@@ -13,7 +13,7 @@ import {
   TagIcon,
   CurrencyDollarIcon,
 } from "@heroicons/react/20/solid";
-import { Appointment } from "constants/appointment";
+import { Appointment } from "constants/interfaces";
 import StatusIndicator from "components/ui/statusIndicator";
 
 interface AccordionProps {

@@ -1,31 +1,9 @@
-export interface ContactInfo {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: string;
-}
-
-export interface Appointment {
-  id: string;
-  date: string;
-  startTime: string;
-  endTime: string;
-  status: "scheduled" | "completed" | "cancelled";
-  contactInfo: ContactInfo;
-  packageDetail:
-    | "bronze"
-    | "silver"
-    | "gold"
-    | "min interior"
-    | "full interior"
-    | "premium wash & wax";
-  price: number;
-  createdAt: string;
-}
+import { Appointment } from "constants/interfaces";
 
 export const previousAppointments: Appointment[] = [
   {
     id: "1",
+    vehicleType: "Sedan",
     date: "07/18/2024",
     startTime: "10:00am",
     endTime: "11:00am",
@@ -35,6 +13,7 @@ export const previousAppointments: Appointment[] = [
       lastName: "Doe",
       email: "john.doe@example.com",
       phone: "123-456-7890",
+      address: "1130 Watkins st se",
     },
     packageDetail: "bronze",
     price: 50,
@@ -42,6 +21,7 @@ export const previousAppointments: Appointment[] = [
   },
   {
     id: "2",
+    vehicleType: "Sedan",
     date: "08/12/2023",
     startTime: "12:00pm",
     endTime: "2:00pm",
@@ -51,6 +31,7 @@ export const previousAppointments: Appointment[] = [
       lastName: "Smith",
       email: "jane.smith@example.com",
       phone: "987-654-3210",
+      address: "1130 Watkins st se",
     },
     packageDetail: "silver",
     price: 75,
@@ -58,6 +39,7 @@ export const previousAppointments: Appointment[] = [
   },
   {
     id: "3",
+    vehicleType: "Sedan",
     date: "10/10/2023",
     startTime: "1:00pm",
     endTime: "4:00pm",
@@ -67,6 +49,7 @@ export const previousAppointments: Appointment[] = [
       lastName: "Wilson",
       email: "sam.wilson@example.com",
       phone: "555-555-5555",
+      address: "1130 Watkins st se",
     },
     packageDetail: "gold",
     price: 100,
@@ -77,7 +60,8 @@ export const previousAppointments: Appointment[] = [
 export const upcomingAppointments: Appointment[] = [
   {
     id: "1",
-    date: "07/15/2024",
+    vehicleType: "Sedan",
+    date: "August 10th, 2022 at 5:00 PM",
     startTime: "10:00",
     endTime: "11:00",
     status: "scheduled",
@@ -86,6 +70,7 @@ export const upcomingAppointments: Appointment[] = [
       lastName: "Doe",
       email: "john.doe@example.com",
       phone: "555-1234",
+      address: "1130 Watkins st se",
     },
     packageDetail: "gold",
     price: 100,
@@ -93,7 +78,8 @@ export const upcomingAppointments: Appointment[] = [
   },
   {
     id: "2",
-    date: "07/16/2024",
+    vehicleType: "Sedan",
+    date: "August 15th, 2022 at 1:00 PM",
     startTime: "12:00",
     endTime: "13:00",
     status: "scheduled",
@@ -102,6 +88,7 @@ export const upcomingAppointments: Appointment[] = [
       lastName: "Smith",
       email: "jane.smith@example.com",
       phone: "555-5678",
+      address: "1130 Watkins st se",
     },
     packageDetail: "silver",
     price: 80,
@@ -109,7 +96,8 @@ export const upcomingAppointments: Appointment[] = [
   },
   {
     id: "3",
-    date: "07/17/2024",
+    vehicleType: "Sedan",
+    date: "August 22nd, 2022 at 6:00 PM",
     startTime: "14:00",
     endTime: "15:00",
     status: "scheduled",
@@ -118,6 +106,7 @@ export const upcomingAppointments: Appointment[] = [
       lastName: "Johnson",
       email: "alice.johnson@example.com",
       phone: "555-8765",
+      address: "1130 Watkins st se",
     },
     packageDetail: "premium wash & wax",
     price: 150,

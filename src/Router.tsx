@@ -1,10 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 import AuthProvider from "context/AuthProvider";
+import AvailabilityProvider from "context/AvailabilityContext";
 import PrivateRoute from "components/routes/PrivateRoute";
 import RootLayout from "components/layouts/rootlayout/RootLayout";
 import AdminLayout from "components/layouts/adminlayout/AdminLayout";
 import Home from "pages/home";
 import Booking from "pages/booking";
+import AdminPage from "pages/admin";
 import Signup from "pages/auth/signup";
 import Login from "pages/auth/login";
 
@@ -43,13 +45,20 @@ const router: any = createBrowserRouter([
     path: "/admin",
     element: (
       <AuthProvider>
-        <PrivateRoute>
-          <AdminLayout />
-        </PrivateRoute>
+        <AvailabilityProvider>
+          <PrivateRoute>
+            <AdminLayout />
+          </PrivateRoute>
+        </AvailabilityProvider>
       </AuthProvider>
     ),
 
-    children: [],
+    children: [
+      {
+        index: true,
+        element: <AdminPage />,
+      },
+    ],
   },
 ]);
 

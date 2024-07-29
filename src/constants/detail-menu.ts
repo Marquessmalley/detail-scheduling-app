@@ -1,38 +1,11 @@
-interface Services {
-  interior?: string[];
-  exterior?: string[];
-}
-
-interface VehicleType {
-  sedan: {
-    price: number;
-    estimatedTime: string;
-  };
-  suvTwoRows: {
-    price: number;
-    estimatedTime: string;
-  };
-  suvThreeRows: {
-    price: number;
-    estimatedTime: string;
-  };
-}
-
-export interface DetailPackage {
-  id: number;
-  packageName: string;
-  startingPrice: string;
-  estimatedTime: string;
-  services: Services;
-  vehicleType?: VehicleType;
-}
+import { DetailPackage } from "constants/interfaces";
 
 export const detailMenu: DetailPackage[] = [
   {
     id: 0,
     packageName: "Bronze Package",
-    startingPrice: "$65/service",
-    estimatedTime: "2hr",
+    startingPrice: "$80",
+    estimatedTime: "2h",
     services: {
       interior: [
         "Interior Vaccum",
@@ -51,24 +24,24 @@ export const detailMenu: DetailPackage[] = [
     },
     vehicleType: {
       sedan: {
-        price: 65,
-        estimatedTime: "1hr 20min",
+        price: 80,
+        estimatedTime: "1h 20m",
       },
       suvTwoRows: {
-        price: 70,
-        estimatedTime: "1hr 45min",
+        price: 100,
+        estimatedTime: "1h 45m",
       },
       suvThreeRows: {
-        price: 80,
-        estimatedTime: "1hr 50min",
+        price: 110,
+        estimatedTime: "1h 50m",
       },
     },
   },
   {
     id: 1,
     packageName: "Gold Package",
-    startingPrice: "$250/service",
-    estimatedTime: "4hr 30min",
+    startingPrice: "$250",
+    estimatedTime: "4h 30m",
     services: {
       interior: [
         "Interior Vaccum",
@@ -94,23 +67,23 @@ export const detailMenu: DetailPackage[] = [
     vehicleType: {
       sedan: {
         price: 250,
-        estimatedTime: "4hr",
+        estimatedTime: "4h",
       },
       suvTwoRows: {
         price: 280,
-        estimatedTime: "4hr 30min",
+        estimatedTime: "4h 30m",
       },
       suvThreeRows: {
         price: 300,
-        estimatedTime: "4hr 30min",
+        estimatedTime: "4h 30m",
       },
     },
   },
   {
     id: 2,
     packageName: "Silver Package",
-    startingPrice: "$175/service",
-    estimatedTime: "4hr",
+    startingPrice: "$175",
+    estimatedTime: "4h",
     services: {
       interior: [
         "Interior Vaccum",
@@ -135,15 +108,15 @@ export const detailMenu: DetailPackage[] = [
     vehicleType: {
       sedan: {
         price: 175,
-        estimatedTime: "3hrs 20min",
+        estimatedTime: "3h 20m",
       },
       suvTwoRows: {
         price: 185,
-        estimatedTime: "3hr 40min",
+        estimatedTime: "3h 40m",
       },
       suvThreeRows: {
         price: 205,
-        estimatedTime: "1hr 40min",
+        estimatedTime: "1h 40m",
       },
     },
   },
@@ -152,7 +125,7 @@ export const detailMenu: DetailPackage[] = [
     id: 3,
     packageName: "Min Interior Detail",
     startingPrice: "$60/service",
-    estimatedTime: "1hr",
+    estimatedTime: "1h",
     services: {
       interior: [
         "Interior Vaccum",
@@ -168,7 +141,7 @@ export const detailMenu: DetailPackage[] = [
     id: 4,
     packageName: "Full Interior Detail",
     startingPrice: "$150/service",
-    estimatedTime: "3 hrs",
+    estimatedTime: "3h",
     services: {
       interior: [
         "Interior Vaccum",
@@ -184,15 +157,15 @@ export const detailMenu: DetailPackage[] = [
     vehicleType: {
       sedan: {
         price: 150,
-        estimatedTime: "3hr",
+        estimatedTime: "3h",
       },
       suvTwoRows: {
         price: 160,
-        estimatedTime: "3hr",
+        estimatedTime: "3h",
       },
       suvThreeRows: {
         price: 180,
-        estimatedTime: "3hr",
+        estimatedTime: "3h",
       },
     },
   },
@@ -200,7 +173,7 @@ export const detailMenu: DetailPackage[] = [
     id: 5,
     packageName: "Premium Wash & Wax",
     startingPrice: "$100/service",
-    estimatedTime: "1hr 30 mins",
+    estimatedTime: "1h 30m",
     services: {
       exterior: [
         "Foam Bath/ Hand Wash",
@@ -214,15 +187,15 @@ export const detailMenu: DetailPackage[] = [
     vehicleType: {
       sedan: {
         price: 100,
-        estimatedTime: "1hr 30min",
+        estimatedTime: "1h 30m",
       },
       suvTwoRows: {
         price: 120,
-        estimatedTime: "1hr 30min",
+        estimatedTime: "1h 30m",
       },
       suvThreeRows: {
         price: 140,
-        estimatedTime: "1hr 30min",
+        estimatedTime: "1h 30m",
       },
     },
   },

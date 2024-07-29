@@ -1,5 +1,6 @@
 import car from "assets/images/car-wash.png";
-import { DetailPackage } from "constants/detail-menu";
+import { DetailPackage } from "constants/interfaces";
+import { CheckIcon, ClockIcon } from "components/ui/icons";
 
 interface PriceCardProps {
   plan: DetailPackage;
@@ -39,25 +40,12 @@ const PriceCard: React.FC<PriceCardProps> = ({ plan }) => {
         </div>
 
         <div className="flex items-center justify-center rounded-full text-center  w-32 bg-slate-100 border shadow">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="size-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-            />
-          </svg>
-          <p className=" ml-1 text-sm">{plan.estimatedTime}</p>
+          <ClockIcon size="size-6 font-bold" />
+          <p className=" ml-1 text-sm font-bold">{plan.estimatedTime}</p>
         </div>
       </div>
 
-      {/* CARD PRICE */}
+      {/* CARD STARTING PRICE */}
 
       <div
         className={
@@ -68,7 +56,9 @@ const PriceCard: React.FC<PriceCardProps> = ({ plan }) => {
       >
         <p
           className={
-            plan.packageName === "Gold Package" ? "text-white " : "text-white"
+            plan.packageName === "Gold Package"
+              ? "text-white text-sm font-bold"
+              : "text-white text-sm font-bold"
           }
         >
           Starting at {plan.startingPrice}
@@ -76,119 +66,77 @@ const PriceCard: React.FC<PriceCardProps> = ({ plan }) => {
       </div>
 
       {/* CARD SERVICES */}
-      <div className=" ">
-        <p
-          className={
-            plan.packageName === "Gold Package"
-              ? "text-md font-light ml-2 text-white"
-              : "text-md font-light ml-2"
-          }
-        >
-          Interior includes:{" "}
-        </p>
-        <ul className="flex flex-col">
-          {plan.services.interior &&
-            plan.services.interior.map((service) => {
-              return (
-                <li key={service} className="flex mt-2 mb-2">
-                  {plan.packageName === "Gold Package" ? (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="white"
-                      className="size-6"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
-                  ) : (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      className="size-6"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  )}
+      <div className="grid gap-4 grid-cols-2 ">
+        <div>
+          <p
+            className={
+              plan.packageName === "Gold Package"
+                ? "text-md font-semibold  ml-2 text-white"
+                : "text-md  font-semibold ml-2"
+            }
+          >
+            Interior includes:{" "}
+          </p>
+          <ul className="flex flex-col">
+            {plan.services.interior &&
+              plan.services.interior.map((service) => {
+                return (
+                  <li key={service} className="flex mt-2 mb-2">
+                    {plan.packageName === "Gold Package" ? (
+                      <CheckIcon packageName={plan.packageName} />
+                    ) : (
+                      <CheckIcon />
+                    )}
 
-                  <p
-                    className={
-                      plan.packageName === "Gold Package"
-                        ? "ml-2 text-white text-sm"
-                        : "ml-2 text-gray-500 text-sm"
-                    }
-                  >
-                    {service}
-                  </p>
-                </li>
-              );
-            })}
-        </ul>
-      </div>
-      <div className="mt-8">
-        <p
-          className={
-            plan.packageName === "Gold Package"
-              ? "text-md font-light ml-2 text-white"
-              : "text-md font-light ml-2"
-          }
-        >
-          Exterior includes:{" "}
-        </p>
-        <ul className="flex flex-col">
-          {plan.services.exterior &&
-            plan.services.exterior.map((service) => {
-              return (
-                <li key={service} className="flex mt-2 mb-2">
-                  {plan.packageName === "Gold Package" ? (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="white"
-                      className="size-6"
+                    <p
+                      className={
+                        plan.packageName === "Gold Package"
+                          ? "ml-2 text-white text-sm w-full"
+                          : "ml-2 text-gray-600 text-sm w-full"
+                      }
                     >
-                      <path
-                        fill-rule="evenodd"
-                        d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
-                  ) : (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      className="size-6"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  )}
+                      {service}
+                    </p>
+                  </li>
+                );
+              })}
+          </ul>
+        </div>
+        <div>
+          <p
+            className={
+              plan.packageName === "Gold Package"
+                ? "text-md font-semibold ml-2 text-white"
+                : "text-md font-semibold ml-2"
+            }
+          >
+            Exterior includes:{" "}
+          </p>
+          <ul className="flex flex-col">
+            {plan.services.exterior &&
+              plan.services.exterior.map((service) => {
+                return (
+                  <li key={service} className="flex mt-2 mb-2">
+                    {plan.packageName === "Gold Package" ? (
+                      <CheckIcon packageName={plan.packageName} />
+                    ) : (
+                      <CheckIcon />
+                    )}
 
-                  <p
-                    className={
-                      plan.packageName === "Gold Package"
-                        ? "ml-2 text-white text-sm"
-                        : "ml-2 text-gray-500 text-sm"
-                    }
-                  >
-                    {service}
-                  </p>
-                </li>
-              );
-            })}
-        </ul>
+                    <p
+                      className={
+                        plan.packageName === "Gold Package"
+                          ? "ml-2 text-white text-sm w-full"
+                          : "ml-2 text-gray-600 text-sm w-full"
+                      }
+                    >
+                      {service}
+                    </p>
+                  </li>
+                );
+              })}
+          </ul>
+        </div>
       </div>
     </div>
   );

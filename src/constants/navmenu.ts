@@ -1,8 +1,4 @@
-interface Navigation {
-  name: string;
-  href: string;
-  current: boolean;
-}
+import { Navigation } from "constants/interfaces";
 
 export const navigation: Navigation[] = [
   { name: "Services", href: "#", current: true },
