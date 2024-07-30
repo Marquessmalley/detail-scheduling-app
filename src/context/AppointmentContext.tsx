@@ -38,7 +38,7 @@ const AppointmentProvider: React.FC<AppointmentProviderProps> = ({
       phone: "",
       address: "",
     },
-    selectedPackage: "bronze",
+    selectedPackage: "Bronze Package",
     price: 0,
   });
 

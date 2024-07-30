@@ -11,6 +11,9 @@ module.exports = {
       backgroundImage: {
         "light-pattern": "url('/src/assets/images/light.png')",
       },
+      screens: {
+        xs: "350px",
+      },
     },
   },
   plugins: [nextui()],

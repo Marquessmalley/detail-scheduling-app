@@ -14,12 +14,12 @@ export interface Appointment {
   status: "scheduled" | "completed" | "cancelled" | "incomplete";
   contactInfo: ContactInfo;
   selectedPackage:
-    | "bronze"
-    | "silver"
-    | "gold"
-    | "min interior"
-    | "full interior"
-    | "premium wash & wax";
+    | "Bronze Package"
+    | "Silver Package"
+    | "Gold Package"
+    | "Min Interior Detail"
+    | "Full Interior Detail"
+    | "Premium Wash & Wax";
   price: number;
 }
 

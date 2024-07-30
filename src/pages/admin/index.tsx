@@ -6,12 +6,7 @@ import { upcomingAppointments } from "constants/appointments";
 import { database } from "firebaseConfig";
 import { ref, onValue, off } from "firebase/database";
 import { SpinnerIcon } from "components/ui/icons";
-
-interface FirebaseAvailabilities {
-  [key: string]: {
-    availability: AdminAvailabilityType;
-  };
-}
+import { sortedAvailabilities } from "utils/sortAvailabilities";
 
 const AdminPage = () => {
   const [availabilities, setAvailabilities] = useState<
@@ -44,22 +39,6 @@ const AdminPage = () => {
       });
     };
   }, []);
-
-  const sortedAvailabilities = (data: FirebaseAvailabilities) => {
-    const availabilities = Object.entries(data);
-
-    availabilities.sort((a, b) => {
-      const dateA = new Date(
-        `${a[1].availability.date} ${a[1].availability.startTime}`
-      );
-      const dateB = new Date(
-        `${b[1].availability.date} ${b[1].availability.startTime}`
-      );
-      return dateA.getTime() - dateB.getTime();
-    });
-
-    return availabilities;
-  };
 
   return (
     <div>

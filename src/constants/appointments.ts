@@ -15,7 +15,7 @@ export const previousAppointments: Appointment[] = [
       phone: "123-456-7890",
       address: "1130 Watkins st se",
     },
-    selectedPackage: "bronze",
+    selectedPackage: "Bronze Package",
     price: 50,
   },
   {
@@ -32,7 +32,7 @@ export const previousAppointments: Appointment[] = [
       phone: "987-654-3210",
       address: "1130 Watkins st se",
     },
-    selectedPackage: "silver",
+    selectedPackage: "Silver Package",
     price: 75,
   },
   {
@@ -49,7 +49,7 @@ export const previousAppointments: Appointment[] = [
       phone: "555-555-5555",
       address: "1130 Watkins st se",
     },
-    selectedPackage: "gold",
+    selectedPackage: "Gold Package",
     price: 100,
   },
 ];
@@ -69,7 +69,7 @@ export const upcomingAppointments: Appointment[] = [
       phone: "555-1234",
       address: "1130 Watkins st se",
     },
-    selectedPackage: "gold",
+    selectedPackage: "Gold Package",
     price: 100,
   },
   {
@@ -86,7 +86,7 @@ export const upcomingAppointments: Appointment[] = [
       phone: "555-5678",
       address: "1130 Watkins st se",
     },
-    selectedPackage: "silver",
+    selectedPackage: "Silver Package",
     price: 80,
   },
   {
@@ -103,7 +103,7 @@ export const upcomingAppointments: Appointment[] = [
       phone: "555-8765",
       address: "1130 Watkins st se",
     },
-    selectedPackage: "premium wash & wax",
+    selectedPackage: "Premium Wash & Wax",
     price: 150,
   },
 ];
