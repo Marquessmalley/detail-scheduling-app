@@ -7,7 +7,7 @@ export interface ContactInfo {
 }
 
 export interface Appointment {
-  vehicleType: "Sedan" | "SUV/2Row" | "SUV/3Row";
+  vehicleType: "sedan" | "suvTwoRows" | "suvThreeRows";
   date: string;
   startTime: string;
   endTime: string;

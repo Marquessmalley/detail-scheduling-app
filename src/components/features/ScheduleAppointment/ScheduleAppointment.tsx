@@ -3,6 +3,7 @@ import { carType } from "constants/carType";
 import { detailMenu } from "constants/detail-menu";
 import { useUserAppointmentContext } from "context/AppointmentContext";
 import { AdminAvailabilityType } from "constants/interfaces";
+import { calculatePrice } from "utils/calculatePrice";
 
 interface ScheduleAppointmentProps {
   activeStep: number;
@@ -29,6 +30,7 @@ const ScheduleAppointment: React.FC<ScheduleAppointmentProps> = ({
   const handleContactChange = (e: any) => {
     setUserAppointment((prevState: any) => ({
       ...prevState,
+      price: calculatePrice(userAppointment),
       contactInfo: {
         [e.target.name]: e.target.value,
       },
@@ -90,7 +92,7 @@ const ScheduleAppointment: React.FC<ScheduleAppointmentProps> = ({
                 onClick={() => {
                   setUserAppointment((prevState: any) => ({
                     ...prevState,
-                    selectedDetailPackage: detail.packageName,
+                    selectedPackage: detail.packageName,
                   }));
                   setSelectedDetailPackage(detail.packageName);
                 }}
@@ -198,7 +200,7 @@ const ScheduleAppointment: React.FC<ScheduleAppointmentProps> = ({
                   name="email"
                   id="email"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="Flowbite"
+                  placeholder="Email"
                   onChange={handleContactChange}
                   required
                 />
@@ -243,6 +245,7 @@ const ScheduleAppointment: React.FC<ScheduleAppointmentProps> = ({
           </form>
         </div>
       )}
+      {activeStep === 4 && <div>Summary</div>}
     </>
   );
 };
