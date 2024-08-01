@@ -10,6 +10,7 @@ import Booking from "pages/booking";
 import AdminPage from "pages/admin";
 import Signup from "pages/auth/signup";
 import Login from "pages/auth/login";
+import AppointmentConfirm from "pages/booking/AppointmentConfirm";
 
 const router: any = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router: any = createBrowserRouter([
             <Booking />,
           </AppointmentProvider>
         ),
+      },
+      {
+        path: "/booking-confirm",
+        element: <AppointmentConfirm />,
       },
     ],
   },

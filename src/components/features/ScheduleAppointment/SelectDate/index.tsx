@@ -8,6 +8,9 @@ interface SelectDateProps {
   aptErr?: boolean;
   aptErrMsg?: string;
   setAptErr: (x: boolean) => void;
+  setUpdateAvailability: (
+    x: [string, { availability: AdminAvailabilityType }] | null
+  ) => void;
 }
 
 const SelectDate: React.FC<SelectDateProps> = ({
@@ -15,6 +18,7 @@ const SelectDate: React.FC<SelectDateProps> = ({
   aptErr,
   aptErrMsg,
   setAptErr,
+  setUpdateAvailability,
 }) => {
   const { userAppointment, setUserAppointment } = useUserAppointmentContext();
 
@@ -48,6 +52,12 @@ const SelectDate: React.FC<SelectDateProps> = ({
                     startTime: slot[1].availability.startTime,
                   }));
                   setSelectedDate(slot[1].availability.date);
+
+                  setUpdateAvailability([
+                    slot[0],
+                    { availability: slot[1].availability },
+                  ]);
+
                   setAptErr(false);
                 }}
               >

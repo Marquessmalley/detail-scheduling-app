@@ -1,7 +1,30 @@
 import { useUserAppointmentContext } from "context/AppointmentContext";
+import { AdminAvailabilityType } from "constants/interfaces";
+import { addUserAppointment } from "services/appointmentServices";
+import { useNavigate } from "react-router-dom";
 
-const AppointmentSummary = () => {
-  const { userAppointment } = useUserAppointmentContext();
+interface AppointmentSummaryProp {
+  updateAvailability: [string, { availability: AdminAvailabilityType }] | null;
+}
+
+const AppointmentSummary: React.FC<AppointmentSummaryProp> = ({
+  updateAvailability,
+}) => {
+  const navigate = useNavigate();
+  const { userAppointment, setUserAppointment } = useUserAppointmentContext();
+
+  const handleSubmitAppointment = () => {
+    addUserAppointment(userAppointment, updateAvailability);
+    navigate("/booking-confirm", {
+      state: {
+        userName: `${userAppointment.contactInfo.firstName} ${userAppointment.contactInfo.lastName} `,
+        date: userAppointment.date,
+        time: userAppointment.startTime,
+      },
+    });
+    setUserAppointment(null);
+  };
+
   return (
     <div className="max-w-lg mx-auto p-6  mt-2">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 ">
@@ -100,7 +123,10 @@ const AppointmentSummary = () => {
         </div>
       </div>
 
-      <button className="w-full py-2 px-4 bg-teal-400 text-white font-bold rounded-xl mt-4 hover:bg-teal-500 transition duration-200">
+      <button
+        className="w-full py-2 px-4 bg-teal-400 text-white font-bold rounded-xl mt-4 hover:bg-teal-500 transition duration-200"
+        onClick={handleSubmitAppointment}
+      >
         Submit Appointment
       </button>
     </div>

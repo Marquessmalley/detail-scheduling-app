@@ -1,10 +1,11 @@
+import { useState } from "react";
 import { AdminAvailabilityType } from "constants/interfaces";
 import SelectVehicle from "components/features/ScheduleAppointment/SelectVehicle";
 import SelectPackage from "components/features/ScheduleAppointment/SelectPackage";
 import SelectDate from "components/features/ScheduleAppointment/SelectDate";
 import ContactForm from "components/features/ScheduleAppointment/ContactForm";
 import AppointmentSummary from "components/features/ScheduleAppointment/AppointmentSummary";
-import { useUserAppointmentContext } from "context/AppointmentContext";
+
 interface ScheduleAppointmentProps {
   activeStep: number;
   availableDates: [string, { availability: AdminAvailabilityType }][] | null;
@@ -20,8 +21,10 @@ const ScheduleAppointment: React.FC<ScheduleAppointmentProps> = ({
   aptErr,
   setAptErr,
 }) => {
-  const { userAppointment } = useUserAppointmentContext();
-  console.log(userAppointment);
+  const [updateAvailability, setUpdateAvailability] = useState<
+    [string, { availability: AdminAvailabilityType }] | null
+  >(null);
+
   return (
     <>
       {activeStep === 0 && (
@@ -44,6 +47,7 @@ const ScheduleAppointment: React.FC<ScheduleAppointmentProps> = ({
           aptErr={aptErr}
           aptErrMsg={aptErrMsg}
           setAptErr={setAptErr}
+          setUpdateAvailability={setUpdateAvailability}
         />
       )}
       {activeStep === 3 && (
@@ -53,7 +57,9 @@ const ScheduleAppointment: React.FC<ScheduleAppointmentProps> = ({
           setAptErr={setAptErr}
         />
       )}
-      {activeStep === 4 && <AppointmentSummary />}
+      {activeStep === 4 && (
+        <AppointmentSummary updateAvailability={updateAvailability} />
+      )}
     </>
   );
 };

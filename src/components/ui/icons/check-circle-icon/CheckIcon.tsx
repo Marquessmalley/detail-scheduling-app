@@ -2,16 +2,17 @@ import React from "react";
 
 interface CheckIconProps {
   packageName?: string;
+  size?: string;
 }
 
-const CheckIcon: React.FC<CheckIconProps> = ({ packageName }) => {
+const CheckIcon: React.FC<CheckIconProps> = ({ packageName, size }) => {
   const fill = packageName === "Gold Package" ? "white" : "currentColor";
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill={fill}
-      className="size-6 text-teal-400"
+      className={size ? `${size} text-teal-400"` : "size-6 text-teal-400"}
     >
       <path
         fill-rule="evenodd"
