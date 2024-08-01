@@ -14,7 +14,7 @@ const Landing = () => {
         </p>
         <button
           type="button"
-          className="relative flex rounded-full py-2.5 px-4 mb-8 text-sm font-semibold border border-slate-300 bg-slate-900 text-white"
+          className="relative flex rounded-full py-2.5 px-4 mb-8 text-sm font-semibold border border-slate-300 bg-teal-400 text-white hover:bg-teal-500 transition duration-200"
         >
           <p className="mr-1">Get Started</p>
           <svg

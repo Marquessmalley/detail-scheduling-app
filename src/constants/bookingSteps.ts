@@ -3,5 +3,5 @@ export const bookingSteps: string[] = [
   "Select Package",
   "Select Date & Time",
   "Contact Info",
-  "Summary",
+  "Appointment Summary",
 ];

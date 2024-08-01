@@ -7,7 +7,7 @@ export interface ContactInfo {
 }
 
 export interface Appointment {
-  vehicleType: "sedan" | "suvTwoRows" | "suvThreeRows";
+  vehicleType: "sedan" | "suvTwoRows" | "suvThreeRows" | undefined;
   date: string;
   startTime: string;
   endTime: string;
@@ -19,7 +19,8 @@ export interface Appointment {
     | "Gold Package"
     | "Min Interior Detail"
     | "Full Interior Detail"
-    | "Premium Wash & Wax";
+    | "Premium Wash & Wax"
+    | undefined;
   price: number;
 }
 

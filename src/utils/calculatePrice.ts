@@ -3,9 +3,12 @@ import { Appointment } from "constants/interfaces";
 
 export const calculatePrice = (userAppointment: Appointment) => {
   let price = 0;
+
+  // Retrieve correct detail package
   const filteredPackage = detailMenu.filter(
     (item) => item.packageName === userAppointment.selectedPackage
   );
+
   if (filteredPackage[0].vehicleType) {
     const carTypeArr = Object.keys(filteredPackage[0].vehicleType);
 

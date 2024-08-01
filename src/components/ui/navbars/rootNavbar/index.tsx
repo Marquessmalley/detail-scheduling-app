@@ -55,7 +55,7 @@ export default function Navbar() {
                     <a
                       key={item.name}
                       href={item.href}
-                      className=" px-3 py-2 rounded-full text-sm font-medium"
+                      className=" px-3 py-2 rounded-full text-sm font-semibold hover:text-slate-700"
                       aria-current={item.current ? "page" : undefined}
                     >
                       {item.name}
@@ -69,7 +69,7 @@ export default function Navbar() {
                 <Link to="/booking">
                   <button
                     type="button"
-                    className="relative flex rounded-full py-2.5 px-4  text-sm font-semibold border border-slate-300 bg-slate-900 text-white"
+                    className="relative flex rounded-full py-2.5 px-4  text-sm font-semibold border border-slate-300 bg-teal-400 text-white hover:bg-teal-500 transition duration-200"
                   >
                     <p className="mr-1 ">Book Now</p>
                     <svg

@@ -26,7 +26,7 @@ const AppointmentProvider: React.FC<AppointmentProviderProps> = ({
   children,
 }) => {
   const [userAppointment, setUserAppointment] = useState<Appointment>({
-    vehicleType: "sedan",
+    vehicleType: undefined,
     date: "",
     startTime: "",
     endTime: "",
@@ -38,7 +38,7 @@ const AppointmentProvider: React.FC<AppointmentProviderProps> = ({
       phone: "",
       address: "",
     },
-    selectedPackage: "Bronze Package",
+    selectedPackage: undefined,
     price: 0,
   });
 
