@@ -35,10 +35,10 @@ const SelectVehicle: React.FC<SelectVehicleType> = ({
               carType = "Sedan";
               break;
             case "suvTwoRows":
-              carType = "SUV - 2 door";
+              carType = "SUV - 2 Row";
               break;
             case "suvThreeRows":
-              carType = "SUV - 3 door";
+              carType = "SUV - 3 Row";
               break;
 
             default:
@@ -59,6 +59,7 @@ const SelectVehicle: React.FC<SelectVehicleType> = ({
                     vehicleType: car.type,
                   }));
                   setSelectedCar(car.type);
+
                   setAptErr(false);
                 }}
               >
@@ -69,8 +70,8 @@ const SelectVehicle: React.FC<SelectVehicleType> = ({
                 <p
                   className={
                     isSelected
-                      ? "text-sm font-semibold text-white"
-                      : "text-sm font-semibold"
+                      ? "text-sm font-semibold text-white whitespace-nowrap"
+                      : "text-sm font-semibold whitespace-nowrap"
                   }
                 >
                   {carType}

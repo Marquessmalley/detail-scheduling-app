@@ -23,8 +23,9 @@ const SelectDate: React.FC<SelectDateProps> = ({
   const { userAppointment, setUserAppointment } = useUserAppointmentContext();
 
   const [selectedDate, setSelectedDate] = useState<string>(
-    userAppointment.startTime
+    userAppointment.date
   );
+  console.log(selectedDate);
 
   return (
     <>

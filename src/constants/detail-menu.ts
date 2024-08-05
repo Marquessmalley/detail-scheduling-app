@@ -124,7 +124,7 @@ export const detailMenu: DetailPackage[] = [
   {
     id: 3,
     packageName: "Min Interior Detail",
-    startingPrice: "$60/service",
+    startingPrice: "$60",
     estimatedTime: "1h",
     services: {
       interior: [
@@ -136,11 +136,25 @@ export const detailMenu: DetailPackage[] = [
         "Steam Clean Panels & Trims",
       ],
     },
+    vehicleType: {
+      sedan: {
+        price: 60,
+        estimatedTime: "3h 20m",
+      },
+      suvTwoRows: {
+        price: 60,
+        estimatedTime: "3h 40m",
+      },
+      suvThreeRows: {
+        price: 70,
+        estimatedTime: "1h 40m",
+      },
+    },
   },
   {
     id: 4,
     packageName: "Full Interior Detail",
-    startingPrice: "$150/service",
+    startingPrice: "$150",
     estimatedTime: "3h",
     services: {
       interior: [
@@ -172,7 +186,7 @@ export const detailMenu: DetailPackage[] = [
   {
     id: 5,
     packageName: "Premium Wash & Wax",
-    startingPrice: "$100/service",
+    startingPrice: "$100",
     estimatedTime: "1h 30m",
     services: {
       exterior: [
