@@ -3,9 +3,9 @@ import { services } from "constants/service";
 
 const Services: React.FC = () => {
   return (
-    <div className="mb-32 mt-56">
+    <div className="mt-14 mb-12">
       {/* SERVICE HEADER */}
-      <div className="mx-auto max-w-3xl mb-10 ">
+      <div className=" max-w-md sm:max-w-xl md:max-w-3xl mx-auto mb-10 ">
         <p className="mt-2 text-4xl font-bold tracking-tight text-gray-900 text-center ">
           Comprehensive Car
           <span className="bg-gradient-to-r from-teal-400 to-pink-300 bg-clip-text text-transparent">
@@ -21,7 +21,7 @@ const Services: React.FC = () => {
       </div>
 
       {/* SERVICE CARDS */}
-      <div className="mx-auto max-w-7xl grid gap-x-5 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 ">
+      <div className="mx-auto max-w-7xl grid gap-x-5 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 justify-items-center">
         {services.map((item) => (
           <div key={item.id}>
             <ServiceCard

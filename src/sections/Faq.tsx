@@ -9,12 +9,12 @@ import { faq } from "constants/faq";
 const Faq: React.FC = () => {
   return (
     <div className="h-screen w-full pt-32 px-4">
-      <div className="grid grid-cols-1 mb-5  mx-auto w-full max-w-4xl ">
+      <div className="grid grid-cols-1 mb-5 max-w-7xl mx-auto">
         <h2 className="mb-8 text-4xl tracking-tight font-extrabold  text-gray-900 dark:text-white">
           Frequently asked questions
         </h2>
       </div>
-      <div className="mx-auto w-full max-w-4xl divide-y divide-black/3 rounded-xl bg-zinc-100">
+      <div className="mx-auto max-w-7xl  divide-y divide-black/3 rounded-xl bg-zinc-100">
         {faq.map((qa) => {
           return (
             <Disclosure

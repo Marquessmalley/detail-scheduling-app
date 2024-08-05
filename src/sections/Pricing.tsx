@@ -8,7 +8,7 @@ const Pricing: React.FC = () => {
   return (
     <div className="my-10 pt-24">
       {/* PRICE HEADER */}
-      <div className="mx-auto max-w-3xl mb-10 lg:text-center">
+      <div className="max-w-md sm:max-w-xl md:max-w-3xl mx-auto mb-10 lg:text-center">
         <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
           Choose the right package for you
         </p>
@@ -21,7 +21,7 @@ const Pricing: React.FC = () => {
       </div>
       {/* PRICE CARDS */}
 
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 ">
+      <div className="mx-auto max-w-7xl  grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 justify-items-center">
         {specialPackages.map((plan) => {
           return <PriceCard plan={plan} />;
         })}

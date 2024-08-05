@@ -3,12 +3,12 @@ import React from "react";
 const Landing = () => {
   return (
     <div className="flex" style={{ height: "80vh" }}>
-      <div className="flex flex-col justify-center items-start text-center  max-w-3xl ml-10">
+      <div className="flex flex-col justify-center items-start text-center max-w-md sm:max-w-3xl mx-auto sm:ml-10 ">
         <p className="text-5xl font-bold mb-8 leading-12 text-black text-left">
           Your Car, Our Care -{" "}
           <span className=" text-teal-400">Anywhere, Anytime</span>
         </p>
-        <p className="text-lg text-justify text-slate-700 mb-8 max-w-2xl">
+        <p className="sm:text-lg text-justify text-slate-700 mb-8 max-w-2xl">
           Book effortlessly through our app. Our detailers come to you, ensuring
           your car looks immaculate.
         </p>
