@@ -64,6 +64,8 @@ const AdminPage = () => {
     };
   }, []);
 
+  console.log(appointments);
+
   return (
     <div>
       <div className="grid grid-cols-1 gap-10 lg:grid lg:grid-cols-2">
@@ -108,10 +110,19 @@ const AdminPage = () => {
               Apointment details.
             </p>
           </div>
-          {appointments &&
+          {appointments ? (
             Object.keys(appointments).map((x: string) => (
               <UpcomingDescription appointment={appointments[x].appointment} />
-            ))}
+            ))
+          ) : (
+            <div className="text-center  p-4">
+              {loading ? (
+                <SpinnerIcon />
+              ) : (
+                <p className="text-4xl font-bold ">No Appointments Booked</p>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </div>
