@@ -1,7 +1,20 @@
-export const bookingSteps: string[] = [
-  "Select Vehicle Type",
-  "Select Package",
-  "Select Date & Time",
-  "Contact Info",
-  "Appointment Summary",
+export const bookingSteps = [
+  {
+    title: "Select Vehicle Type",
+    desc: "(Selecting a vehicle type helps us get an better estimate on the price)",
+  },
+  {
+    title: "Select Package",
+    desc: "(Choose a package that best suits for your needs)",
+  },
+
+  {
+    title: "Select Date & Time",
+  },
+  {
+    title: "Contact Info",
+  },
+  {
+    title: "Appointment Summary",
+  },
 ];

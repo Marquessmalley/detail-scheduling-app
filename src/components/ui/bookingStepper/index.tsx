@@ -70,11 +70,11 @@ const BookingStepper: React.FC = () => {
   return (
     <div className="flex flex-col h-full ">
       {/* HEADER */}
-      <div className="p-2 mt-5 flex items-center justify-center">
-        <p className="h-10 w-10 border shadow rounded-xl mr-2 p-1 text-center text-xl text-white font-bold bg-gradient-to-br from-teal-400 to-pink-300">
-          {activeStep + 1}/{bookingSteps.length}
+      <div className="p-2 my-5 flex flex-col items-center justify-center">
+        <p className="text-2xl font-bold">{bookingSteps[activeStep].title} </p>
+        <p className="text-sm font-semibold text-gray-700 text-center">
+          {bookingSteps[activeStep]?.desc}{" "}
         </p>
-        <p className="text-2xl font-bold">{bookingSteps[activeStep]}</p>
       </div>
 
       {/* CONTENT */}

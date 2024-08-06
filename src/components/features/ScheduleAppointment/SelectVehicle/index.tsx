@@ -26,7 +26,7 @@ const SelectVehicle: React.FC<SelectVehicleType> = ({
           <Alert alertType="Error" alertMsg={aptErrMsg} />
         </>
       )}
-      <div className=" grid xs:grid-cols-2 sm:grid-cols-3 gap-y-2 justify-items-center p-2">
+      <div className=" grid grid-cols-2 sm:grid-cols-3 gap-y-2 justify-items-center p-2 my-5">
         {carType.map((car) => {
           const isSelected = car.type === selectedCar;
           let carType;
@@ -50,8 +50,8 @@ const SelectVehicle: React.FC<SelectVehicleType> = ({
                 key={car.id}
                 className={
                   isSelected
-                    ? "p-4 border border-slate-300 rounded-2xl shadow h-22 w-28 sm:h-32 sm:w-32 flex flex-col items-center justify-center cursor-pointer  bg-gradient-to-br from-teal-400 via-pink-300 to-teal-500"
-                    : "p-4 border border-slate-300 rounded-2xl shadow h-22 w-28 sm:h-32 sm:w-32  flex flex-col items-center justify-center cursor-pointer hover:bg-slate-50 transition duration-200"
+                    ? "p-px border-3 border-teal-300 rounded-2xl shadow-2xl h-22 w-28 sm:h-32 sm:w-32 flex flex-col items-center justify-center cursor-pointer bg-slate-100 hover:bg-slate-50 transition duration-200"
+                    : "p-px border border-slate-300 rounded-2xl shadow h-22 w-28 sm:h-32 sm:w-32  flex flex-col items-center justify-center cursor-pointer hover:bg-slate-50 transition duration-200"
                 }
                 onClick={() => {
                   setUserAppointment((prevState: any) => ({
@@ -63,17 +63,8 @@ const SelectVehicle: React.FC<SelectVehicleType> = ({
                   setAptErr(false);
                 }}
               >
-                <img
-                  src={isSelected ? car.img[1] : car.img[0]}
-                  alt="car_type"
-                />
-                <p
-                  className={
-                    isSelected
-                      ? "text-sm font-semibold text-white whitespace-nowrap"
-                      : "text-sm font-semibold whitespace-nowrap"
-                  }
-                >
+                <img src={car.img[0]} alt="car_type" />
+                <p className={"text-sm font-semibold whitespace-nowrap"}>
                   {carType}
                 </p>
               </div>
