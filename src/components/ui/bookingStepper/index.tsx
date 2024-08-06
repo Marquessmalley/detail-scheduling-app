@@ -89,7 +89,7 @@ const BookingStepper: React.FC = () => {
       {/* STEPPER */}
       <div className="flex-none">
         <MobileStepper
-          variant="text"
+          variant="dots"
           steps={maxSteps}
           position="static"
           activeStep={activeStep}
