@@ -2,6 +2,15 @@ import { useState } from "react";
 import { useUserAppointmentContext } from "context/AppointmentContext";
 import { AdminAvailabilityType } from "constants/interfaces";
 import Alert from "components/ui/alert";
+import { Calendar } from "@nextui-org/react";
+import { useDateFormatter } from "@react-aria/i18n";
+
+import {
+  now,
+  today,
+  DateValue,
+  getLocalTimeZone,
+} from "@internationalized/date";
 
 interface SelectDateProps {
   activeStep: number;
@@ -20,10 +29,24 @@ const SelectDate: React.FC<SelectDateProps> = ({
   setAppointmentError,
   setUpdateAvailability,
 }) => {
+  const [calendarValue, setCalendarValue] = useState<DateValue>(
+    now(getLocalTimeZone())
+  );
   const { userAppointment, setUserAppointment } = useUserAppointmentContext();
 
   const [selectedDate, setSelectedDate] = useState<string>(
     userAppointment.date
+  );
+  let dateFormatter = useDateFormatter({
+    dateStyle: "full",
+  });
+
+  const calendarDate = dateFormatter.format(
+    calendarValue.toDate(getLocalTimeZone())
+  );
+
+  const match = availableDates?.filter(
+    (availability) => availability[1].availability.date === calendarDate
   );
 
   return (
@@ -34,49 +57,66 @@ const SelectDate: React.FC<SelectDateProps> = ({
             <Alert alertType="Error" alertMsg={appointmentError.errorMsg} />
           </>
         )}
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 p-4">
-        {availableDates &&
-          availableDates.map((slot) => {
-            const isSelected = slot[1].availability.date === selectedDate;
-            return (
-              <div
-                key={slot[0]}
-                className={
-                  isSelected
-                    ? "p-4 border border-slate-300 rounded-2xl shadow h-24 sm:h-32 w-full flex flex-col items-center justify-center cursor-pointer bg-gradient-to-br from-teal-400 via-pink-300 to-teal-500"
-                    : "p-4 border border-slate-300 rounded-2xl shadow h-24 sm:h-32 w-full flex flex-col items-center justify-center cursor-pointer hover:bg-slate-50 transition duration-200"
-                }
-                onClick={() => {
-                  setUserAppointment((prevState: any) => ({
-                    ...prevState,
-                    date: slot[1].availability.date,
-                    startTime: slot[1].availability.startTime,
-                  }));
-                  setSelectedDate(slot[1].availability.date);
-
-                  setUpdateAvailability([
-                    slot[0],
-                    { availability: slot[1].availability },
-                  ]);
-
-                  setAppointmentError({ errorType: "", errorMsg: "" });
-                }}
-              >
-                <p
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4">
+        <div className="flex justify-center">
+          <Calendar
+            aria-label="Date (Controlled)"
+            value={calendarValue}
+            onChange={setCalendarValue}
+            minValue={today(getLocalTimeZone())}
+          />
+        </div>
+        <div className=" ">
+          <p className="text-lg text-center font-bold text-slate-600">
+            {calendarDate}
+          </p>
+          {match && match.length > 0 ? (
+            match?.map((availability) => {
+              const isSelected =
+                availability[1].availability.date === selectedDate;
+              return (
+                <div
                   className={
                     isSelected
-                      ? "text-sm  sm:text-lg font-semibold text-white"
-                      : "text-sm  sm:text-lg font-semibold"
+                      ? "flex justify-center m-2 h-12  p-4 border border-slate-300 rounded-2xl shadow cursor-pointer bg-gradient-to-br from-teal-400 via-pink-300 to-teal-500 transition duration-200"
+                      : "flex justify-center m-2 h-12  p-4 border border-slate-300 rounded-2xl shadow cursor-pointer hover:bg-slate-50 transition duration-200"
                   }
+                  onClick={() => {
+                    setUserAppointment((prevState: any) => ({
+                      ...prevState,
+                      date: availability[1].availability.date,
+                      startTime: availability[1].availability.startTime,
+                    }));
+                    setSelectedDate(availability[1].availability.date);
+
+                    setUpdateAvailability([
+                      availability[0],
+                      { availability: availability[1].availability },
+                    ]);
+
+                    setAppointmentError({ errorType: "", errorMsg: "" });
+                  }}
                 >
-                  {slot[1].availability.date}
-                </p>
-                <p className={isSelected ? "text-sm text-white" : "text-sm"}>
-                  {slot[1].availability.startTime}
-                </p>
-              </div>
-            );
-          })}
+                  <p
+                    className={
+                      isSelected
+                        ? "text-sm font-semibold text-white "
+                        : "text-sm font-semibold text-slate-500 "
+                    }
+                  >
+                    {availability[1].availability.startTime}
+                  </p>
+                </div>
+              );
+            })
+          ) : (
+            <div className="flex justify-center">
+              <p className="text-md text-center font-semibold text-slate-500 m-2">
+                No Availability
+              </p>
+            </div>
+          )}
+        </div>
       </div>
     </>
   );

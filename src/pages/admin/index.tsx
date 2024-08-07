@@ -64,8 +64,6 @@ const AdminPage = () => {
     };
   }, []);
 
-  console.log(appointments);
-
   return (
     <div>
       <div className="grid grid-cols-1 gap-10 lg:grid lg:grid-cols-2">
