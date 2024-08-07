@@ -11,9 +11,11 @@ import { AdminAvailabilityType } from "constants/interfaces";
 import { useUserAppointmentContext } from "context/AppointmentContext";
 
 const BookingStepper: React.FC = () => {
-  const [aptErr, setAptErr] = useState<boolean>(false);
-  const [aptErrMsg, setAptErrMsg] = useState<string>("");
   const [activeStep, setActiveStep] = useState<number>(0);
+  const [appointmentError, setAppointmentError] = useState({
+    errorType: "",
+    errorMsg: "",
+  });
   const [availableDates, setAvailableDates] = useState<
     [string, { availability: AdminAvailabilityType }][] | null
   >(null);
@@ -25,26 +27,34 @@ const BookingStepper: React.FC = () => {
 
   const handleNext = (): void => {
     if (activeStep === 0 && userAppointment.vehicleType === undefined) {
-      setAptErr(true);
-      setAptErrMsg("Please Select a vehicle type.");
+      setAppointmentError({
+        errorType: "Select Vehicle",
+        errorMsg: "Please Select a vehicle type.",
+      });
       return;
     } else if (
       activeStep === 1 &&
       userAppointment.selectedPackage === undefined
     ) {
-      setAptErr(true);
-      setAptErrMsg("Please Select a package.");
+      setAppointmentError({
+        errorType: "Select Package",
+        errorMsg: "Please Select a package",
+      });
       return;
     } else if (activeStep === 2 && userAppointment.date === "") {
-      setAptErr(true);
-      setAptErrMsg("Please Select a date and time.");
+      setAppointmentError({
+        errorType: "Select Date & Time",
+        errorMsg: "Please Select a date and time.",
+      });
       return;
     } else if (
       activeStep === 3 &&
       (!firstName || !lastName || !email || !phone || !address)
     ) {
-      setAptErr(true);
-      setAptErrMsg("Please fill out all fields.");
+      setAppointmentError({
+        errorType: "Contact Info",
+        errorMsg: "Please fill out all fields.",
+      });
       return;
     } else {
       setActiveStep((prevStep) => prevStep + 1);
@@ -72,7 +82,7 @@ const BookingStepper: React.FC = () => {
       {/* HEADER */}
       <div className="p-2 my-5 flex flex-col items-center justify-center">
         <p className="text-2xl font-bold">{bookingSteps[activeStep].title} </p>
-        <p className="text-sm font-semibold text-gray-700 text-center">
+        <p className="text-sm font-semibold text-slate-600 text-center">
           {bookingSteps[activeStep]?.desc}{" "}
         </p>
       </div>
@@ -81,9 +91,8 @@ const BookingStepper: React.FC = () => {
       <ScheduleAppointment
         activeStep={activeStep}
         availableDates={availableDates}
-        aptErr={aptErr}
-        aptErrMsg={aptErrMsg}
-        setAptErr={setAptErr}
+        appointmentError={appointmentError}
+        setAppointmentError={setAppointmentError}
       />
 
       {/* STEPPER */}
@@ -105,8 +114,8 @@ const BookingStepper: React.FC = () => {
               disabled={activeStep === maxSteps - 1 || activeStep === 4}
               className={
                 activeStep !== 4
-                  ? "text-md font-semibold bg-teal-400 text-white p-2 rounded-xl text-center transition duration-200 hover:bg-teal-500"
-                  : "text-md font-semibold bg-teal-500 text-white p-2 rounded-xl"
+                  ? "text-md font-semibold bg-teal-400 text-white p-2 m-6 rounded-xl text-center transition duration-200 hover:bg-teal-500"
+                  : "text-md font-semibold bg-teal-500 text-white p-2 m-6 rounded-xl"
               }
             >
               Next
@@ -119,8 +128,8 @@ const BookingStepper: React.FC = () => {
               disabled={activeStep === 0}
               className={
                 activeStep !== 0
-                  ? "text-md font-semibold bg-teal-400 text-white p-2 rounded-xl text-center transition duration-200 hover:bg-teal-500"
-                  : "text-md font-semibold bg-teal-500 text-white p-2 rounded-xl "
+                  ? "text-md font-semibold bg-teal-400 text-white p-2 m-6 rounded-xl text-center transition duration-200 hover:bg-teal-500"
+                  : "text-md font-semibold bg-teal-500 text-white p-2 m-6 rounded-xl "
               }
             >
               <KeyboardArrowLeftIcon />

@@ -3,15 +3,15 @@ import { calculatePrice } from "utils/calculatePrice";
 import Alert from "components/ui/alert";
 
 interface ContactFormProps {
-  aptErr?: boolean;
-  aptErrMsg?: string;
-  setAptErr: (x: boolean) => void;
+  activeStep: number;
+  appointmentError: { errorType: string; errorMsg: string };
+  setAppointmentError: (x: { errorType: string; errorMsg: string }) => void;
 }
 
 const ContactForm: React.FC<ContactFormProps> = ({
-  aptErr,
-  aptErrMsg,
-  setAptErr,
+  activeStep,
+  appointmentError,
+  setAppointmentError,
 }) => {
   const { userAppointment, setUserAppointment } = useUserAppointmentContext();
 
@@ -24,13 +24,13 @@ const ContactForm: React.FC<ContactFormProps> = ({
         [e.target.name]: e.target.value,
       },
     }));
-    setAptErr(false);
+    setAppointmentError({ errorType: "", errorMsg: "" });
   };
   return (
     <>
-      {aptErr && (
+      {activeStep === 3 && appointmentError.errorType === "Contact Info" && (
         <>
-          <Alert alertType="Error" alertMsg={aptErrMsg} />
+          <Alert alertType="Error" alertMsg={appointmentError.errorMsg} />
         </>
       )}
       <form>

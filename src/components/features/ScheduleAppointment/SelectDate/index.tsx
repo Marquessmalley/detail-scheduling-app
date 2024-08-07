@@ -4,20 +4,20 @@ import { AdminAvailabilityType } from "constants/interfaces";
 import Alert from "components/ui/alert";
 
 interface SelectDateProps {
+  activeStep: number;
   availableDates: [string, { availability: AdminAvailabilityType }][] | null;
-  aptErr?: boolean;
-  aptErrMsg?: string;
-  setAptErr: (x: boolean) => void;
+  appointmentError: { errorType: string; errorMsg: string };
+  setAppointmentError: (x: { errorType: string; errorMsg: string }) => void;
   setUpdateAvailability: (
     x: [string, { availability: AdminAvailabilityType }] | null
   ) => void;
 }
 
 const SelectDate: React.FC<SelectDateProps> = ({
+  activeStep,
   availableDates,
-  aptErr,
-  aptErrMsg,
-  setAptErr,
+  appointmentError,
+  setAppointmentError,
   setUpdateAvailability,
 }) => {
   const { userAppointment, setUserAppointment } = useUserAppointmentContext();
@@ -25,15 +25,15 @@ const SelectDate: React.FC<SelectDateProps> = ({
   const [selectedDate, setSelectedDate] = useState<string>(
     userAppointment.date
   );
-  console.log(availableDates);
 
   return (
     <>
-      {aptErr && (
-        <>
-          <Alert alertType="Error" alertMsg={aptErrMsg} />
-        </>
-      )}
+      {activeStep === 2 &&
+        appointmentError.errorType === "Select Date & Time" && (
+          <>
+            <Alert alertType="Error" alertMsg={appointmentError.errorMsg} />
+          </>
+        )}
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 p-4">
         {availableDates &&
           availableDates.map((slot) => {
@@ -59,7 +59,7 @@ const SelectDate: React.FC<SelectDateProps> = ({
                     { availability: slot[1].availability },
                   ]);
 
-                  setAptErr(false);
+                  setAppointmentError({ errorType: "", errorMsg: "" });
                 }}
               >
                 <p

@@ -4,15 +4,16 @@ import { useUserAppointmentContext } from "context/AppointmentContext";
 import Alert from "components/ui/alert";
 
 interface SelectVehicleType {
-  aptErr?: boolean;
-  aptErrMsg?: string;
-  setAptErr: (x: boolean) => void;
+  activeStep: number;
+
+  appointmentError: { errorType: string; errorMsg: string };
+  setAppointmentError: (x: { errorType: string; errorMsg: string }) => void;
 }
 
 const SelectVehicle: React.FC<SelectVehicleType> = ({
-  aptErr,
-  aptErrMsg,
-  setAptErr,
+  activeStep,
+  appointmentError,
+  setAppointmentError,
 }) => {
   const { userAppointment, setUserAppointment } = useUserAppointmentContext();
   const [selectedCar, setSelectedCar] = useState<string | undefined>(
@@ -21,9 +22,9 @@ const SelectVehicle: React.FC<SelectVehicleType> = ({
 
   return (
     <>
-      {aptErr && (
+      {activeStep === 0 && appointmentError.errorType === "Select Vehicle" && (
         <>
-          <Alert alertType="Error" alertMsg={aptErrMsg} />
+          <Alert alertType="Error" alertMsg={appointmentError.errorMsg} />
         </>
       )}
       <div className=" grid grid-cols-2 sm:grid-cols-3 gap-y-2 justify-items-center p-2 my-5">
@@ -35,10 +36,10 @@ const SelectVehicle: React.FC<SelectVehicleType> = ({
               carType = "Sedan";
               break;
             case "suvTwoRows":
-              carType = "SUV - 2 Row";
+              carType = "SUV(2 Rows)";
               break;
             case "suvThreeRows":
-              carType = "SUV - 3 Row";
+              carType = "SUV(3 Rows)";
               break;
 
             default:
@@ -60,7 +61,7 @@ const SelectVehicle: React.FC<SelectVehicleType> = ({
                   }));
                   setSelectedCar(car.type);
 
-                  setAptErr(false);
+                  setAppointmentError({ errorType: "", errorMsg: "" });
                 }}
               >
                 <img src={car.img[0]} alt="car_type" />

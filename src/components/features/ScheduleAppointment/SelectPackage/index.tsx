@@ -12,15 +12,17 @@ import { CheckIcon } from "components/ui/icons";
 import { VehicleType } from "constants/interfaces";
 
 interface SelectVehicleType {
-  aptErr?: boolean;
-  aptErrMsg?: string;
-  setAptErr: (x: boolean) => void;
+  activeStep: number;
+
+  appointmentError: { errorType: string; errorMsg: string };
+  setAppointmentError: (x: { errorType: string; errorMsg: string }) => void;
 }
 
 const SelectPackage: React.FC<SelectVehicleType> = ({
-  aptErr,
-  aptErrMsg,
-  setAptErr,
+  activeStep,
+
+  appointmentError,
+  setAppointmentError,
 }) => {
   const { userAppointment, setUserAppointment } = useUserAppointmentContext();
 
@@ -34,11 +36,11 @@ const SelectPackage: React.FC<SelectVehicleType> = ({
 
   return (
     <>
-      {aptErr && (
+      {activeStep === 1 && appointmentError.errorType === "Select Package" ? (
         <>
-          <Alert alertType="Error" alertMsg={aptErrMsg} />
+          <Alert alertType="Error" alertMsg={appointmentError.errorMsg} />
         </>
-      )}
+      ) : null}
       <div className="grid grid-cols-1 gap-y-5 gap-x-5 p-6 justify-items-center">
         {detailMenu.map((detail) => {
           const isSelected = detail.packageName === selectedDetailPackage;
@@ -109,7 +111,7 @@ const SelectPackage: React.FC<SelectVehicleType> = ({
                           selectedPackage: detail.packageName,
                         }));
                         setSelectedDetailPackage(detail.packageName);
-                        setAptErr(false);
+                        setAppointmentError({ errorType: "", errorMsg: "" });
                       }}
                     >
                       Select

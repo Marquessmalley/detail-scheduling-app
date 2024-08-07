@@ -3,10 +3,10 @@ import carSpray from "assets/images/car-spray.png";
 const Landing = () => {
   return (
     <div
-      className="grid grid-cols-1 sm:grid-cols-2 gap-x-10"
+      className="grid grid-cols-1 sm:grid-cols-2 m-6"
       style={{ height: "80vh" }}
     >
-      <div className="flex flex-col justify-center items-start text-center max-w-md sm:max-w-3xl mx-auto sm:ml-10">
+      <div className="flex flex-col justify-center items-start col-span-2 lg:col-span-1  text-center ">
         <p className="text-5xl font-bold mb-8 leading-12 text-black text-left">
           Your Car, Our Care -{" "}
           <span className=" text-teal-400">Anywhere, Anytime</span>
@@ -34,12 +34,8 @@ const Landing = () => {
           </svg>
         </button>
       </div>
-      <div className="hidden sm:flex sm:justify-center sm:items-center ">
-        <img
-          src={carSpray}
-          alt="landingImg"
-          className="h-96 w-96 hidden sm:inline-block"
-        />
+      <div className="hidden lg:flex lg:justify-center lg:items-center ">
+        <img src={carSpray} alt="landingImg" className="h-96 w-96" />
       </div>
     </div>
   );

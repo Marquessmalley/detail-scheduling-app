@@ -9,17 +9,15 @@ import AppointmentSummary from "components/features/ScheduleAppointment/Appointm
 interface ScheduleAppointmentProps {
   activeStep: number;
   availableDates: [string, { availability: AdminAvailabilityType }][] | null;
-  aptErr?: boolean;
-  aptErrMsg?: string;
-  setAptErr: (x: boolean) => void;
+  appointmentError: { errorType: string; errorMsg: string };
+  setAppointmentError: (x: { errorType: string; errorMsg: string }) => void;
 }
 
 const ScheduleAppointment: React.FC<ScheduleAppointmentProps> = ({
   activeStep,
   availableDates,
-  aptErrMsg,
-  aptErr,
-  setAptErr,
+  appointmentError,
+  setAppointmentError,
 }) => {
   const [updateAvailability, setUpdateAvailability] = useState<
     [string, { availability: AdminAvailabilityType }] | null
@@ -29,32 +27,32 @@ const ScheduleAppointment: React.FC<ScheduleAppointmentProps> = ({
     <>
       {activeStep === 0 && (
         <SelectVehicle
-          aptErr={aptErr}
-          aptErrMsg={aptErrMsg}
-          setAptErr={setAptErr}
+          activeStep={activeStep}
+          appointmentError={appointmentError}
+          setAppointmentError={setAppointmentError}
         />
       )}
       {activeStep === 1 && (
         <SelectPackage
-          aptErr={aptErr}
-          aptErrMsg={aptErrMsg}
-          setAptErr={setAptErr}
+          activeStep={activeStep}
+          appointmentError={appointmentError}
+          setAppointmentError={setAppointmentError}
         />
       )}
       {activeStep === 2 && (
         <SelectDate
+          activeStep={activeStep}
           availableDates={availableDates}
-          aptErr={aptErr}
-          aptErrMsg={aptErrMsg}
-          setAptErr={setAptErr}
           setUpdateAvailability={setUpdateAvailability}
+          appointmentError={appointmentError}
+          setAppointmentError={setAppointmentError}
         />
       )}
       {activeStep === 3 && (
         <ContactForm
-          aptErr={aptErr}
-          aptErrMsg={aptErrMsg}
-          setAptErr={setAptErr}
+          activeStep={activeStep}
+          appointmentError={appointmentError}
+          setAppointmentError={setAppointmentError}
         />
       )}
       {activeStep === 4 && (
