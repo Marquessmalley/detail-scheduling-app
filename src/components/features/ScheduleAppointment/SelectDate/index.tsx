@@ -10,6 +10,7 @@ import {
   today,
   DateValue,
   getLocalTimeZone,
+  parseDate,
 } from "@internationalized/date";
 
 interface SelectDateProps {
@@ -29,10 +30,13 @@ const SelectDate: React.FC<SelectDateProps> = ({
   setAppointmentError,
   setUpdateAvailability,
 }) => {
-  const [calendarValue, setCalendarValue] = useState<DateValue>(
-    now(getLocalTimeZone())
-  );
   const { userAppointment, setUserAppointment } = useUserAppointmentContext();
+
+  const [calendarValue, setCalendarValue] = useState<DateValue>(
+    userAppointment.date !== ""
+      ? parseDate(new Date(userAppointment.date).toISOString().split("T")[0])
+      : now(getLocalTimeZone())
+  );
 
   const [selectedDate, setSelectedDate] = useState<string>(
     userAppointment.date

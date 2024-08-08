@@ -8,7 +8,7 @@ const Booking: React.FC = () => {
           Set Appointment
         </p>
       </div>
-      <div className=" max-w-3xl mx-auto w-full border rounded-2xl shadow-2xl">
+      <div className=" max-w-5xl mx-auto w-full border rounded-2xl shadow-2xl">
         <BookingStepper />
       </div>
     </div>

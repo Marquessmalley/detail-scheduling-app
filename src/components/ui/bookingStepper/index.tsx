@@ -9,6 +9,7 @@ import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import ScheduleAppointment from "components/features/ScheduleAppointment/ScheduleAppointment";
 import { AdminAvailabilityType } from "constants/interfaces";
 import { useUserAppointmentContext } from "context/AppointmentContext";
+import { calculatePrice } from "utils/calculatePrice";
 
 const BookingStepper: React.FC = () => {
   const [activeStep, setActiveStep] = useState<number>(0);
@@ -21,7 +22,7 @@ const BookingStepper: React.FC = () => {
   >(null);
   const maxSteps = bookingSteps.length;
 
-  const { userAppointment } = useUserAppointmentContext();
+  const { userAppointment, setUserAppointment } = useUserAppointmentContext();
   const { firstName, lastName, email, phone, address } =
     userAppointment.contactInfo;
 
@@ -52,12 +53,19 @@ const BookingStepper: React.FC = () => {
       (!firstName || !lastName || !email || !phone || !address)
     ) {
       setAppointmentError({
-        errorType: "Contact Info",
+        errorType: "Contact Information",
         errorMsg: "Please fill out all fields.",
       });
       return;
     } else {
       setActiveStep((prevStep) => prevStep + 1);
+    }
+
+    if (activeStep === 1) {
+      setUserAppointment((prevState: any) => ({
+        ...prevState,
+        price: calculatePrice(userAppointment),
+      }));
     }
   };
   const handleBack = (): void => {
@@ -81,8 +89,9 @@ const BookingStepper: React.FC = () => {
     <div className="flex flex-col h-full ">
       {/* HEADER */}
       <div className="p-2 my-5 flex flex-col items-center justify-center">
-        <p className="text-2xl font-bold">{bookingSteps[activeStep].title} </p>
-        <p className="text-sm font-semibold text-slate-600 text-center">
+        <h2 className="text-2xl font-bold">{bookingSteps[activeStep].title}</h2>
+
+        <p className="text-sm  text-slate-600 text-center leading-6">
           {bookingSteps[activeStep]?.desc}{" "}
         </p>
       </div>
@@ -111,9 +120,9 @@ const BookingStepper: React.FC = () => {
           nextButton={
             <button
               onClick={handleNext}
-              disabled={activeStep === maxSteps - 1 || activeStep === 4}
+              disabled={activeStep === maxSteps - 1 || activeStep === 3}
               className={
-                activeStep !== 4
+                activeStep !== 3
                   ? "text-md font-semibold bg-teal-400 text-white p-2 m-6 rounded-xl text-center transition duration-200 hover:bg-teal-500"
                   : "text-md font-semibold bg-teal-500 text-white p-2 m-6 rounded-xl"
               }

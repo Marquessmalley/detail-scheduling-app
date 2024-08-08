@@ -9,7 +9,7 @@ export const calculatePrice = (userAppointment: Appointment) => {
     (item) => item.packageName === userAppointment.selectedPackage
   );
 
-  if (filteredPackage[0].vehicleType) {
+  if (filteredPackage[0].vehicleType && userAppointment.vehicleType) {
     const carTypeArr = Object.keys(filteredPackage[0].vehicleType);
 
     for (let i = 0; i < carTypeArr.length; i++) {

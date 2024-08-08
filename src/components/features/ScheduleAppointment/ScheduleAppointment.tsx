@@ -4,7 +4,6 @@ import SelectVehicle from "components/features/ScheduleAppointment/SelectVehicle
 import SelectPackage from "components/features/ScheduleAppointment/SelectPackage";
 import SelectDate from "components/features/ScheduleAppointment/SelectDate";
 import ContactForm from "components/features/ScheduleAppointment/ContactForm";
-import AppointmentSummary from "components/features/ScheduleAppointment/AppointmentSummary";
 
 interface ScheduleAppointmentProps {
   activeStep: number;
@@ -53,10 +52,8 @@ const ScheduleAppointment: React.FC<ScheduleAppointmentProps> = ({
           activeStep={activeStep}
           appointmentError={appointmentError}
           setAppointmentError={setAppointmentError}
+          updateAvailability={updateAvailability}
         />
-      )}
-      {activeStep === 4 && (
-        <AppointmentSummary updateAvailability={updateAvailability} />
       )}
     </>
   );

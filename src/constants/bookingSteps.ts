@@ -12,9 +12,6 @@ export const bookingSteps = [
     title: "Select Date & Time",
   },
   {
-    title: "Contact Info",
-  },
-  {
-    title: "Appointment Summary",
+    title: "Appointment Information",
   },
 ];
