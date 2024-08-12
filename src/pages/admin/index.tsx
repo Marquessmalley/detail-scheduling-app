@@ -5,17 +5,19 @@ import AvailableDate from "components/ui/availableDate";
 import { database } from "firebaseConfig";
 import { ref, onValue, off } from "firebase/database";
 import { SpinnerIcon } from "components/ui/icons";
-import { sortedAvailabilities } from "utils/sortAvailabilities";
+import {
+  sortedAvailabilities,
+  sortedAppointments,
+} from "utils/sortAvailabilities";
 
 const AdminPage = () => {
   const [availabilities, setAvailabilities] = useState<
     [string, { availability: AdminAvailabilityType }][] | null
   >(null);
 
-  const [appointments, setAppointments] = useState<Record<
-    string,
-    { appointment: Appointment }
-  > | null>(null);
+  const [appointments, setAppointments] = useState<
+    [string, { appointment: Appointment }][] | null
+  >(null);
 
   const [loading, setLoading] = useState(true);
 
@@ -33,8 +35,9 @@ const AdminPage = () => {
       }
     });
     onValue(dbAppointmentsRef, (snapshot) => {
+      const sortedApt = sortedAppointments(snapshot.val());
       if (snapshot.exists()) {
-        setAppointments(snapshot.val());
+        setAppointments(sortedApt);
         setLoading(false);
       } else {
         setAppointments(null);
@@ -54,10 +57,10 @@ const AdminPage = () => {
       });
       off(dbAppointmentsRef, "value", (snapshot) => {
         if (snapshot.exists()) {
-          setAppointments(snapshot.val());
+          // setAppointments(snapshot.val());
           setLoading(false);
         } else {
-          setAppointments(null);
+          // setAppointments(null);
           setLoading(false);
         }
       });
@@ -66,8 +69,9 @@ const AdminPage = () => {
 
   return (
     <div>
-      <div className="grid grid-cols-1 gap-10 lg:grid lg:grid-cols-2">
-        <div>
+      <div className="grid grid-cols-1 lg:grid lg:grid-cols-2 sm:mx-auto sm:max-w-7xl">
+        {/* AVAILABILITIES */}
+        <div className="p-8 ">
           <div className=" lg:max-w-xl lg:mx-auto px-4 sm:px-0">
             <h3 className="text-base font-semibold leading-7 text-gray-900">
               View your available openings
@@ -76,7 +80,8 @@ const AdminPage = () => {
               Scheduled dates.
             </p>
           </div>
-          <div>
+
+          <div className="h-4/5 overflow-y-scroll ">
             {availabilities && availabilities.length > 0 ? (
               availabilities.map((slot) => {
                 return (
@@ -99,7 +104,9 @@ const AdminPage = () => {
             )}
           </div>
         </div>
-        <div className="">
+
+        {/* UPCOMING APPOINTMENTS */}
+        <div className="p-8">
           <div className=" lg:max-w-xl lg:mx-auto px-4 sm:px-0">
             <h3 className="text-base font-semibold leading-7 text-gray-900">
               Upcoming Appointments...
@@ -108,19 +115,21 @@ const AdminPage = () => {
               Apointment details.
             </p>
           </div>
-          {appointments ? (
-            Object.keys(appointments).map((x: string) => (
-              <UpcomingDescription appointment={appointments[x].appointment} />
-            ))
-          ) : (
-            <div className="text-center  p-4">
-              {loading ? (
-                <SpinnerIcon />
-              ) : (
-                <p className="text-4xl font-bold ">No Appointments Booked</p>
-              )}
-            </div>
-          )}
+          <div className="h-4/5 overflow-y-scroll border rounded-lg">
+            {appointments && appointments.length > 0 ? (
+              appointments.map((appointment) => (
+                <UpcomingDescription appointment={appointment[1].appointment} />
+              ))
+            ) : (
+              <div className="text-center  p-4">
+                {loading ? (
+                  <SpinnerIcon />
+                ) : (
+                  <p className="text-4xl font-bold ">No Appointments Booked</p>
+                )}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>

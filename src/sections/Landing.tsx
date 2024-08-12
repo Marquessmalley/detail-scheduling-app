@@ -6,7 +6,7 @@ const Landing = () => {
       className="grid grid-cols-1 sm:grid-cols-2 m-6"
       style={{ height: "80vh" }}
     >
-      <div className="flex flex-col justify-center items-start col-span-2 lg:col-span-1  text-center ">
+      <div className="flex flex-col justify-center items-start col-span-2 lg:col-span-1  text-center ml-4">
         <p className="text-5xl font-bold mb-8 leading-12 text-black text-left">
           Your Car, Our Care -{" "}
           <span className=" text-teal-400">Anywhere, Anytime</span>

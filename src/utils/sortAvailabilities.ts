@@ -1,8 +1,13 @@
-import { AdminAvailabilityType } from "constants/interfaces";
+import { AdminAvailabilityType, Appointment } from "constants/interfaces";
 
 interface FirebaseAvailabilities {
   [key: string]: {
     availability: AdminAvailabilityType;
+  };
+}
+interface FirebaseAppointments {
+  [key: string]: {
+    appointment: Appointment;
   };
 }
 
@@ -24,4 +29,20 @@ export const sortedAvailabilities = (data: FirebaseAvailabilities) => {
   });
 
   return filterBookings;
+};
+
+export const sortedAppointments = (data: FirebaseAppointments) => {
+  const appointment = Object.entries(data);
+
+  appointment.sort((a, b) => {
+    const dateA = new Date(
+      `${a[1].appointment.date} ${a[1].appointment.startTime}`
+    );
+    const dateB = new Date(
+      `${b[1].appointment.date} ${b[1].appointment.startTime}`
+    );
+    return dateA.getTime() - dateB.getTime();
+  });
+
+  return appointment;
 };

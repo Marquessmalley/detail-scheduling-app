@@ -14,7 +14,7 @@ const ClockIcon: React.FC<ClockIconProps> = ({ mr, textColor, size }) => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className={` ${size} ${mr && mr} ${textColor && textColor}`}
+      className={` ${size} ${mr && mr} ${textColor && textColor} `}
     >
       <path
         strokeLinecap="round"

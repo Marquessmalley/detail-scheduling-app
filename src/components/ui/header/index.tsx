@@ -19,7 +19,7 @@ const AdminHeader = () => {
 
   return (
     <div className="mx-auto max-w-7xl my-8  grid grid-cols-2 ">
-      <div className="">
+      <div className="ml-2 sm:ml-0">
         <h1 className="text-lg font-bold text-gray-900 sm:text-4xl ">
           Welcome, {user?.email ? user.email.split("@")[0] : "Guest"}!
         </h1>

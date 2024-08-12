@@ -1,6 +1,7 @@
 import car from "assets/images/car-wash.png";
 import { DetailPackage } from "constants/interfaces";
 import { CheckIcon, ClockIcon } from "components/ui/icons";
+import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
 
 interface PriceCardProps {
   plan: DetailPackage;
@@ -12,8 +13,8 @@ const PriceCard: React.FC<PriceCardProps> = ({ plan }) => {
       key={plan.id}
       className={
         plan.packageName === "Gold Package"
-          ? "p-4 border border-slate-300 rounded-3xl shadow max-w-md m-5 bg-gradient-to-br from-teal-400 via-pink-300 to-teal-500 transform scale-105"
-          : "p-4 border border-slate-300 rounded-3xl shadow max-w-md m-5"
+          ? "p-4 border border-slate-300 rounded-3xl shadow max-w-md m-5 bg-gradient-to-br from-teal-400 via-pink-300 to-teal-500 transform scale-105 cursor-pointer"
+          : "p-4 border border-slate-300 rounded-3xl shadow max-w-md m-5 bg-slate-100 hover:bg-slate-50 hover:transform hover:scale-105 transition duration-200 cursor-pointer"
       }
     >
       {/* CARD HEADER */}
@@ -39,9 +40,9 @@ const PriceCard: React.FC<PriceCardProps> = ({ plan }) => {
           </p>
         </div>
 
-        <div className="flex items-center justify-center rounded-full text-center  w-32 bg-slate-100 border shadow">
-          <ClockIcon size="size-6 font-bold" />
-          <p className=" ml-1 text-sm font-bold">{plan.estimatedTime}</p>
+        <div className="flex items-center justify-center rounded-full text-center  w-18 p-2 bg-white border shadow">
+          <AccessAlarmIcon />
+          <p className=" ml-1 text-sm  font-bold">{plan.estimatedTime}</p>
         </div>
       </div>
 
@@ -127,7 +128,7 @@ const PriceCard: React.FC<PriceCardProps> = ({ plan }) => {
                       className={
                         plan.packageName === "Gold Package"
                           ? "ml-2 text-white text-sm w-full"
-                          : "ml-2 text-gray-600 text-sm w-full"
+                          : "ml-2 text-gray-6s00 text-sm w-full"
                       }
                     >
                       {service}

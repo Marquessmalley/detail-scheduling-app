@@ -13,7 +13,7 @@ const UpcomingDescription: React.FC<UpcomingDescriptionProps> = ({
   return (
     <div
       key={"i"}
-      className="lg:max-w-xl lg:mx-auto flex justify-between  overflow-hidden border-b "
+      className="lg:max-w-xl lg:mx-auto flex justify-between border-b "
     >
       <div className=" w-full p-2 my-2">
         {/* User name */}
