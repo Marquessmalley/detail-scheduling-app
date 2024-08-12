@@ -41,6 +41,10 @@ const SelectDate: React.FC<SelectDateProps> = ({
   const [selectedDate, setSelectedDate] = useState<string>(
     userAppointment.date
   );
+  const [selectedTime, setSelectedTime] = useState<string>(
+    userAppointment.startTime
+  );
+
   let dateFormatter = useDateFormatter({
     dateStyle: "full",
   });
@@ -77,7 +81,9 @@ const SelectDate: React.FC<SelectDateProps> = ({
           {match && match.length > 0 ? (
             match?.map((availability) => {
               const isSelected =
-                availability[1].availability.date === selectedDate;
+                availability[1].availability.date === selectedDate &&
+                availability[1].availability.startTime === selectedTime;
+
               return (
                 <div
                   className={
@@ -92,7 +98,7 @@ const SelectDate: React.FC<SelectDateProps> = ({
                       startTime: availability[1].availability.startTime,
                     }));
                     setSelectedDate(availability[1].availability.date);
-
+                    setSelectedTime(availability[1].availability.startTime);
                     setUpdateAvailability([
                       availability[0],
                       { availability: availability[1].availability },
