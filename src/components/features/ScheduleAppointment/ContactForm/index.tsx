@@ -3,6 +3,7 @@ import { addUserAppointment } from "services/appointmentServices";
 import Alert from "components/ui/alert";
 import { AdminAvailabilityType } from "constants/interfaces";
 import { useNavigate } from "react-router-dom";
+import formatPhoneNumber from "utils/formatPhoneNumber";
 
 interface ContactFormProps {
   activeStep: number;
@@ -31,6 +32,19 @@ const ContactForm: React.FC<ContactFormProps> = ({
     setAppointmentError({ errorType: "", errorMsg: "" });
   };
 
+  const handlePhoneChange = (e: any) => {
+    if (e.target.name === "phone") {
+      const formattedNumber = formatPhoneNumber(e.target.value);
+
+      setUserAppointment((prevState: any) => ({
+        ...prevState,
+        contactInfo: {
+          ...prevState.contactInfo,
+          phone: formattedNumber,
+        },
+      }));
+    }
+  };
   const handleSubmitAppointment = () => {
     addUserAppointment(userAppointment, updateAvailability);
     navigate("/booking-confirm", {
@@ -42,6 +56,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
     });
     setUserAppointment(null);
   };
+
   return (
     <>
       {activeStep === 3 &&
@@ -121,9 +136,9 @@ const ContactForm: React.FC<ContactFormProps> = ({
                 id="phone"
                 value={userAppointment.contactInfo.phone}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 hover:bg-slate-100 transition duration-200 cursor-pointer"
-                placeholder="123-45-678"
-                pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
-                onChange={handleContactChange}
+                placeholder="(123)456-7899"
+                onChange={handlePhoneChange}
+                maxLength={13}
                 required
               />
             </div>
@@ -156,7 +171,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
             <h3 className=" text-sm font-bold text-teal-400 sm:text-md">
               Vehicle Type
             </h3>
-            <p className="text-sm text-gray-700">
+            <p className="text-sm text-gray-700 font-medium">
               {userAppointment.vehicleType}
             </p>
           </div>
@@ -165,7 +180,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
             <h3 className="text-sm font-bold text-teal-400 sm:text-md">
               Selected Package
             </h3>
-            <p className=" text-sm text-gray-700 ">
+            <p className=" text-sm text-gray-700 font-medium">
               {userAppointment.selectedPackage}
             </p>
           </div>
@@ -174,14 +189,18 @@ const ContactForm: React.FC<ContactFormProps> = ({
             <h3 className="text-sm font-bold text-teal-400 sm:text-md">
               Appointment Date
             </h3>
-            <p className="text-sm text-gray-700">{userAppointment.date}</p>
+            <p className="text-sm text-gray-700 font-medium">
+              {userAppointment.date}
+            </p>
           </div>
 
           <div className="grid grid-cols-2 sm:gap-x-6  my-4 sm:m-6">
             <h3 className="text-sm font-bold text-teal-400 sm:text-md">
               Start Time
             </h3>
-            <p className="text-sm text-gray-700">{userAppointment.startTime}</p>
+            <p className="text-sm text-gray-700 font-medium">
+              {userAppointment.startTime}
+            </p>
           </div>
 
           {userAppointment.endTime && (
@@ -189,7 +208,9 @@ const ContactForm: React.FC<ContactFormProps> = ({
               <h3 className="text-sm font-bold text-teal-400 sm:text-md">
                 End Time
               </h3>
-              <p className="text-sm text-gray-700">{userAppointment.endTime}</p>
+              <p className="text-sm text-gray-700 font-medium">
+                {userAppointment.endTime}
+              </p>
             </div>
           )}
 
@@ -197,7 +218,9 @@ const ContactForm: React.FC<ContactFormProps> = ({
             <h3 className="text-sm font-bold text-teal-400 sm:text-md">
               Price
             </h3>
-            <p className="text-sm text-gray-700 ">${userAppointment.price}</p>
+            <p className="text-sm text-gray-700 font-medium">
+              ${userAppointment.price}
+            </p>
           </div>
         </div>
         {/* SUBMIT BUTTON */}
