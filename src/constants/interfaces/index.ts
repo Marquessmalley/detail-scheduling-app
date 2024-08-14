@@ -21,6 +21,7 @@ export interface Appointment {
     | "Full Interior Detail"
     | "Premium Wash & Wax"
     | undefined;
+  duration: string;
   price: number;
 }
 

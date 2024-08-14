@@ -39,6 +39,7 @@ const AppointmentProvider: React.FC<AppointmentProviderProps> = ({
       address: "",
     },
     selectedPackage: undefined,
+    duration: "",
     price: 0,
   });
 

@@ -46,9 +46,8 @@ const SelectVehicle: React.FC<SelectVehicleType> = ({
               break;
           }
           return (
-            <>
+            <div key={car.id}>
               <div
-                key={car.id}
                 className={
                   isSelected
                     ? "p-px border-3 border-teal-300 rounded-2xl shadow-2xl h-22 w-28 sm:h-32 sm:w-32 flex flex-col items-center justify-center cursor-pointer bg-slate-200  transition duration-200"
@@ -69,7 +68,7 @@ const SelectVehicle: React.FC<SelectVehicleType> = ({
                   {carType}
                 </p>
               </div>
-            </>
+            </div>
           );
         })}
       </div>

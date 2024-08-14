@@ -10,6 +10,7 @@ import ScheduleAppointment from "components/features/ScheduleAppointment/Schedul
 import { AdminAvailabilityType } from "constants/interfaces";
 import { useUserAppointmentContext } from "context/AppointmentContext";
 import { calculatePrice } from "utils/calculatePrice";
+import calculateEndTime from "utils/calculateEndTime";
 
 const BookingStepper: React.FC = () => {
   const [activeStep, setActiveStep] = useState<number>(0);
@@ -66,6 +67,12 @@ const BookingStepper: React.FC = () => {
         ...prevState,
         price: calculatePrice(userAppointment),
       }));
+    } else if (activeStep === 2) {
+      const calcEndTime = calculateEndTime(userAppointment);
+      setUserAppointment((prevState: any) => ({
+        ...prevState,
+        endTime: calcEndTime,
+      }));
     }
   };
   const handleBack = (): void => {
@@ -80,7 +87,7 @@ const BookingStepper: React.FC = () => {
         setAvailableDates(sortedData);
       } else {
         console.log("not found");
-        setAvailableDates(null);
+        // setAvailableDates(null);
       }
     });
   }, []);

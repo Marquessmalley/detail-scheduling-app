@@ -35,8 +35,8 @@ const AdminPage = () => {
       }
     });
     onValue(dbAppointmentsRef, (snapshot) => {
-      const sortedApt = sortedAppointments(snapshot.val());
       if (snapshot.exists()) {
+        const sortedApt = sortedAppointments(snapshot.val());
         setAppointments(sortedApt);
         setLoading(false);
       } else {
@@ -57,7 +57,7 @@ const AdminPage = () => {
       });
       off(dbAppointmentsRef, "value", (snapshot) => {
         if (snapshot.exists()) {
-          // setAppointments(snapshot.val());
+          setAppointments(snapshot.val());
           setLoading(false);
         } else {
           // setAppointments(null);
@@ -121,7 +121,7 @@ const AdminPage = () => {
                 <UpcomingDescription appointment={appointment[1].appointment} />
               ))
             ) : (
-              <div className="text-center  p-4">
+              <div className="p-4 flex justify-center items-center h-full">
                 {loading ? (
                   <SpinnerIcon />
                 ) : (

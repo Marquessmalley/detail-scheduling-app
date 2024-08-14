@@ -86,6 +86,7 @@ const SelectDate: React.FC<SelectDateProps> = ({
 
               return (
                 <div
+                  key={availability[0]}
                   className={
                     isSelected
                       ? "flex justify-center m-2 h-12  p-4 border border-slate-300 rounded-2xl shadow cursor-pointer bg-gradient-to-br from-teal-400 via-pink-300 to-teal-500 transition duration-200"

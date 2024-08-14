@@ -68,76 +68,87 @@ const SelectPackage: React.FC<SelectVehicleType> = ({
           }
 
           return (
-            <Disclosure
-              key={detail.id}
-              as="div"
-              className={
-                isSelected
-                  ? "p-4 rounded-2xl bg-slate-50 w-full hover:bg-slate-100 transition duration-200  bg-gradient-to-br from-teal-400 via-pink-300 to-teal-500 "
-                  : "p-4 rounded-2xl bg-slate-50 w-full hover:bg-slate-100 transition duration-200"
-              }
-              defaultOpen={false}
-            >
-              <DisclosureButton className="group flex w-full items-center justify-between">
-                <p
-                  className={
-                    isSelected
-                      ? "text-lg font-semibold text-center text-white"
-                      : "text-lg font-semibold text-center"
-                  }
-                >
-                  {detail.packageName}
-                </p>
-                <ChevronDownIcon className="size-5 text-black group-data-[open]:rotate-180" />
-              </DisclosureButton>
-              <DisclosurePanel className="mt-10 text-sm/5 text-black/80  bg-white rounded-xl p-2 shadow-xl">
-                <div className="grid grid-cols-2 m-2">
-                  <div className="flex">
-                    <p className="text-2xl text-white font-bold ml-2 p-2 shadow-xl rounded-lg  whitespace-nowrap bg-gradient-to-br from-teal-400 via-pink-300 to-teal-500">
-                      ${price}
-                    </p>
-                  </div>
+            <div key={detail.id} className="w-full">
+              <Disclosure
+                key={detail.id}
+                as="div"
+                className={
+                  isSelected
+                    ? "p-4 rounded-2xl bg-slate-50 w-full hover:bg-slate-100 transition duration-200  bg-gradient-to-br from-teal-400 via-pink-300 to-teal-500 "
+                    : "p-4 rounded-2xl bg-slate-50 w-full hover:bg-slate-100 transition duration-200"
+                }
+                defaultOpen={false}
+              >
+                <DisclosureButton className="group flex w-full items-center justify-between">
+                  <p
+                    className={
+                      isSelected
+                        ? "text-lg font-semibold text-center text-white"
+                        : "text-lg font-semibold text-center"
+                    }
+                  >
+                    {detail.packageName}
+                  </p>
+                  <ChevronDownIcon className="size-5 text-black group-data-[open]:rotate-180" />
+                </DisclosureButton>
+                <DisclosurePanel className="mt-10 text-sm/5 text-black/80  bg-white rounded-xl p-2 shadow-xl">
+                  <div className="grid grid-cols-2 m-2">
+                    <div className="flex">
+                      <p className="text-2xl text-white font-bold ml-2 p-2 shadow-xl rounded-lg  whitespace-nowrap bg-gradient-to-br from-teal-400 via-pink-300 to-teal-500">
+                        ${price}
+                      </p>
+                    </div>
 
-                  <div className="text-end">
-                    <button
-                      className={
-                        isSelected
-                          ? "text-white font-bold p-2 border shadow-xl rounded-xl mr-2  bg-gradient-to-br from-teal-400 via-pink-300 to-teal-500 "
-                          : "text-black font-bold p-2 border shadow-xl rounded-xl mr-2 bg-slate-100 hover:bg-slate-200 transition duration-200"
-                      }
-                      onClick={() => {
-                        setUserAppointment((prevState: any) => ({
-                          ...prevState,
-                          selectedPackage: detail.packageName,
-                        }));
-                        setSelectedDetailPackage(detail.packageName);
-                        setAppointmentError({ errorType: "", errorMsg: "" });
-                      }}
-                    >
-                      Select
-                    </button>
+                    <div className="text-end">
+                      <button
+                        className={
+                          isSelected
+                            ? "text-white font-bold p-2 border shadow-xl rounded-xl mr-2  bg-gradient-to-br from-teal-400 via-pink-300 to-teal-500 "
+                            : "text-black font-bold p-2 border shadow-xl rounded-xl mr-2 bg-slate-100 hover:bg-slate-200 transition duration-200"
+                        }
+                        onClick={() => {
+                          const vehicleType = userAppointment.vehicleType;
+
+                          // Check if detail.vehicleType and vehicleType are valid
+                          const vehicleDetails =
+                            vehicleType &&
+                            detail.vehicleType &&
+                            detail.vehicleType[vehicleType];
+
+                          setUserAppointment((prevState: any) => ({
+                            ...prevState,
+                            selectedPackage: detail.packageName,
+                            duration: vehicleDetails?.estimatedTime,
+                          }));
+                          setSelectedDetailPackage(detail.packageName);
+                          setAppointmentError({ errorType: "", errorMsg: "" });
+                        }}
+                      >
+                        Select
+                      </button>
+                    </div>
                   </div>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2">
-                  {detail.services.interior?.map((service) => (
-                    <div className="">
-                      <div className="flex m-2">
-                        <CheckIcon />
-                        <p className="ml-2 font-bold">{service}</p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2">
+                    {detail.services.interior?.map((service) => (
+                      <div key={service} className="">
+                        <div className="flex m-2">
+                          <CheckIcon />
+                          <p className="ml-2 font-bold">{service}</p>
+                        </div>
                       </div>
-                    </div>
-                  ))}
-                  {detail.services.exterior?.map((service) => (
-                    <div className="">
-                      <div className="flex m-2">
-                        <CheckIcon />
-                        <p className="ml-2 font-bold">{service}</p>
+                    ))}
+                    {detail.services.exterior?.map((service) => (
+                      <div key={service} className="">
+                        <div className="flex m-2">
+                          <CheckIcon />
+                          <p className="ml-2 font-bold">{service}</p>
+                        </div>
                       </div>
-                    </div>
-                  ))}
-                </div>
-              </DisclosurePanel>
-            </Disclosure>
+                    ))}
+                  </div>
+                </DisclosurePanel>
+              </Disclosure>
+            </div>
           );
         })}
       </div>
