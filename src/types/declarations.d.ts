@@ -84,6 +84,10 @@ declare module "components/ui/bookingStepper" {
   export default BookingStepper;
 }
 
+declare module "@mapbox/search-js-react" {
+  export const AddressAutofill: React.FC<any>; // Adjust types if more specific ones are available
+}
+
 // CONSTANTS
 
 // ASSETS

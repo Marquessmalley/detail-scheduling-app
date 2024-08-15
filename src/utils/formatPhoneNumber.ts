@@ -5,7 +5,7 @@ const formatPhoneNumber = (value: string) => {
   const number = value.replace(/\D/g, "");
 
   if (number.length <= 3) {
-    return `(${number})`;
+    return `${number}`;
   }
   if (number.length <= 6) {
     return `(${number.slice(0, 3)})${number.slice(3)}`;
@@ -13,6 +13,5 @@ const formatPhoneNumber = (value: string) => {
   if (number.length <= 10) {
     return `(${number.slice(0, 3)})${number.slice(3, 6)}-${number.slice(6)}`;
   }
-  return value;
 };
 export default formatPhoneNumber;

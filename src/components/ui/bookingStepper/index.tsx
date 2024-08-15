@@ -24,8 +24,6 @@ const BookingStepper: React.FC = () => {
   const maxSteps = bookingSteps.length;
 
   const { userAppointment, setUserAppointment } = useUserAppointmentContext();
-  const { firstName, lastName, email, phone, address } =
-    userAppointment.contactInfo;
 
   const handleNext = (): void => {
     if (activeStep === 0 && userAppointment.vehicleType === undefined) {
@@ -47,15 +45,6 @@ const BookingStepper: React.FC = () => {
       setAppointmentError({
         errorType: "Select Date & Time",
         errorMsg: "Please Select a date and time.",
-      });
-      return;
-    } else if (
-      activeStep === 3 &&
-      (!firstName || !lastName || !email || !phone || !address)
-    ) {
-      setAppointmentError({
-        errorType: "Contact Information",
-        errorMsg: "Please fill out all fields.",
       });
       return;
     } else {

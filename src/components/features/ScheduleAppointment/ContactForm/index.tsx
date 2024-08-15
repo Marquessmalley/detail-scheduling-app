@@ -4,6 +4,7 @@ import Alert from "components/ui/alert";
 import { AdminAvailabilityType } from "constants/interfaces";
 import { useNavigate } from "react-router-dom";
 import formatPhoneNumber from "utils/formatPhoneNumber";
+import { AddressAutofill } from "@mapbox/search-js-react";
 
 interface ContactFormProps {
   activeStep: number;
@@ -19,6 +20,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
   updateAvailability,
 }) => {
   const navigate = useNavigate();
+
   const { userAppointment, setUserAppointment } = useUserAppointmentContext();
 
   const handleContactChange = (e: any) => {
@@ -45,7 +47,28 @@ const ContactForm: React.FC<ContactFormProps> = ({
       }));
     }
   };
+
+  const handleAddressChnage = (e: any) => {
+    setUserAppointment((prevState: any) => ({
+      ...prevState,
+      contactInfo: {
+        ...prevState.contactInfo,
+        address: e.target.value,
+      },
+    }));
+  };
+
   const handleSubmitAppointment = () => {
+    const { firstName, lastName, email, phone, address } =
+      userAppointment.contactInfo;
+    if (!firstName || !lastName || !email || !phone || !address) {
+      setAppointmentError({
+        errorType: "Contact Information",
+        errorMsg: "Please fill out all fields.",
+      });
+      return;
+    }
+
     addUserAppointment(userAppointment, updateAvailability);
     navigate("/booking-confirm", {
       state: {
@@ -136,7 +159,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
                 id="phone"
                 value={userAppointment.contactInfo.phone}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 hover:bg-slate-100 transition duration-200 cursor-pointer"
-                placeholder="(123)456-7899"
+                placeholder="Phone"
                 onChange={handlePhoneChange}
                 maxLength={13}
                 required
@@ -149,17 +172,18 @@ const ContactForm: React.FC<ContactFormProps> = ({
               >
                 Address
               </label>
-              <input
-                type="text"
-                name="address"
-                id="address"
-                value={userAppointment.contactInfo.address}
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 hover:bg-slate-100 transition duration-200 cursor-pointer"
-                placeholder="Address"
-                pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
-                onChange={handleContactChange}
-                required
-              />
+
+              <AddressAutofill
+                accessToken={`${process.env.REACT_APP_MAPBOX_KEY}`}
+              >
+                <input
+                  autoComplete="shipping address-line1"
+                  value={userAppointment.contactInfo.address}
+                  onChange={handleAddressChnage}
+                  placeholder="Address"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 hover:bg-slate-100 transition duration-200 cursor-pointer"
+                />
+              </AddressAutofill>
             </div>
           </div>
         </form>
