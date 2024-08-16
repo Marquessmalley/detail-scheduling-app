@@ -85,12 +85,12 @@ const AdminPage = () => {
             {availabilities && availabilities.length > 0 ? (
               availabilities.map((slot) => {
                 return (
-                  <>
+                  <div key={slot[0]}>
                     <AvailableDate
                       id={slot[0]}
                       availability={slot[1].availability}
                     />
-                  </>
+                  </div>
                 );
               })
             ) : (
@@ -118,7 +118,11 @@ const AdminPage = () => {
           <div className="h-4/5 overflow-y-scroll border rounded-lg">
             {appointments && appointments.length > 0 ? (
               appointments.map((appointment) => (
-                <UpcomingDescription appointment={appointment[1].appointment} />
+                <div key={appointment[0]}>
+                  <UpcomingDescription
+                    appointment={appointment[1].appointment}
+                  />
+                </div>
               ))
             ) : (
               <div className="p-4 flex justify-center items-center h-full">

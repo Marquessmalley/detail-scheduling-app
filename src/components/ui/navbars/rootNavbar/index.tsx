@@ -8,10 +8,6 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import shinelogo from "assets/images/logo.png";
 import { navigation } from "constants/navmenu";
 
-// function classNames(...classes) {
-//   return classes.filter(Boolean).join(" ");
-// }
-
 export default function Navbar() {
   return (
     <Disclosure as="nav" className="">
@@ -91,13 +87,13 @@ export default function Navbar() {
           </div>
 
           <DisclosurePanel className="sm:hidden">
-            <div className="space-y-1 px-2 pb-3 pt-2">
+            <div className="space-y-1 px-2 pb-3 pt-2 bg-slate-50 w-60  mx-4 rounded-md shadow-lg">
               {navigation.map((item) => (
                 <DisclosureButton
                   key={item.name}
                   as="a"
                   href={item.href}
-                  className="block rounded-md px-3 py-2 text-base font-medium"
+                  className="block w-full  px-3 py-2 text-base font-medium hover:bg-slate-100 transition duration-200"
                   aria-current={item.current ? "page" : undefined}
                 >
                   {item.name}

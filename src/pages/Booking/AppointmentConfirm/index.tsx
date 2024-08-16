@@ -12,8 +12,8 @@ const AppointmentConfirm = () => {
       {location.state !== null ? (
         <div className="bg-white shadow-lg rounded-3xl max-w-md sm:max-w-xl md:max-w-2xl lg:max-w-5xl w-full mx-auto p-12 grid lg:grid-cols-2 gap-12 transform transition-all duration-300 hover:shadow-2xl">
           <div className="flex flex-col justify-center">
-            <div className="flex items-center justify-evenly sm:justify-between ">
-              <h1 className="text-2xl font-bold text-gray-800  whitespace-nowrap ">
+            <div className="flex items-center">
+              <h1 className="text-2xl font-bold text-gray-800  whitespace-nowrap mr-2 ">
                 Appointment Confirmed
               </h1>
               <CheckIcon size="size-8" />
