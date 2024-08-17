@@ -6,6 +6,8 @@ import CalendarIcon from "components/ui/icons/calendar-icon/CalendarIcon";
 import EllipsisIcon from "components/ui/icons/ellipsis-icon/EllipsisIcon";
 import LocationIcon from "components/ui/icons/location-icon/LocationIcon";
 import CheckIcon from "components/ui/icons/check-circle-icon/CheckIcon";
+import MoonIcon from "components/ui/icons/moon-icon/MoonIcon";
+import SunIcon from "components/ui/icons/sun-icon/SunIcon";
 
 export {
   PlusIcon,
@@ -16,4 +18,6 @@ export {
   EllipsisIcon,
   LocationIcon,
   CheckIcon,
+  MoonIcon,
+  SunIcon,
 };

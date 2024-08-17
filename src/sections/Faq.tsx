@@ -14,7 +14,7 @@ const Faq: React.FC = () => {
           Frequently asked questions
         </h2>
       </div>
-      <div className="mx-auto max-w-7xl  divide-y divide-black/3 rounded-xl bg-zinc-100">
+      <div className="mx-auto max-w-7xl  divide-y divide-black/3 dark:divide-gray-900 rounded-xl bg-zinc-100 dark:bg-slate-800">
         {faq.map((qa) => {
           return (
             <Disclosure
@@ -24,12 +24,12 @@ const Faq: React.FC = () => {
               defaultOpen={false}
             >
               <DisclosureButton className="group flex w-full items-center justify-between">
-                <span className="text-sm/6 font-medium text-black group-data-[hover]:text-black/80">
+                <span className="text-md font-medium text-black dark:text-white hover:text-black-50 dark:hover:text-slate-100">
                   {qa.question}
                 </span>
-                <ChevronDownIcon className="size-5 text-black group-data-[open]:rotate-180" />
+                <ChevronDownIcon className="size-5 text-black dark:text-white group-data-[open]:rotate-180" />
               </DisclosureButton>
-              <DisclosurePanel className="mt-2 text-sm/5 text-black/80">
+              <DisclosurePanel className="mt-2 text-sm font-medium text-black/80 dark:text-slate-200">
                 {qa.answer}
               </DisclosurePanel>
             </Disclosure>

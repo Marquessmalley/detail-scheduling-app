@@ -3,28 +3,28 @@ import carSpray from "assets/images/car-spray.png";
 const Landing = () => {
   return (
     <div
-      className="grid grid-cols-1 sm:grid-cols-2 m-6"
+      className="grid grid-cols-1 sm:grid-cols-2 m-6 "
       style={{ height: "80vh" }}
     >
       <div className="flex flex-col justify-center items-start col-span-2 lg:col-span-1  text-center ml-4">
-        <p className="text-5xl font-bold mb-8 leading-12 text-black text-left">
+        <p className="text-5xl font-bold mb-8 leading-12 text-black dark:text-white text-left">
           Your Car, Our Care -{" "}
           <span className=" text-teal-400">Anywhere, Anytime</span>
         </p>
-        <p className="sm:text-lg text-justify text-slate-700 mb-8 max-w-2xl">
+        <p className="sm:text-lg text-justify text-slate-700 dark:text-gray-400 mb-8 max-w-2xl">
           Book effortlessly through our app. Our detailers come to you, ensuring
           your car looks immaculate.
         </p>
         <button
           type="button"
-          className="relative flex rounded-full py-2.5 px-4 mb-8 text-sm font-semibold border border-slate-300 bg-teal-400 text-white hover:bg-teal-500 transition duration-200"
+          className="relative flex rounded-full py-2.5 px-4 mb-8 text-sm font-semibold border border-slate-300 dark:border-slate-600 dark:shadow-sm dark:shadow-teal-500 bg-teal-400 dark:bg-inherit text-white hover:bg-teal-500 dark:hover:bg-slate-800 transition duration-200"
         >
           <p className="mr-1">Get Started</p>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
             fill="currentColor"
-            className="size-5"
+            className="size-5 text-teal-400"
           >
             <path
               fillRule="evenodd"

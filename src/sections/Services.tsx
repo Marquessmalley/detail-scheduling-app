@@ -6,14 +6,14 @@ const Services: React.FC = () => {
     <div className="mt-14 mb-12">
       {/* SERVICE HEADER */}
       <div className=" max-w-md sm:max-w-xl md:max-w-3xl mx-auto mb-10 ">
-        <p className="mt-2 text-4xl font-bold tracking-tight text-gray-900 text-center ">
+        <p className="mt-2 text-4xl font-bold tracking-tight text-gray-900 dark:text-white text-center ">
           Comprehensive Car
           <span className="bg-gradient-to-r from-teal-400 to-pink-300 bg-clip-text text-transparent">
             {" "}
             Detailing Services
           </span>
         </p>
-        <p className="mt-6 text-lg leading-8 text-gray-600">
+        <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-400">
           We are dedicated to providing the best car wash experience for our
           customers. Whether you need a quick exterior wash or a thorough
           interior cleaning, we have you covered.

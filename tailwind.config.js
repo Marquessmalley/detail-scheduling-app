@@ -6,11 +6,9 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
-      backgroundImage: {
-        "light-pattern": "url('/src/assets/images/light.png')",
-      },
       screens: {
         xs: "350px",
       },
