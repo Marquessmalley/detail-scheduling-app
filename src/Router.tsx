@@ -6,7 +6,7 @@ import DarkModeProvider from "context/DarkModeContext";
 import PrivateRoute from "components/routes/PrivateRoute";
 import RootLayout from "components/layouts/rootlayout/RootLayout";
 import AdminLayout from "components/layouts/adminlayout/AdminLayout";
-import Home from "pages/home";
+import Home from "pages/Home";
 import Booking from "pages/booking";
 import AdminPage from "pages/admin";
 import Signup from "pages/auth/signup";
