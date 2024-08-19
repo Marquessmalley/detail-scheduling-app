@@ -7,11 +7,11 @@ import PrivateRoute from "components/routes/PrivateRoute";
 import RootLayout from "components/layouts/rootlayout/RootLayout";
 import AdminLayout from "components/layouts/adminlayout/AdminLayout";
 import Home from "pages/Home";
-import Booking from "pages/booking";
-import AdminPage from "pages/admin";
-import Signup from "pages/auth/signup";
-import Login from "pages/auth/login";
-import AppointmentConfirm from "pages/booking/AppointmentConfirm";
+import Booking from "pages/Booking";
+import AdminPage from "pages/Admin";
+import Signup from "pages/Auth/Signup";
+import Login from "pages/Auth/Login";
+import AppointmentConfirm from "pages/Booking/AppointmentConfirm";
 
 const router: any = createBrowserRouter([
   {
