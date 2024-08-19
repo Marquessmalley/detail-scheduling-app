@@ -10,7 +10,7 @@ import Home from "pages/Home";
 import Booking from "pages/Booking";
 import Admin from "pages/admin";
 import Signup from "pages/auth/signup";
-import Login from "pages/auth/Login";
+import Login from "pages/auth/login";
 import AppointmentConfirm from "pages/Booking/AppointmentConfirm";
 
 const router: any = createBrowserRouter([
