@@ -1,20 +1,28 @@
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "context/AuthProvider";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
+import { useDarkMode } from "context/DarkModeContext";
 import shinelogo from "assets/images/logo.png";
+import { MoonIcon, SunIcon } from "components/ui/icons";
 
 const AdminNavbar = () => {
   const navigate = useNavigate();
   const { signUserOut } = useAuth();
+  const { isDarkMode, setIsDarkMode } = useDarkMode();
 
   const handleSignOut = () => {
     signUserOut();
     navigate("/login");
   };
 
+  const toggleTheme = () => {
+    document.documentElement.classList.toggle("dark");
+    setIsDarkMode(!isDarkMode);
+  };
+
   return (
     <nav className="mt-3">
-      <div className="mx-auto flex max-w-7xl rounded-xl px-2 shadow-xl shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-7xl rounded-xl border-b px-2 dark:border-teal-600 dark:bg-slate-900 dark:shadow-lg dark:shadow-slate-800 sm:px-6 lg:px-8">
         <div className="flex flex-1">
           <div className="flex-shrink-0 items-center">
             <img
@@ -25,32 +33,41 @@ const AdminNavbar = () => {
           </div>
         </div>
         <Menu>
-          <MenuButton>
-            <div className="inline-flex w-full justify-center gap-x-1.5 rounded-xl bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-              Menu
-              <svg
-                className="-mr-1 h-5 w-5 text-gray-400"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </div>
-          </MenuButton>
+          <div className="flex items-center">
+            <MenuButton>
+              <div className="inline-flex w-full justify-center gap-x-1.5 rounded-xl bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-slate-700 hover:bg-gray-50 dark:bg-transparent dark:text-slate-200 dark:hover:bg-slate-800">
+                Menu
+                <svg
+                  className="-mr-1 h-5 w-5 text-gray-400"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </div>
+            </MenuButton>
+            {isDarkMode ? (
+              <MoonIcon toggleTheme={toggleTheme} />
+            ) : (
+              <SunIcon toggleTheme={toggleTheme} />
+            )}
+          </div>
           <MenuItems
             anchor="bottom"
-            className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+            className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-slate-800"
           >
             <MenuItem
               as="div"
-              className="flex cursor-pointer items-center justify-between hover:bg-slate-100"
+              className="flex cursor-pointer items-center justify-between hover:bg-slate-100 dark:hover:bg-slate-900"
             >
-              <p className="block px-4 py-2 text-sm text-gray-700">Profile</p>
+              <p className="block px-4 py-2 text-sm text-gray-700 dark:text-slate-200">
+                Profile
+              </p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -68,11 +85,11 @@ const AdminNavbar = () => {
             </MenuItem>
             <MenuItem
               as="div"
-              className="flex cursor-pointer items-center justify-between hover:bg-slate-100"
+              className="flex cursor-pointer items-center justify-between hover:bg-slate-100 dark:hover:bg-slate-900"
               onClick={handleSignOut}
             >
               <p
-                className="block px-4 py-2 text-sm text-gray-700"
+                className="block px-4 py-2 text-sm text-gray-700 dark:text-slate-200"
                 tabIndex={-1}
               >
                 Sign out

@@ -18,7 +18,7 @@ const UpdateDatePicker: React.FC<UpdateDatePickerProps> = ({ savedDate }) => {
     now(getLocalTimeZone()),
   );
 
-  const { date, setDate, setStartTime } = useAvailabilityContext();
+  const { setDate, setStartTime } = useAvailabilityContext();
 
   let dateFormatter = useDateFormatter({
     dateStyle: "full",
@@ -43,17 +43,17 @@ const UpdateDatePicker: React.FC<UpdateDatePickerProps> = ({ savedDate }) => {
         onChange={setDateValue}
         minValue={today(getLocalTimeZone())}
       />
-      <p className="my-4 text-sm text-black">
+      <p className="my-4 text-sm text-black dark:text-slate-200">
         Selected date:{" "}
-        <span className="text-sm font-semibold text-black">
+        <span className="text-sm font-semibold text-black dark:text-slate-200">
           {dateValue
             ? dateFormatter.format(dateValue.toDate(getLocalTimeZone()))
             : "--"}
         </span>
       </p>
-      <p className="my-4 text-sm text-black">
+      <p className="my-4 text-sm text-black dark:text-slate-200">
         Selected time:{" "}
-        <span className="text-sm font-semibold text-black">
+        <span className="text-sm font-semibold text-black dark:text-slate-200">
           {dateValue
             ? timeFormatter.format(dateValue.toDate(getLocalTimeZone()))
             : "00:00:00"}

@@ -38,9 +38,9 @@ const AddAvailability: React.FC<AddAvailabilityProps> = ({ handleClose }) => {
   return (
     <div className="h-screen w-11/12">
       {/* ADD AVAILABILITY  */}
-      <div className="my-4 text-end">
+      <div className="my-4 cursor-pointer text-end">
         <button
-          className="rounded-lg border bg-slate-50 p-2 transition hover:bg-slate-200"
+          className="rounded-lg border bg-slate-50 p-2 transition hover:bg-slate-200 dark:border-slate-700 dark:bg-slate-900 dark:hover:bg-slate-800"
           onClick={handleClose}
         >
           <CloseIcon />
@@ -55,7 +55,7 @@ const AddAvailability: React.FC<AddAvailabilityProps> = ({ handleClose }) => {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="mr-2 size-5 h-12 w-12 rounded-full border bg-gradient-to-br from-teal-400 via-pink-300 to-teal-500 p-3 text-white shadow"
+            className="mr-2 size-5 h-12 w-12 rounded-full border bg-gradient-to-br from-teal-400 via-pink-300 to-teal-500 p-3 text-white shadow dark:bg-gradient-to-br dark:from-teal-600 dark:via-pink-500 dark:to-teal-600"
           >
             <path
               strokeLinecap="round"
@@ -66,13 +66,13 @@ const AddAvailability: React.FC<AddAvailabilityProps> = ({ handleClose }) => {
 
           <p className="text-4xl font-bold text-zinc-50">Set Availability</p>
         </div>
-        <div className="w-full rounded-xl border bg-white p-10">
+        <div className="w-full rounded-xl border bg-white p-10 dark:border-slate-700 dark:bg-slate-900">
           <div>
             <AddDatePicker />
           </div>
           <div className="text-end">
             <button
-              className="rounded-2xl border p-2 text-sm font-extrabold shadow hover:bg-slate-50"
+              className="rounded-2xl border p-2 text-sm font-extrabold shadow hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800"
               onClick={handleConfirmAvailability}
             >
               Confirm

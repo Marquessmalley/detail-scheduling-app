@@ -73,10 +73,10 @@ const AdminPage = () => {
         {/* AVAILABILITIES */}
         <div className="p-8">
           <div className="px-4 sm:px-0 lg:mx-auto lg:max-w-xl">
-            <h3 className="text-base font-semibold leading-7 text-gray-900">
+            <h3 className="text-base font-semibold leading-7 text-gray-900 dark:text-slate-300">
               View your available openings
             </h3>
-            <p className="mt-1 max-w-2xl text-sm leading-6 text-gray-500">
+            <p className="mt-1 max-w-2xl text-sm leading-6 text-gray-500 dark:text-slate-400">
               Scheduled dates.
             </p>
           </div>
@@ -108,14 +108,14 @@ const AdminPage = () => {
         {/* UPCOMING APPOINTMENTS */}
         <div className="p-8">
           <div className="px-4 sm:px-0 lg:mx-auto lg:max-w-xl">
-            <h3 className="text-base font-semibold leading-7 text-gray-900">
+            <h3 className="text-base font-semibold leading-7 text-gray-900 dark:text-slate-300">
               Upcoming Appointments...
             </h3>
-            <p className="mt-1 max-w-2xl text-sm leading-6 text-gray-500">
+            <p className="mt-1 max-w-2xl text-sm leading-6 text-gray-500 dark:text-slate-400">
               Apointment details.
             </p>
           </div>
-          <div className="h-4/5 overflow-y-scroll rounded-lg border">
+          <div className="h-4/5 overflow-y-scroll rounded-lg border dark:border-slate-700">
             {appointments && appointments.length > 0 ? (
               appointments.map((appointment) => (
                 <div key={appointment[0]}>

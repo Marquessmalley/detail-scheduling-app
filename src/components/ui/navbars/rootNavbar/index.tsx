@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useDarkMode } from "context/DarkModeContext";
 import {
@@ -20,16 +19,16 @@ export default function Navbar() {
   };
 
   return (
-    <Disclosure as="nav" className="dark:bg-slate-900">
+    <Disclosure as="nav" className="">
       {({ open }) => (
         <>
-          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 border-b dark:border-teal-600 ">
-            <div className="relative flex flex-1 justify-between items-center h-20  ">
+          <div className="mx-auto max-w-7xl rounded-xl border-b px-2 dark:border-teal-600 dark:shadow-lg dark:shadow-slate-700 sm:px-6 lg:px-8">
+            <div className="relative flex h-20 flex-1 items-center justify-between">
               {/* MOBILE MENU */}
 
-              <div className=" flex  items-center sm:hidden">
+              <div className="flex items-center sm:hidden">
                 {/* Mobile menu button*/}
-                <DisclosureButton className="relative inline-flex items-center justify-center rounded-md p-2  focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                <DisclosureButton className="relative inline-flex items-center justify-center rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
                   {open ? (
@@ -41,7 +40,7 @@ export default function Navbar() {
               </div>
 
               {/* logo*/}
-              <div className="flex flex-1 items-center justify-end  sm:items-stretch sm:justify-start">
+              <div className="flex flex-1 items-center justify-end sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
                   <Link to="/">
                     <img
@@ -55,13 +54,13 @@ export default function Navbar() {
 
               {/* Nav menu */}
 
-              <div className=" hidden sm:ml-6 sm:block">
-                <div className="flex  p-1 rounded-full shadow-xl dark:border-slate-800 dark:shadow-sm shadow-zinc-800/5 dark:shadow-teal-600 ring-1 ring-zinc-900/5 dark:ring-zinc-100/5 backdrop-blur ">
+              <div className="hidden sm:ml-6 sm:block">
+                <div className="flex rounded-full p-1 shadow-xl shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:border-slate-800 dark:shadow-sm dark:shadow-teal-600 dark:ring-zinc-100/5">
                   {navigation.map((item) => (
                     <a
                       key={item.name}
                       href={item.href}
-                      className=" px-3 py-2 rounded-full text-sm font-semibold dark:text-slate-200 hover:text-slate-700"
+                      className="rounded-full px-3 py-2 text-sm font-semibold hover:text-slate-700 dark:text-slate-200"
                       aria-current={item.current ? "page" : undefined}
                     >
                       {item.name}
@@ -71,13 +70,13 @@ export default function Navbar() {
               </div>
 
               {/* search */}
-              <div className="flex flex-1 justify-end items-center ">
+              <div className="flex flex-1 items-center justify-end">
                 <Link to="/booking">
                   <button
                     type="button"
-                    className="relative flex rounded-full py-2.5 px-4 bg-teal-400 dark:bg-teal-700/5 border border-slate-300 dark:border-slate-700 dark:shadow-sm dark:shadow-teal-600 hover:bg-teal-500 dark:hover:bg-slate-800 transition duration-200"
+                    className="relative flex rounded-full border border-slate-300 bg-teal-400 px-4 py-2.5 transition duration-200 hover:bg-teal-500 dark:border-slate-700 dark:bg-teal-700/5 dark:shadow-sm dark:shadow-teal-600 dark:hover:bg-slate-800"
                   >
-                    <p className="mr-1 text-white text-sm font-semibold ">
+                    <p className="mr-1 text-sm font-semibold text-white">
                       Book Now
                     </p>
                     <svg
@@ -104,13 +103,13 @@ export default function Navbar() {
           </div>
 
           <DisclosurePanel className="sm:hidden">
-            <div className="space-y-1 px-2 pb-3 pt-2 bg-slate-50 w-60  mx-4 rounded-md shadow-lg dark:bg-slate-800">
+            <div className="mx-4 w-60 space-y-1 rounded-md bg-slate-50 px-2 pb-3 pt-2 shadow-lg dark:bg-slate-800">
               {navigation.map((item) => (
                 <DisclosureButton
                   key={item.name}
                   as="a"
                   href={item.href}
-                  className="block w-full  px-3 py-2 text-base font-medium hover:bg-slate-100 dark:hover:bg-slate-700 transition duration-200"
+                  className="block w-full px-3 py-2 text-base font-medium transition duration-200 hover:bg-slate-100 dark:hover:bg-slate-700"
                   aria-current={item.current ? "page" : undefined}
                 >
                   {item.name}

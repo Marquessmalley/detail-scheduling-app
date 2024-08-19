@@ -62,7 +62,9 @@ const router: any = createBrowserRouter([
       <AuthProvider>
         <AvailabilityProvider>
           <PrivateRoute>
-            <AdminLayout />
+            <DarkModeProvider>
+              <AdminLayout />
+            </DarkModeProvider>
           </PrivateRoute>
         </AvailabilityProvider>
       </AuthProvider>

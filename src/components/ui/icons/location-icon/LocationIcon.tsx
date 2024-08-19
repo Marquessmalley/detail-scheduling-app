@@ -8,7 +8,7 @@ const LocationIcon: React.FC = () => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="mr-2 size-5 text-gray-500"
+      className="mr-2 size-5 text-gray-500 dark:text-slate-300"
     >
       <path
         strokeLinecap="round"
