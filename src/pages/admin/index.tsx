@@ -10,7 +10,7 @@ import {
   sortedAppointments,
 } from "utils/sortAvailabilities";
 
-const Admin = () => {
+const Admin: React.FC = () => {
   const [availabilities, setAvailabilities] = useState<
     [string, { availability: AdminAvailabilityType }][] | null
   >(null);
