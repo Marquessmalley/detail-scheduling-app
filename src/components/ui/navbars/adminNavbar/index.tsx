@@ -14,7 +14,7 @@ const AdminNavbar = () => {
 
   return (
     <nav className="mt-3">
-      <div className="mx-auto max-w-7xl px-2 flex sm:px-6 lg:px-8 rounded-xl shadow-xl shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur ">
+      <div className="mx-auto flex max-w-7xl rounded-xl px-2 shadow-xl shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur sm:px-6 lg:px-8">
         <div className="flex flex-1">
           <div className="flex-shrink-0 items-center">
             <img
@@ -48,7 +48,7 @@ const AdminNavbar = () => {
           >
             <MenuItem
               as="div"
-              className="flex justify-between items-center cursor-pointer hover:bg-slate-100"
+              className="flex cursor-pointer items-center justify-between hover:bg-slate-100"
             >
               <p className="block px-4 py-2 text-sm text-gray-700">Profile</p>
               <svg
@@ -57,7 +57,7 @@ const AdminNavbar = () => {
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className="size-6 mr-2"
+                className="mr-2 size-6"
               >
                 <path
                   strokeLinecap="round"
@@ -68,7 +68,7 @@ const AdminNavbar = () => {
             </MenuItem>
             <MenuItem
               as="div"
-              className="flex justify-between items-center cursor-pointer hover:bg-slate-100"
+              className="flex cursor-pointer items-center justify-between hover:bg-slate-100"
               onClick={handleSignOut}
             >
               <p
@@ -83,7 +83,7 @@ const AdminNavbar = () => {
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className="size-6 mr-2"
+                className="mr-2 size-6"
               >
                 <path
                   strokeLinecap="round"

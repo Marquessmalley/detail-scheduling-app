@@ -36,26 +36,26 @@ const AddAvailability: React.FC<AddAvailabilityProps> = ({ handleClose }) => {
     handleClose();
   };
   return (
-    <div className=" w-11/12 h-screen">
+    <div className="h-screen w-11/12">
       {/* ADD AVAILABILITY  */}
       <div className="my-4 text-end">
         <button
-          className="p-2 bg-slate-50 border rounded-lg hover:bg-slate-200 transition"
+          className="rounded-lg border bg-slate-50 p-2 transition hover:bg-slate-200"
           onClick={handleClose}
         >
           <CloseIcon />
         </button>
       </div>
 
-      <div className="mx-auto max-w-3xl ">
-        <div className="my-10 flex justify-center items-center">
+      <div className="mx-auto max-w-3xl">
+        <div className="my-10 flex items-center justify-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="size-5 text-white mr-2 h-12 w-12 border shadow rounded-full p-3 bg-gradient-to-br from-teal-400 via-pink-300 to-teal-500"
+            className="mr-2 size-5 h-12 w-12 rounded-full border bg-gradient-to-br from-teal-400 via-pink-300 to-teal-500 p-3 text-white shadow"
           >
             <path
               strokeLinecap="round"
@@ -64,15 +64,15 @@ const AddAvailability: React.FC<AddAvailabilityProps> = ({ handleClose }) => {
             />
           </svg>
 
-          <p className="text-4xl text-zinc-50 font-bold">Set Availability</p>
+          <p className="text-4xl font-bold text-zinc-50">Set Availability</p>
         </div>
-        <div className=" bg-white w-full p-10 border rounded-xl">
+        <div className="w-full rounded-xl border bg-white p-10">
           <div>
             <AddDatePicker />
           </div>
           <div className="text-end">
             <button
-              className="border p-2 rounded-2xl shadow text-sm font-extrabold hover:bg-slate-50"
+              className="rounded-2xl border p-2 text-sm font-extrabold shadow hover:bg-slate-50"
               onClick={handleConfirmAvailability}
             >
               Confirm

@@ -8,7 +8,7 @@ const EllipsisIcon: React.FC = () => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="size-5 text-gray-500 hover:text-gray-900 cursor-pointer"
+      className="size-5 cursor-pointer text-gray-500 hover:text-gray-900"
     >
       <path
         strokeLinecap="round"

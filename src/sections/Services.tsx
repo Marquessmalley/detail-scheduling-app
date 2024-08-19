@@ -3,10 +3,10 @@ import { services } from "constants/service";
 
 const Services: React.FC = () => {
   return (
-    <div className="mt-14 mb-12">
+    <div className="mb-12 mt-14">
       {/* SERVICE HEADER */}
-      <div className=" max-w-md sm:max-w-xl md:max-w-3xl mx-auto mb-10 ">
-        <p className="mt-2 text-4xl font-bold tracking-tight text-gray-900 dark:text-white text-center ">
+      <div className="mx-auto mb-10 max-w-md sm:max-w-xl md:max-w-3xl">
+        <p className="mt-2 text-center text-4xl font-bold tracking-tight text-gray-900 dark:text-white">
           Comprehensive Car
           <span className="bg-gradient-to-r from-teal-400 to-pink-300 bg-clip-text text-transparent">
             {" "}
@@ -21,7 +21,7 @@ const Services: React.FC = () => {
       </div>
 
       {/* SERVICE CARDS */}
-      <div className="mx-auto max-w-7xl grid gap-x-5 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 justify-items-center">
+      <div className="mx-auto grid max-w-7xl justify-items-center gap-x-5 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {services.map((item) => (
           <div key={item.id}>
             <ServiceCard

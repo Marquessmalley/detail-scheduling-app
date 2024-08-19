@@ -13,7 +13,7 @@ const PrivateRoute: React.FC<PrivateRouteProps> = ({ children }) => {
     return (
       <div
         style={{ height: "90vh" }}
-        className=" flex justify-center items-center "
+        className="flex items-center justify-center"
       >
         <div role="status">
           <SpinnerIcon />

@@ -7,25 +7,25 @@ interface AlertProps {
 
 const Alert: React.FC<AlertProps> = ({ alertType, alertMsg }) => {
   return (
-    <div className=" text-center py-4 lg:px-4">
+    <div className="py-4 text-center lg:px-4">
       <div
         className={
           alertType === "Error" || alertType === "FirebaseError"
-            ? "p-2 bg-red-600 items-center text-red-100 leading-none lg:rounded-full flex lg:inline-flex"
-            : "p-2 bg-emerald-700 items-center text-emerald-100 leading-none lg:rounded-full flex lg:inline-flex"
+            ? "flex items-center bg-red-600 p-2 leading-none text-red-100 lg:inline-flex lg:rounded-full"
+            : "flex items-center bg-emerald-700 p-2 leading-none text-emerald-100 lg:inline-flex lg:rounded-full"
         }
         role="alert"
       >
         <span
           className={
             alertType === "Error" || alertType === "FirebaseError"
-              ? "flex rounded-full bg-red-500 uppercase px-2 py-1 text-xs font-semibold mr-3"
-              : "flex rounded-full bg-emerald-500 uppercase px-2 py-1 text-xs font-semibold mr-3"
+              ? "mr-3 flex rounded-full bg-red-500 px-2 py-1 text-xs font-semibold uppercase"
+              : "mr-3 flex rounded-full bg-emerald-500 px-2 py-1 text-xs font-semibold uppercase"
           }
         >
           {alertType}
         </span>
-        <span className="font-normal mr-2 text-left flex-auto">{alertMsg}</span>
+        <span className="mr-2 flex-auto text-left font-normal">{alertMsg}</span>
       </div>
     </div>
   );

@@ -12,7 +12,7 @@ const MoonIcon: React.FC<SunIconProps> = ({ toggleTheme }) => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="size-10 p-1 ml-4 text-teal-400 rounded-lg border dark:border-slate-700 shadow-md dark:shadow-teal-600 dark:hover:bg-slate-800 transition duration-200 cursor-pointer"
+      className="ml-4 size-10 cursor-pointer rounded-lg border p-1 text-teal-400 shadow-md transition duration-200 dark:border-slate-700 dark:shadow-teal-600 dark:hover:bg-slate-800"
       onClick={toggleTheme}
     >
       <path

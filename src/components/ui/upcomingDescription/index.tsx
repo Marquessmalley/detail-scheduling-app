@@ -13,19 +13,19 @@ const UpcomingDescription: React.FC<UpcomingDescriptionProps> = ({
   return (
     <div
       key={"i"}
-      className="lg:max-w-xl lg:mx-auto flex justify-between border-b "
+      className="flex justify-between border-b lg:mx-auto lg:max-w-xl"
     >
-      <div className=" w-full p-2 my-2">
+      <div className="my-2 w-full p-2">
         {/* User name */}
         <div className="flex p-2">
-          <p className="text-sm font-meduim leading-6 text-gray-900">
+          <p className="font-meduim text-sm leading-6 text-gray-900">
             {appointment.contactInfo.firstName}{" "}
             {appointment.contactInfo.lastName}
           </p>
         </div>
 
         {/* DATE & LOCATION */}
-        <div className="flex p-2 ">
+        <div className="flex p-2">
           <div className="flex items-center border-r pr-4">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -33,7 +33,7 @@ const UpcomingDescription: React.FC<UpcomingDescriptionProps> = ({
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="size-5 mr-2 text-gray-500"
+              className="mr-2 size-5 text-gray-500"
             >
               <path
                 strokeLinecap="round"
@@ -42,7 +42,7 @@ const UpcomingDescription: React.FC<UpcomingDescriptionProps> = ({
               />
             </svg>
 
-            <p className="text-sm  text-gray-500">{appointment.date}</p>
+            <p className="text-sm text-gray-500">{appointment.date}</p>
           </div>
           <div className="flex items-center pl-4">
             <LocationIcon />
@@ -61,11 +61,11 @@ const UpcomingDescription: React.FC<UpcomingDescriptionProps> = ({
           </MenuButton>
           <MenuItems
             anchor="bottom end"
-            className=" mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+            className="mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
           >
             <MenuItem
               as="div"
-              className="cursor-pointer hover:bg-slate-100  border-b "
+              className="cursor-pointer border-b hover:bg-slate-100"
             >
               <p className="px-4 py-2 text-sm text-gray-700">Edit</p>
             </MenuItem>

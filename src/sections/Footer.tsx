@@ -1,19 +1,19 @@
 const Footer = () => {
   return (
     <footer className="">
-      <div className=" max-w-7xl mx-auto grid gap-y-4 sm:grid-cols-12 p-4 border-b ">
+      <div className="mx-auto grid max-w-7xl gap-y-4 border-b p-4 sm:grid-cols-12">
         {/* LOGO */}
-        <div className=" grid grid-cols-1 col-span-12 sm:col-span-6 items-center ">
+        <div className="col-span-12 grid grid-cols-1 items-center sm:col-span-6">
           <p className="text-sm font-semibold">
             &copy; {new Date().getFullYear()} Paul & Tev Shinetime. All rights
             reserved.
           </p>
         </div>
         {/* SOCIAL MEDIA */}
-        <div className="grid col-span-6 sm:col-span-3 justify-items-start sm:justify-items-center">
+        <div className="col-span-6 grid justify-items-start sm:col-span-3 sm:justify-items-center">
           <h2 className="text-sm font-semibold">Connect with us</h2>
-          <div className=" flex">
-            <button className="w-10 h-10 m-2 flex items-center justify-center rounded-lg bg-sky-800 dark:bg-slate-900 hover:bg-sky-700 dark:hover:bg-slate-800 shadow-sm dark:shadow-teal-400 group transition-all duration-300">
+          <div className="flex">
+            <button className="group m-2 flex h-10 w-10 items-center justify-center rounded-lg bg-sky-800 shadow-sm transition-all duration-300 hover:bg-sky-700 dark:bg-slate-900 dark:shadow-teal-400 dark:hover:bg-slate-800">
               <svg
                 className="transition-all duration-300 group-hover:scale-110"
                 xmlns="http://www.w3.org/2000/svg"
@@ -29,7 +29,7 @@ const Footer = () => {
               </svg>
             </button>
 
-            <button className="w-10 h-10 m-2 flex items-center justify-center group rounded-lg bg-sky-800 dark:bg-slate-900 hover:bg-sky-700 dark:hover:bg-slate-800 shadow-sm dark:shadow-teal-400 group transition-all duration-300">
+            <button className="group m-2 flex h-10 w-10 items-center justify-center rounded-lg bg-sky-800 shadow-sm transition-all duration-300 hover:bg-sky-700 dark:bg-slate-900 dark:shadow-teal-400 dark:hover:bg-slate-800">
               <svg
                 className="transition-all duration-300 group-hover:scale-110"
                 width="28"
@@ -76,13 +76,13 @@ const Footer = () => {
         </div>
 
         {/* COMPANY */}
-        <div className="grid col-span-6 sm:col-span-3">
+        <div className="col-span-6 grid sm:col-span-3">
           <h2 className="text-sm font-semibold">Company</h2>
           <ul className="flex justify-between">
             <li>
               <a
                 href="#V"
-                className="text-sm font-medium hover:text-gray-600 transition duration-200"
+                className="text-sm font-medium transition duration-200 hover:text-gray-600"
               >
                 About
               </a>
@@ -90,7 +90,7 @@ const Footer = () => {
             <li>
               <a
                 href="#V"
-                className="text-sm font-medium hover:text-gray-600 transition duration-200"
+                className="text-sm font-medium transition duration-200 hover:text-gray-600"
               >
                 Pricing
               </a>
@@ -98,7 +98,7 @@ const Footer = () => {
             <li>
               <a
                 href="#V"
-                className="text-sm font-medium hover:text-gray-600 transition duration-200"
+                className="text-sm font-medium transition duration-200 hover:text-gray-600"
               >
                 Contact
               </a>
@@ -106,7 +106,7 @@ const Footer = () => {
             <li>
               <a
                 href="#V"
-                className="text-sm font-medium hover:text-gray-600 transition duration-200"
+                className="text-sm font-medium transition duration-200 hover:text-gray-600"
               >
                 FAQ
               </a>
@@ -114,7 +114,7 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-      <div className="py-4 flex justify-center">
+      <div className="flex justify-center py-4">
         <p className="text-sm font-semibold">
           Developed by{" "}
           <a

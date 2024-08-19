@@ -29,7 +29,7 @@ const SelectVehicle: React.FC<SelectVehicleType> = ({
           <Alert alertType="Error" alertMsg={appointmentError.errorMsg} />
         </>
       )}
-      <div className=" grid grid-cols-2 sm:grid-cols-3 gap-y-2 justify-items-center p-2 my-5">
+      <div className="my-5 grid grid-cols-2 justify-items-center gap-y-2 p-2 sm:grid-cols-3">
         {carType.map((car) => {
           const isSelected = car.type === selectedCar;
           let carType;
@@ -52,8 +52,8 @@ const SelectVehicle: React.FC<SelectVehicleType> = ({
               <div
                 className={
                   isSelected
-                    ? "p-px border-3 border-teal-300 rounded-2xl  h-22 w-28 sm:h-32 sm:w-32 flex flex-col items-center justify-center cursor-pointer bg-slate-200 dark:bg-slate-700  transition duration-200"
-                    : "p-px border border-slate-300 rounded-2xl  h-22 w-28 sm:h-32 sm:w-32  flex flex-col items-center justify-center cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-700 transition duration-200"
+                    ? "h-22 flex w-28 cursor-pointer flex-col items-center justify-center rounded-2xl border-3 border-teal-300 bg-slate-200 p-px transition duration-200 dark:bg-slate-700 sm:h-32 sm:w-32"
+                    : "h-22 flex w-28 cursor-pointer flex-col items-center justify-center rounded-2xl border border-slate-300 p-px transition duration-200 hover:bg-slate-50 dark:hover:bg-slate-700 sm:h-32 sm:w-32"
                 }
                 onClick={() => {
                   setUserAppointment((prevState: any) => ({
@@ -69,7 +69,7 @@ const SelectVehicle: React.FC<SelectVehicleType> = ({
                   src={isDarkMode ? car.img[1] : car.img[0]}
                   alt="car_type"
                 />
-                <p className={"text-sm font-semibold whitespace-nowrap"}>
+                <p className={"whitespace-nowrap text-sm font-semibold"}>
                   {carType}
                 </p>
               </div>

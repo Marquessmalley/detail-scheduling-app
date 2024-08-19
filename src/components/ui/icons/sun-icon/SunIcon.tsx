@@ -12,7 +12,7 @@ const SunIcon: React.FC<SunIconProps> = ({ toggleTheme }) => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="size-10 p-1 ml-4 border rounded-lg shadow-lg text-yellow-400 cursor-pointer hover:bg-slate-50 transition duration-200"
+      className="ml-4 size-10 cursor-pointer rounded-lg border p-1 text-yellow-400 shadow-lg transition duration-200 hover:bg-slate-50"
       onClick={toggleTheme}
     >
       <path

@@ -3,21 +3,21 @@ import carSpray from "assets/images/car-spray.png";
 const Landing = () => {
   return (
     <div
-      className="grid grid-cols-1 sm:grid-cols-2 m-6 "
+      className="m-6 grid grid-cols-1 sm:grid-cols-2"
       style={{ height: "80vh" }}
     >
-      <div className="flex flex-col justify-center items-start col-span-2 lg:col-span-1  text-center ml-4">
-        <p className="text-5xl font-bold mb-8 leading-12 text-black dark:text-white text-left">
+      <div className="col-span-2 ml-4 flex flex-col items-start justify-center text-center lg:col-span-1">
+        <p className="leading-12 mb-8 text-left text-5xl font-bold text-black dark:text-white">
           Your Car, Our Care -{" "}
-          <span className=" text-teal-400">Anywhere, Anytime</span>
+          <span className="text-teal-400">Anywhere, Anytime</span>
         </p>
-        <p className="sm:text-lg text-justify text-slate-700 dark:text-gray-400 mb-8 max-w-2xl">
+        <p className="mb-8 max-w-2xl text-justify text-slate-700 dark:text-gray-400 sm:text-lg">
           Book effortlessly through our app. Our detailers come to you, ensuring
           your car looks immaculate.
         </p>
         <button
           type="button"
-          className="relative flex rounded-full py-2.5 px-4 mb-8 text-sm font-semibold border border-slate-300 dark:border-slate-600 dark:shadow-sm dark:shadow-teal-500 bg-teal-400 dark:bg-inherit text-white hover:bg-teal-500 dark:hover:bg-slate-800 transition duration-200"
+          className="relative mb-8 flex rounded-full border border-slate-300 bg-teal-400 px-4 py-2.5 text-sm font-semibold text-white transition duration-200 hover:bg-teal-500 dark:border-slate-600 dark:bg-inherit dark:shadow-sm dark:shadow-teal-500 dark:hover:bg-slate-800"
         >
           <p className="mr-1">Get Started</p>
           <svg
@@ -34,7 +34,7 @@ const Landing = () => {
           </svg>
         </button>
       </div>
-      <div className="hidden lg:flex lg:justify-center lg:items-center ">
+      <div className="hidden lg:flex lg:items-center lg:justify-center">
         <img src={carSpray} alt="landingImg" className="h-96 w-96" />
       </div>
     </div>

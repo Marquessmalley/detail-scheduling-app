@@ -65,7 +65,7 @@ const SelectDate: React.FC<SelectDateProps> = ({
             <Alert alertType="Error" alertMsg={appointmentError.errorMsg} />
           </>
         )}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4">
+      <div className="grid grid-cols-1 gap-4 p-4 sm:grid-cols-2">
         <div className="flex justify-center">
           <Calendar
             aria-label="Date (Controlled)"
@@ -75,7 +75,7 @@ const SelectDate: React.FC<SelectDateProps> = ({
           />
         </div>
         <div className=" ">
-          <p className="text-lg text-center font-bold text-slate-600 dark:text-slate-300">
+          <p className="text-center text-lg font-bold text-slate-600 dark:text-slate-300">
             {calendarDate}
           </p>
           {match && match.length > 0 ? (
@@ -89,8 +89,8 @@ const SelectDate: React.FC<SelectDateProps> = ({
                   key={availability[0]}
                   className={
                     isSelected
-                      ? "flex justify-center m-2 h-12  p-4 border border-slate-300 rounded-2xl shadow cursor-pointer bg-gradient-to-br from-teal-400 via-pink-300 to-teal-500 dark:bg-gradient-to-br dark:from-teal-600 dark:via-pink-500 dark:to-teal-600  transition duration-200"
-                      : "flex justify-center m-2 h-12  p-4 border border-slate-300 dark:border-slate-700 rounded-2xl shadow cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800 transition duration-200"
+                      ? "m-2 flex h-12 cursor-pointer justify-center rounded-2xl border border-slate-300 bg-gradient-to-br from-teal-400 via-pink-300 to-teal-500 p-4 shadow transition duration-200 dark:bg-gradient-to-br dark:from-teal-600 dark:via-pink-500 dark:to-teal-600"
+                      : "m-2 flex h-12 cursor-pointer justify-center rounded-2xl border border-slate-300 p-4 shadow transition duration-200 hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800"
                   }
                   onClick={() => {
                     setUserAppointment((prevState: any) => ({
@@ -111,8 +111,8 @@ const SelectDate: React.FC<SelectDateProps> = ({
                   <p
                     className={
                       isSelected
-                        ? "text-sm font-semibold text-white "
-                        : "text-sm font-semibold text-slate-500 dark:text-slate-200 "
+                        ? "text-sm font-semibold text-white"
+                        : "text-sm font-semibold text-slate-500 dark:text-slate-200"
                     }
                   >
                     {availability[1].availability.startTime}
@@ -122,7 +122,7 @@ const SelectDate: React.FC<SelectDateProps> = ({
             })
           ) : (
             <div className="flex justify-center">
-              <p className="text-md text-center font-semibold text-slate-500 dark:text-slate-400 m-2">
+              <p className="text-md m-2 text-center font-semibold text-slate-500 dark:text-slate-400">
                 No Availability
               </p>
             </div>

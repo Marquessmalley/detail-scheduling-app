@@ -88,17 +88,17 @@ const ContactForm: React.FC<ContactFormProps> = ({
             <Alert alertType="Error" alertMsg={appointmentError.errorMsg} />
           </>
         )}
-      <div className="grid grid-cols-1 sm:grid-cols-12 gap-x-4 p-4">
+      <div className="grid grid-cols-1 gap-x-4 p-4 sm:grid-cols-12">
         {/* CONTACT FORM */}
-        <form className="col-span-12 sm:col-span-6 ">
-          <h2 className="my-4 text-lg font-semibold border-b">
+        <form className="col-span-12 sm:col-span-6">
+          <h2 className="my-4 border-b text-lg font-semibold">
             Contact Information
           </h2>
           <div>
             <div className="mb-2">
               <label
                 htmlFor="firstName"
-                className="block text-sm font-medium text-gray-900 dark:text-slate-300 mb-2"
+                className="mb-2 block text-sm font-medium text-gray-900 dark:text-slate-300"
               >
                 First name
               </label>
@@ -107,7 +107,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
                 name="firstName"
                 id="firstName"
                 value={userAppointment.contactInfo.firstName}
-                className="bg-gray-50 dark:bg-slate-800 border border-gray-300 dark:border-slate-700 text-gray-900 dark:text-slate-200 text-sm rounded-lg focus:ring-teal-400 focus:border-teal-500 block w-full p-2.5 hover:bg-slate-100 transition duration-200 cursor-pointer"
+                className="block w-full cursor-pointer rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 transition duration-200 hover:bg-slate-100 focus:border-teal-500 focus:ring-teal-400 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200"
                 placeholder="John"
                 onChange={handleContactChange}
                 required
@@ -116,7 +116,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
             <div className="mb-2">
               <label
                 htmlFor="lastName"
-                className="block  text-sm font-medium text-gray-900 dark:text-slate-300 mb-2"
+                className="mb-2 block text-sm font-medium text-gray-900 dark:text-slate-300"
               >
                 Last name
               </label>
@@ -125,7 +125,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
                 name="lastName"
                 id="lastName"
                 value={userAppointment.contactInfo.lastName}
-                className="bg-gray-50 dark:bg-slate-800 border border-gray-300 dark:border-slate-700 text-gray-900 dark:text-slate-200 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 hover:bg-slate-100 transition duration-200 cursor-pointer"
+                className="block w-full cursor-pointer rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 transition duration-200 hover:bg-slate-100 focus:border-blue-500 focus:ring-blue-500 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200"
                 placeholder="Doe"
                 onChange={handleContactChange}
                 required
@@ -134,7 +134,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
             <div className="mb-2">
               <label
                 htmlFor="email"
-                className="block  text-sm font-medium text-gray-900 dark:text-slate-300 mb-2"
+                className="mb-2 block text-sm font-medium text-gray-900 dark:text-slate-300"
               >
                 Email
               </label>
@@ -143,7 +143,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
                 name="email"
                 id="email"
                 value={userAppointment.contactInfo.email}
-                className="bg-gray-50 dark:bg-slate-800 border border-gray-300 dark:border-slate-700 text-gray-900 dark:text-slate-200 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 hover:bg-slate-100 transition duration-200 cursor-pointer"
+                className="block w-full cursor-pointer rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 transition duration-200 hover:bg-slate-100 focus:border-blue-500 focus:ring-blue-500 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200"
                 placeholder="Email"
                 onChange={handleContactChange}
                 required
@@ -152,7 +152,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
             <div className="mb-2">
               <label
                 htmlFor="phone"
-                className="block text-sm font-medium text-gray-900 dark:text-slate-300 mb-2"
+                className="mb-2 block text-sm font-medium text-gray-900 dark:text-slate-300"
               >
                 Phone number
               </label>
@@ -161,7 +161,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
                 name="phone"
                 id="phone"
                 value={userAppointment.contactInfo.phone}
-                className="bg-gray-50 dark:bg-slate-800 border border-gray-300 dark:border-slate-700 text-gray-900 dark:text-slate-200 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 hover:bg-slate-100 transition duration-200 cursor-pointer"
+                className="block w-full cursor-pointer rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 transition duration-200 hover:bg-slate-100 focus:border-blue-500 focus:ring-blue-500 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200"
                 placeholder="Phone"
                 onChange={handlePhoneChange}
                 maxLength={13}
@@ -171,7 +171,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
             <div className="mb-2">
               <label
                 htmlFor="address"
-                className="block  text-sm font-medium text-gray-900 dark:text-slate-300 mb-2"
+                className="mb-2 block text-sm font-medium text-gray-900 dark:text-slate-300"
               >
                 Address
               </label>
@@ -184,7 +184,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
                   value={userAppointment.contactInfo.address}
                   onChange={handleAddressChnage}
                   placeholder="Address"
-                  className="bg-gray-50 dark:bg-slate-800 border border-gray-300 dark:border-slate-700 text-gray-900 dark:text-slate-200 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 hover:bg-slate-100 transition duration-200 cursor-pointer"
+                  className="block w-full cursor-pointer rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 transition duration-200 hover:bg-slate-100 focus:border-blue-500 focus:ring-blue-500 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200"
                 />
               </AddressAutofill>
             </div>
@@ -192,69 +192,69 @@ const ContactForm: React.FC<ContactFormProps> = ({
         </form>
 
         {/* APPOINTMENT SUMMARY*/}
-        <div className="col-span-12 sm:col-span-6  p-4 rounded-lg ">
-          <h2 className="text-lg font-semibold border-b">Summary</h2>
-          <div className="grid grid-cols-2 sm:gap-x-6  my-4 sm:m-6">
-            <h3 className=" text-sm font-bold text-teal-400 sm:text-md">
+        <div className="col-span-12 rounded-lg p-4 sm:col-span-6">
+          <h2 className="border-b text-lg font-semibold">Summary</h2>
+          <div className="my-4 grid grid-cols-2 sm:m-6 sm:gap-x-6">
+            <h3 className="sm:text-md text-sm font-bold text-teal-400">
               Vehicle Type
             </h3>
-            <p className="text-sm text-gray-700 dark:text-slate-200  font-medium">
+            <p className="text-sm font-medium text-gray-700 dark:text-slate-200">
               {userAppointment.vehicleType}
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:gap-x-6  my-4 sm:m-6">
-            <h3 className="text-sm font-bold text-teal-400 sm:text-md">
+          <div className="my-4 grid grid-cols-2 sm:m-6 sm:gap-x-6">
+            <h3 className="sm:text-md text-sm font-bold text-teal-400">
               Selected Package
             </h3>
-            <p className=" text-sm text-gray-700 dark:text-slate-200 font-medium">
+            <p className="text-sm font-medium text-gray-700 dark:text-slate-200">
               {userAppointment.selectedPackage}
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:gap-x-6  my-4 sm:m-6">
-            <h3 className="text-sm font-bold text-teal-400 sm:text-md">
+          <div className="my-4 grid grid-cols-2 sm:m-6 sm:gap-x-6">
+            <h3 className="sm:text-md text-sm font-bold text-teal-400">
               Appointment Date
             </h3>
-            <p className="text-sm text-gray-700 dark:text-slate-200  font-medium">
+            <p className="text-sm font-medium text-gray-700 dark:text-slate-200">
               {userAppointment.date}
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:gap-x-6  my-4 sm:m-6">
-            <h3 className="text-sm font-bold text-teal-400 sm:text-md">
+          <div className="my-4 grid grid-cols-2 sm:m-6 sm:gap-x-6">
+            <h3 className="sm:text-md text-sm font-bold text-teal-400">
               Start Time
             </h3>
-            <p className="text-sm text-gray-700 dark:text-slate-200  font-medium">
+            <p className="text-sm font-medium text-gray-700 dark:text-slate-200">
               {userAppointment.startTime}
             </p>
           </div>
 
           {userAppointment.endTime && (
-            <div className="grid grid-cols-2 sm:gap-x-6  my-4 sm:m-6">
-              <h3 className="text-sm font-bold text-teal-400 sm:text-md">
+            <div className="my-4 grid grid-cols-2 sm:m-6 sm:gap-x-6">
+              <h3 className="sm:text-md text-sm font-bold text-teal-400">
                 End Time
               </h3>
-              <p className="text-sm text-gray-700 dark:text-slate-200  font-medium">
+              <p className="text-sm font-medium text-gray-700 dark:text-slate-200">
                 {userAppointment.endTime}
               </p>
             </div>
           )}
 
-          <div className="grid grid-cols-2 sm:gap-x-6  my-4 sm:m-6">
-            <h3 className="text-sm font-bold text-teal-400 sm:text-md">
+          <div className="my-4 grid grid-cols-2 sm:m-6 sm:gap-x-6">
+            <h3 className="sm:text-md text-sm font-bold text-teal-400">
               Price
             </h3>
-            <p className="text-sm text-gray-700 dark:text-slate-200  font-medium">
+            <p className="text-sm font-medium text-gray-700 dark:text-slate-200">
               ${userAppointment.price}
             </p>
           </div>
         </div>
         {/* SUBMIT BUTTON */}
-        <div className="grid col-span-12 sm:justify-items-end ">
+        <div className="col-span-12 grid sm:justify-items-end">
           <div className="w-full sm:w-2/4">
             <button
-              className="w-full py-2 px-4 bg-teal-500 text-white font-bold rounded-xl mt-4 hover:bg-teal-600 transition duration-200"
+              className="mt-4 w-full rounded-xl bg-teal-500 px-4 py-2 font-bold text-white transition duration-200 hover:bg-teal-600"
               onClick={handleSubmitAppointment}
             >
               Submit Appointment

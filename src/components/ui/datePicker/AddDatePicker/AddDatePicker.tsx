@@ -12,7 +12,7 @@ import { useAuth } from "context/AuthProvider";
 
 const AddDatePicker: React.FC = () => {
   const [dateValue, setDateValue] = useState<DateValue | null>(
-    now(getLocalTimeZone())
+    now(getLocalTimeZone()),
   );
   const { user } = useAuth();
 
@@ -54,17 +54,17 @@ const AddDatePicker: React.FC = () => {
         minValue={today(getLocalTimeZone())}
       />
 
-      <p className=" my-4 text-sm text-black ">
+      <p className="my-4 text-sm text-black">
         Selected date:{" "}
-        <span className="text-sm text-black font-semibold">
+        <span className="text-sm font-semibold text-black">
           {dateValue
             ? dateFormatter.format(dateValue.toDate(getLocalTimeZone()))
             : "--"}
         </span>
       </p>
-      <p className=" my-4 text-sm text-black ">
+      <p className="my-4 text-sm text-black">
         Selected time:{" "}
-        <span className="text-sm text-black font-semibold">
+        <span className="text-sm font-semibold text-black">
           {dateValue
             ? timeFormatter.format(dateValue.toDate(getLocalTimeZone()))
             : "00:00:00"}

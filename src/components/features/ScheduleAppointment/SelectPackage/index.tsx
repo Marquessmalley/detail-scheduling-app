@@ -41,7 +41,7 @@ const SelectPackage: React.FC<SelectVehicleType> = ({
           <Alert alertType="Error" alertMsg={appointmentError.errorMsg} />
         </>
       ) : null}
-      <div className="grid grid-cols-1 gap-y-5 gap-x-5 p-6 justify-items-center">
+      <div className="grid grid-cols-1 justify-items-center gap-x-5 gap-y-5 p-6">
         {detailMenu.map((detail) => {
           const isSelected = detail.packageName === selectedDetailPackage;
 
@@ -74,8 +74,8 @@ const SelectPackage: React.FC<SelectVehicleType> = ({
                 as="div"
                 className={
                   isSelected
-                    ? "p-4 rounded-2xl bg-slate-50 w-full hover:bg-slate-100 transition duration-200  bg-gradient-to-br from-teal-400 via-pink-300 to-teal-500 dark:bg-gradient-to-br dark:from-teal-600 dark:via-pink-500 dark:to-teal-600"
-                    : "p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 w-full hover:bg-slate-100 transition duration-200"
+                    ? "w-full rounded-2xl bg-slate-50 bg-gradient-to-br from-teal-400 via-pink-300 to-teal-500 p-4 transition duration-200 hover:bg-slate-100 dark:bg-gradient-to-br dark:from-teal-600 dark:via-pink-500 dark:to-teal-600"
+                    : "w-full rounded-2xl bg-slate-50 p-4 transition duration-200 hover:bg-slate-100 dark:bg-slate-800"
                 }
                 defaultOpen={false}
               >
@@ -83,18 +83,18 @@ const SelectPackage: React.FC<SelectVehicleType> = ({
                   <p
                     className={
                       isSelected
-                        ? "text-lg font-semibold text-center text-white"
-                        : "text-lg font-semibold text-center"
+                        ? "text-center text-lg font-semibold text-white"
+                        : "text-center text-lg font-semibold"
                     }
                   >
                     {detail.packageName}
                   </p>
-                  <ChevronDownIcon className="size-5 text-black dark:text-white group-data-[open]:rotate-180" />
+                  <ChevronDownIcon className="size-5 text-black group-data-[open]:rotate-180 dark:text-white" />
                 </DisclosureButton>
-                <DisclosurePanel className="mt-10 text-sm/5  bg-white dark:bg-slate-900 rounded-xl p-2 shadow-xl">
-                  <div className="grid grid-cols-2 m-2">
+                <DisclosurePanel className="mt-10 rounded-xl bg-white p-2 text-sm/5 shadow-xl dark:bg-slate-900">
+                  <div className="m-2 grid grid-cols-2">
                     <div className="flex">
-                      <p className="text-2xl text-white font-bold ml-2 p-2 shadow-xl rounded-lg  whitespace-nowrap bg-gradient-to-br from-teal-400 via-pink-300 to-teal-500  dark:bg-gradient-to-br dark:from-teal-600 dark:via-pink-500 dark:to-teal-600">
+                      <p className="ml-2 whitespace-nowrap rounded-lg bg-gradient-to-br from-teal-400 via-pink-300 to-teal-500 p-2 text-2xl font-bold text-white shadow-xl dark:bg-gradient-to-br dark:from-teal-600 dark:via-pink-500 dark:to-teal-600">
                         ${price}
                       </p>
                     </div>
@@ -103,8 +103,8 @@ const SelectPackage: React.FC<SelectVehicleType> = ({
                       <button
                         className={
                           isSelected
-                            ? "text-white font-bold p-2 border shadow-xl rounded-xl mr-2  bg-gradient-to-br from-teal-400 via-pink-300 to-teal-500 dark:bg-gradient-to-br dark:from-teal-600 dark:via-pink-500 dark:to-teal-600"
-                            : "text-black dark:text-white font-bold p-2 border dark:border-slate-700 shadow-xl dark:shadow-sm dark:shadow-teal-400 rounded-xl mr-2 bg-slate-100 dark:bg-transparent hover:bg-slate-200 dark:hover:bg-slate-800 transition duration-200"
+                            ? "mr-2 rounded-xl border bg-gradient-to-br from-teal-400 via-pink-300 to-teal-500 p-2 font-bold text-white shadow-xl dark:bg-gradient-to-br dark:from-teal-600 dark:via-pink-500 dark:to-teal-600"
+                            : "mr-2 rounded-xl border bg-slate-100 p-2 font-bold text-black shadow-xl transition duration-200 hover:bg-slate-200 dark:border-slate-700 dark:bg-transparent dark:text-white dark:shadow-sm dark:shadow-teal-400 dark:hover:bg-slate-800"
                         }
                         onClick={() => {
                           const vehicleType = userAppointment.vehicleType;
@@ -131,7 +131,7 @@ const SelectPackage: React.FC<SelectVehicleType> = ({
                   <div className="grid grid-cols-1 sm:grid-cols-2">
                     {detail.services.interior?.map((service) => (
                       <div key={service} className="">
-                        <div className="flex m-2">
+                        <div className="m-2 flex">
                           <CheckIcon />
                           <p className="ml-2 font-bold text-black/80 dark:text-white">
                             {service}
@@ -141,7 +141,7 @@ const SelectPackage: React.FC<SelectVehicleType> = ({
                     ))}
                     {detail.services.exterior?.map((service) => (
                       <div key={service} className="">
-                        <div className="flex m-2">
+                        <div className="m-2 flex">
                           <CheckIcon />
                           <p className="ml-2 font-bold text-black/80 dark:text-white">
                             {service}

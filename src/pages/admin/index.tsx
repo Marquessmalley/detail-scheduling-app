@@ -69,10 +69,10 @@ const AdminPage = () => {
 
   return (
     <div>
-      <div className="grid grid-cols-1 lg:grid lg:grid-cols-2 sm:mx-auto sm:max-w-7xl">
+      <div className="grid grid-cols-1 sm:mx-auto sm:max-w-7xl lg:grid lg:grid-cols-2">
         {/* AVAILABILITIES */}
-        <div className="p-8 ">
-          <div className=" lg:max-w-xl lg:mx-auto px-4 sm:px-0">
+        <div className="p-8">
+          <div className="px-4 sm:px-0 lg:mx-auto lg:max-w-xl">
             <h3 className="text-base font-semibold leading-7 text-gray-900">
               View your available openings
             </h3>
@@ -81,7 +81,7 @@ const AdminPage = () => {
             </p>
           </div>
 
-          <div className="h-4/5 overflow-y-scroll ">
+          <div className="h-4/5 overflow-y-scroll">
             {availabilities && availabilities.length > 0 ? (
               availabilities.map((slot) => {
                 return (
@@ -94,11 +94,11 @@ const AdminPage = () => {
                 );
               })
             ) : (
-              <div className="text-center  p-4">
+              <div className="p-4 text-center">
                 {loading ? (
                   <SpinnerIcon />
                 ) : (
-                  <p className="text-4xl font-bold ">No Openings Scheduled</p>
+                  <p className="text-4xl font-bold">No Openings Scheduled</p>
                 )}
               </div>
             )}
@@ -107,7 +107,7 @@ const AdminPage = () => {
 
         {/* UPCOMING APPOINTMENTS */}
         <div className="p-8">
-          <div className=" lg:max-w-xl lg:mx-auto px-4 sm:px-0">
+          <div className="px-4 sm:px-0 lg:mx-auto lg:max-w-xl">
             <h3 className="text-base font-semibold leading-7 text-gray-900">
               Upcoming Appointments...
             </h3>
@@ -115,7 +115,7 @@ const AdminPage = () => {
               Apointment details.
             </p>
           </div>
-          <div className="h-4/5 overflow-y-scroll border rounded-lg">
+          <div className="h-4/5 overflow-y-scroll rounded-lg border">
             {appointments && appointments.length > 0 ? (
               appointments.map((appointment) => (
                 <div key={appointment[0]}>
@@ -125,11 +125,11 @@ const AdminPage = () => {
                 </div>
               ))
             ) : (
-              <div className="p-4 flex justify-center items-center h-full">
+              <div className="flex h-full items-center justify-center p-4">
                 {loading ? (
                   <SpinnerIcon />
                 ) : (
-                  <p className="text-4xl font-bold ">No Appointments Booked</p>
+                  <p className="text-4xl font-bold">No Appointments Booked</p>
                 )}
               </div>
             )}

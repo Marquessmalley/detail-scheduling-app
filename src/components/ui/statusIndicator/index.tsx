@@ -12,7 +12,7 @@ const StatusIndicator: React.FC<StatusIndicatorProps> = ({ status }) => {
   };
   return (
     <span
-      className={`inline-block w-3 h-3 rounded-lg mr-2 shadow-xl ring-2 transition ${statusColors[status]}`}
+      className={`mr-2 inline-block h-3 w-3 rounded-lg shadow-xl ring-2 transition ${statusColors[status]}`}
     />
   );
 };
