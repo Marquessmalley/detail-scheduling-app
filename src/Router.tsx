@@ -8,7 +8,7 @@ import RootLayout from "components/layouts/rootlayout/RootLayout";
 import AdminLayout from "components/layouts/adminlayout/AdminLayout";
 import Home from "pages/Home";
 import Booking from "pages/Booking";
-import AdminPage from "pages/Admin";
+import Admin from "pages/Admin";
 import Signup from "pages/Auth/Signup";
 import Login from "pages/Auth/Login";
 import AppointmentConfirm from "pages/Booking/AppointmentConfirm";
@@ -73,7 +73,7 @@ const router: any = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <AdminPage />,
+        element: <Admin />,
       },
     ],
   },
