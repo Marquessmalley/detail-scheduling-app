@@ -9,7 +9,7 @@ import AdminLayout from "components/layouts/adminlayout/AdminLayout";
 import Home from "pages/Home";
 import Booking from "pages/Booking";
 import Admin from "pages/admin";
-import Signup from "pages/Auth/signup";
+import Signup from "pages/Auth/Signup";
 import Login from "pages/Auth/Login";
 import AppointmentConfirm from "pages/Booking/AppointmentConfirm";
 
