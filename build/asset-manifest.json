@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.4993d8b2.css",
+    "main.js": "/static/js/main.5b3678a3.js",
+    "static/media/logo.png": "/static/media/logo.f6b6d09b9dbbf7d6b990.png",
+    "static/media/black-tahoe.png": "/static/media/black-tahoe.364511b397374c9fc189.png",
+    "static/media/black-blazer.png": "/static/media/black-blazer.050b8d42a7c7d84ff9d8.png",
+    "static/media/white-tahoe.png": "/static/media/white-tahoe.6fadb26e62b1830779d5.png",
+    "static/media/black-malibu.png": "/static/media/black-malibu.7eed20b14c901b9a008b.png",
+    "static/media/white-blazer.png": "/static/media/white-blazer.a2d3205b97f3dd85148c.png",
+    "static/media/white-malibu.png": "/static/media/white-malibu.7f1cefe7e7647934b89b.png",
+    "static/media/car-spray.png": "/static/media/car-spray.30c9e9d5c8dfe7650cb1.png",
+    "static/media/wash-asset-1.png": "/static/media/wash-asset-1.4cf6d89cfd4d99467994.png",
+    "static/media/car-seat.png": "/static/media/car-seat.8fa0f218426cd3f713dc.png",
+    "index.html": "/index.html",
+    "main.4993d8b2.css.map": "/static/css/main.4993d8b2.css.map",
+    "main.5b3678a3.js.map": "/static/js/main.5b3678a3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4993d8b2.css",
+    "static/js/main.5b3678a3.js"
+  ]
+}
