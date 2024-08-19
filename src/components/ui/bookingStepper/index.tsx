@@ -87,7 +87,7 @@ const BookingStepper: React.FC = () => {
       <div className="p-2 my-5 flex flex-col items-center justify-center">
         <h2 className="text-2xl font-bold">{bookingSteps[activeStep].title}</h2>
 
-        <p className="text-sm  text-slate-600 text-center leading-6">
+        <p className="text-sm  text-slate-600 dark:text-gray-400 text-center leading-6">
           {bookingSteps[activeStep]?.desc}{" "}
         </p>
       </div>
@@ -119,8 +119,8 @@ const BookingStepper: React.FC = () => {
               disabled={activeStep === maxSteps - 1 || activeStep === 3}
               className={
                 activeStep !== 3
-                  ? "text-md font-semibold bg-teal-400 text-white p-2 m-6 rounded-xl text-center transition duration-200 hover:bg-teal-500"
-                  : "text-md font-semibold bg-teal-500 text-white p-2 m-6 rounded-xl"
+                  ? "text-md font-semibold bg-teal-400 dark:border dark:border-slate-600 dark:bg-inherit dark:shadow-slate-600 text-white p-2 m-6 rounded-xl text-center transition duration-200 hover:bg-teal-500 dark:hover:bg-slate-800"
+                  : "text-md font-semibold bg-teal-500 text-white p-2 m-6 rounded-xl dark:border dark:border-slate-600 dark:bg-inherit dark:ring-1 dark:ring-teal-600 dark:shadow-slate-600"
               }
             >
               Next
@@ -133,8 +133,8 @@ const BookingStepper: React.FC = () => {
               disabled={activeStep === 0}
               className={
                 activeStep !== 0
-                  ? "text-md font-semibold bg-teal-400 text-white p-2 m-6 rounded-xl text-center transition duration-200 hover:bg-teal-500"
-                  : "text-md font-semibold bg-teal-500 text-white p-2 m-6 rounded-xl "
+                  ? "text-md font-semibold bg-teal-400 text-white p-2 m-6 rounded-xl text-center transition duration-200 hover:bg-teal-500 dark:border dark:border-slate-600 dark:bg-inherit dark:shadow-slate-600 dark:hover:bg-slate-800"
+                  : "text-md font-semibold bg-teal-500 text-white p-2 m-6 rounded-xl dark:border dark:border-slate-800 dark:bg-inherit  dark:shadow-slate-600 "
               }
             >
               <KeyboardArrowLeftIcon />

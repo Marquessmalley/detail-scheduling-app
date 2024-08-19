@@ -19,7 +19,7 @@ interface SelectDateProps {
   appointmentError: { errorType: string; errorMsg: string };
   setAppointmentError: (x: { errorType: string; errorMsg: string }) => void;
   setUpdateAvailability: (
-    x: [string, { availability: AdminAvailabilityType }] | null
+    x: [string, { availability: AdminAvailabilityType }] | null,
   ) => void;
 }
 
@@ -35,14 +35,14 @@ const SelectDate: React.FC<SelectDateProps> = ({
   const [calendarValue, setCalendarValue] = useState<DateValue>(
     userAppointment.date !== ""
       ? parseDate(new Date(userAppointment.date).toISOString().split("T")[0])
-      : now(getLocalTimeZone())
+      : now(getLocalTimeZone()),
   );
 
   const [selectedDate, setSelectedDate] = useState<string>(
-    userAppointment.date
+    userAppointment.date,
   );
   const [selectedTime, setSelectedTime] = useState<string>(
-    userAppointment.startTime
+    userAppointment.startTime,
   );
 
   let dateFormatter = useDateFormatter({
@@ -50,11 +50,11 @@ const SelectDate: React.FC<SelectDateProps> = ({
   });
 
   const calendarDate = dateFormatter.format(
-    calendarValue.toDate(getLocalTimeZone())
+    calendarValue.toDate(getLocalTimeZone()),
   );
 
   const match = availableDates?.filter(
-    (availability) => availability[1].availability.date === calendarDate
+    (availability) => availability[1].availability.date === calendarDate,
   );
 
   return (
@@ -75,7 +75,7 @@ const SelectDate: React.FC<SelectDateProps> = ({
           />
         </div>
         <div className=" ">
-          <p className="text-lg text-center font-bold text-slate-600">
+          <p className="text-lg text-center font-bold text-slate-600 dark:text-slate-300">
             {calendarDate}
           </p>
           {match && match.length > 0 ? (
@@ -89,8 +89,8 @@ const SelectDate: React.FC<SelectDateProps> = ({
                   key={availability[0]}
                   className={
                     isSelected
-                      ? "flex justify-center m-2 h-12  p-4 border border-slate-300 rounded-2xl shadow cursor-pointer bg-gradient-to-br from-teal-400 via-pink-300 to-teal-500 transition duration-200"
-                      : "flex justify-center m-2 h-12  p-4 border border-slate-300 rounded-2xl shadow cursor-pointer hover:bg-slate-50 transition duration-200"
+                      ? "flex justify-center m-2 h-12  p-4 border border-slate-300 rounded-2xl shadow cursor-pointer bg-gradient-to-br from-teal-400 via-pink-300 to-teal-500 dark:bg-gradient-to-br dark:from-teal-600 dark:via-pink-500 dark:to-teal-600  transition duration-200"
+                      : "flex justify-center m-2 h-12  p-4 border border-slate-300 dark:border-slate-700 rounded-2xl shadow cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800 transition duration-200"
                   }
                   onClick={() => {
                     setUserAppointment((prevState: any) => ({
@@ -112,7 +112,7 @@ const SelectDate: React.FC<SelectDateProps> = ({
                     className={
                       isSelected
                         ? "text-sm font-semibold text-white "
-                        : "text-sm font-semibold text-slate-500 "
+                        : "text-sm font-semibold text-slate-500 dark:text-slate-200 "
                     }
                   >
                     {availability[1].availability.startTime}
@@ -122,7 +122,7 @@ const SelectDate: React.FC<SelectDateProps> = ({
             })
           ) : (
             <div className="flex justify-center">
-              <p className="text-md text-center font-semibold text-slate-500 m-2">
+              <p className="text-md text-center font-semibold text-slate-500 dark:text-slate-400 m-2">
                 No Availability
               </p>
             </div>

@@ -13,7 +13,7 @@ const Footer = () => {
         <div className="grid col-span-6 sm:col-span-3 justify-items-start sm:justify-items-center">
           <h2 className="text-sm font-semibold">Connect with us</h2>
           <div className=" flex">
-            <button className="w-10 h-10 m-2 flex items-center justify-center rounded-lg bg-sky-800 hover:bg-sky-700 shadow-md shadow-gray-200 group transition-all duration-300">
+            <button className="w-10 h-10 m-2 flex items-center justify-center rounded-lg bg-sky-800 dark:bg-slate-900 hover:bg-sky-700 dark:hover:bg-slate-800 shadow-sm dark:shadow-teal-400 group transition-all duration-300">
               <svg
                 className="transition-all duration-300 group-hover:scale-110"
                 xmlns="http://www.w3.org/2000/svg"
@@ -29,7 +29,7 @@ const Footer = () => {
               </svg>
             </button>
 
-            <button className="w-10 h-10 m-2 flex items-center justify-center group rounded-lg bg-sky-800 hover:bg-sky-700 shadow-md shadow-gray-200 group transition-all duration-300">
+            <button className="w-10 h-10 m-2 flex items-center justify-center group rounded-lg bg-sky-800 dark:bg-slate-900 hover:bg-sky-700 dark:hover:bg-slate-800 shadow-sm dark:shadow-teal-400 group transition-all duration-300">
               <svg
                 className="transition-all duration-300 group-hover:scale-110"
                 width="28"

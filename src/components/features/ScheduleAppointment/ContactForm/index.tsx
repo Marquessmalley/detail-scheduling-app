@@ -96,7 +96,10 @@ const ContactForm: React.FC<ContactFormProps> = ({
           </h2>
           <div>
             <div className="mb-2">
-              <label className="block  text-sm font-medium text-gray-600 ">
+              <label
+                htmlFor="firstName"
+                className="block text-sm font-medium text-gray-900 dark:text-slate-300 mb-2"
+              >
                 First name
               </label>
               <input
@@ -104,7 +107,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
                 name="firstName"
                 id="firstName"
                 value={userAppointment.contactInfo.firstName}
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-400 focus:border-teal-500 block w-full p-2.5 hover:bg-slate-100 transition duration-200 cursor-pointer"
+                className="bg-gray-50 dark:bg-slate-800 border border-gray-300 dark:border-slate-700 text-gray-900 dark:text-slate-200 text-sm rounded-lg focus:ring-teal-400 focus:border-teal-500 block w-full p-2.5 hover:bg-slate-100 transition duration-200 cursor-pointer"
                 placeholder="John"
                 onChange={handleContactChange}
                 required
@@ -113,7 +116,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
             <div className="mb-2">
               <label
                 htmlFor="lastName"
-                className="block  text-sm font-medium text-gray-900 dark:text-white"
+                className="block  text-sm font-medium text-gray-900 dark:text-slate-300 mb-2"
               >
                 Last name
               </label>
@@ -122,7 +125,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
                 name="lastName"
                 id="lastName"
                 value={userAppointment.contactInfo.lastName}
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 hover:bg-slate-100 transition duration-200 cursor-pointer"
+                className="bg-gray-50 dark:bg-slate-800 border border-gray-300 dark:border-slate-700 text-gray-900 dark:text-slate-200 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 hover:bg-slate-100 transition duration-200 cursor-pointer"
                 placeholder="Doe"
                 onChange={handleContactChange}
                 required
@@ -131,7 +134,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
             <div className="mb-2">
               <label
                 htmlFor="email"
-                className="block  text-sm font-medium text-gray-900 dark:text-white"
+                className="block  text-sm font-medium text-gray-900 dark:text-slate-300 mb-2"
               >
                 Email
               </label>
@@ -140,7 +143,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
                 name="email"
                 id="email"
                 value={userAppointment.contactInfo.email}
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 hover:bg-slate-100 transition duration-200 cursor-pointer"
+                className="bg-gray-50 dark:bg-slate-800 border border-gray-300 dark:border-slate-700 text-gray-900 dark:text-slate-200 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 hover:bg-slate-100 transition duration-200 cursor-pointer"
                 placeholder="Email"
                 onChange={handleContactChange}
                 required
@@ -149,7 +152,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
             <div className="mb-2">
               <label
                 htmlFor="phone"
-                className="block text-sm font-medium text-gray-900 dark:text-white"
+                className="block text-sm font-medium text-gray-900 dark:text-slate-300 mb-2"
               >
                 Phone number
               </label>
@@ -158,7 +161,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
                 name="phone"
                 id="phone"
                 value={userAppointment.contactInfo.phone}
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 hover:bg-slate-100 transition duration-200 cursor-pointer"
+                className="bg-gray-50 dark:bg-slate-800 border border-gray-300 dark:border-slate-700 text-gray-900 dark:text-slate-200 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 hover:bg-slate-100 transition duration-200 cursor-pointer"
                 placeholder="Phone"
                 onChange={handlePhoneChange}
                 maxLength={13}
@@ -168,7 +171,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
             <div className="mb-2">
               <label
                 htmlFor="address"
-                className="block  text-sm font-medium text-gray-900 dark:text-white"
+                className="block  text-sm font-medium text-gray-900 dark:text-slate-300 mb-2"
               >
                 Address
               </label>
@@ -181,7 +184,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
                   value={userAppointment.contactInfo.address}
                   onChange={handleAddressChnage}
                   placeholder="Address"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 hover:bg-slate-100 transition duration-200 cursor-pointer"
+                  className="bg-gray-50 dark:bg-slate-800 border border-gray-300 dark:border-slate-700 text-gray-900 dark:text-slate-200 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 hover:bg-slate-100 transition duration-200 cursor-pointer"
                 />
               </AddressAutofill>
             </div>
@@ -195,7 +198,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
             <h3 className=" text-sm font-bold text-teal-400 sm:text-md">
               Vehicle Type
             </h3>
-            <p className="text-sm text-gray-700 font-medium">
+            <p className="text-sm text-gray-700 dark:text-slate-200  font-medium">
               {userAppointment.vehicleType}
             </p>
           </div>
@@ -204,7 +207,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
             <h3 className="text-sm font-bold text-teal-400 sm:text-md">
               Selected Package
             </h3>
-            <p className=" text-sm text-gray-700 font-medium">
+            <p className=" text-sm text-gray-700 dark:text-slate-200 font-medium">
               {userAppointment.selectedPackage}
             </p>
           </div>
@@ -213,7 +216,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
             <h3 className="text-sm font-bold text-teal-400 sm:text-md">
               Appointment Date
             </h3>
-            <p className="text-sm text-gray-700 font-medium">
+            <p className="text-sm text-gray-700 dark:text-slate-200  font-medium">
               {userAppointment.date}
             </p>
           </div>
@@ -222,7 +225,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
             <h3 className="text-sm font-bold text-teal-400 sm:text-md">
               Start Time
             </h3>
-            <p className="text-sm text-gray-700 font-medium">
+            <p className="text-sm text-gray-700 dark:text-slate-200  font-medium">
               {userAppointment.startTime}
             </p>
           </div>
@@ -232,7 +235,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
               <h3 className="text-sm font-bold text-teal-400 sm:text-md">
                 End Time
               </h3>
-              <p className="text-sm text-gray-700 font-medium">
+              <p className="text-sm text-gray-700 dark:text-slate-200  font-medium">
                 {userAppointment.endTime}
               </p>
             </div>
@@ -242,7 +245,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
             <h3 className="text-sm font-bold text-teal-400 sm:text-md">
               Price
             </h3>
-            <p className="text-sm text-gray-700 font-medium">
+            <p className="text-sm text-gray-700 dark:text-slate-200  font-medium">
               ${userAppointment.price}
             </p>
           </div>
@@ -251,7 +254,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
         <div className="grid col-span-12 sm:justify-items-end ">
           <div className="w-full sm:w-2/4">
             <button
-              className="w-full py-2 px-4 bg-teal-400 text-white font-bold rounded-xl mt-4 hover:bg-teal-500 transition duration-200"
+              className="w-full py-2 px-4 bg-teal-500 text-white font-bold rounded-xl mt-4 hover:bg-teal-600 transition duration-200"
               onClick={handleSubmitAppointment}
             >
               Submit Appointment

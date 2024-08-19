@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useDarkMode } from "context/DarkModeContext";
 import {
   Disclosure,
   DisclosureButton,
@@ -11,10 +12,11 @@ import { navigation } from "constants/navmenu";
 import { MoonIcon, SunIcon } from "components/ui/icons";
 
 export default function Navbar() {
-  const [isDark, setIsDark] = useState<Boolean>(false);
+  const { isDarkMode, setIsDarkMode } = useDarkMode();
+
   const toggleTheme = () => {
     document.documentElement.classList.toggle("dark");
-    setIsDark(!isDark);
+    setIsDarkMode(!isDarkMode);
   };
 
   return (
@@ -92,7 +94,7 @@ export default function Navbar() {
                     </svg>
                   </button>
                 </Link>
-                {isDark ? (
+                {isDarkMode ? (
                   <MoonIcon toggleTheme={toggleTheme} />
                 ) : (
                   <SunIcon toggleTheme={toggleTheme} />

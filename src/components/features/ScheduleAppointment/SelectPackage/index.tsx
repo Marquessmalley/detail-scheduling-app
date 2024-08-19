@@ -31,7 +31,7 @@ const SelectPackage: React.FC<SelectVehicleType> = ({
   >(
     userAppointment.selectedPackage
       ? userAppointment.selectedPackage
-      : undefined
+      : undefined,
   );
 
   return (
@@ -74,8 +74,8 @@ const SelectPackage: React.FC<SelectVehicleType> = ({
                 as="div"
                 className={
                   isSelected
-                    ? "p-4 rounded-2xl bg-slate-50 w-full hover:bg-slate-100 transition duration-200  bg-gradient-to-br from-teal-400 via-pink-300 to-teal-500 "
-                    : "p-4 rounded-2xl bg-slate-50 w-full hover:bg-slate-100 transition duration-200"
+                    ? "p-4 rounded-2xl bg-slate-50 w-full hover:bg-slate-100 transition duration-200  bg-gradient-to-br from-teal-400 via-pink-300 to-teal-500 dark:bg-gradient-to-br dark:from-teal-600 dark:via-pink-500 dark:to-teal-600"
+                    : "p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 w-full hover:bg-slate-100 transition duration-200"
                 }
                 defaultOpen={false}
               >
@@ -89,12 +89,12 @@ const SelectPackage: React.FC<SelectVehicleType> = ({
                   >
                     {detail.packageName}
                   </p>
-                  <ChevronDownIcon className="size-5 text-black group-data-[open]:rotate-180" />
+                  <ChevronDownIcon className="size-5 text-black dark:text-white group-data-[open]:rotate-180" />
                 </DisclosureButton>
-                <DisclosurePanel className="mt-10 text-sm/5 text-black/80  bg-white rounded-xl p-2 shadow-xl">
+                <DisclosurePanel className="mt-10 text-sm/5  bg-white dark:bg-slate-900 rounded-xl p-2 shadow-xl">
                   <div className="grid grid-cols-2 m-2">
                     <div className="flex">
-                      <p className="text-2xl text-white font-bold ml-2 p-2 shadow-xl rounded-lg  whitespace-nowrap bg-gradient-to-br from-teal-400 via-pink-300 to-teal-500">
+                      <p className="text-2xl text-white font-bold ml-2 p-2 shadow-xl rounded-lg  whitespace-nowrap bg-gradient-to-br from-teal-400 via-pink-300 to-teal-500  dark:bg-gradient-to-br dark:from-teal-600 dark:via-pink-500 dark:to-teal-600">
                         ${price}
                       </p>
                     </div>
@@ -103,8 +103,8 @@ const SelectPackage: React.FC<SelectVehicleType> = ({
                       <button
                         className={
                           isSelected
-                            ? "text-white font-bold p-2 border shadow-xl rounded-xl mr-2  bg-gradient-to-br from-teal-400 via-pink-300 to-teal-500 "
-                            : "text-black font-bold p-2 border shadow-xl rounded-xl mr-2 bg-slate-100 hover:bg-slate-200 transition duration-200"
+                            ? "text-white font-bold p-2 border shadow-xl rounded-xl mr-2  bg-gradient-to-br from-teal-400 via-pink-300 to-teal-500 dark:bg-gradient-to-br dark:from-teal-600 dark:via-pink-500 dark:to-teal-600"
+                            : "text-black dark:text-white font-bold p-2 border dark:border-slate-700 shadow-xl dark:shadow-sm dark:shadow-teal-400 rounded-xl mr-2 bg-slate-100 dark:bg-transparent hover:bg-slate-200 dark:hover:bg-slate-800 transition duration-200"
                         }
                         onClick={() => {
                           const vehicleType = userAppointment.vehicleType;
@@ -133,7 +133,9 @@ const SelectPackage: React.FC<SelectVehicleType> = ({
                       <div key={service} className="">
                         <div className="flex m-2">
                           <CheckIcon />
-                          <p className="ml-2 font-bold">{service}</p>
+                          <p className="ml-2 font-bold text-black/80 dark:text-white">
+                            {service}
+                          </p>
                         </div>
                       </div>
                     ))}
@@ -141,7 +143,9 @@ const SelectPackage: React.FC<SelectVehicleType> = ({
                       <div key={service} className="">
                         <div className="flex m-2">
                           <CheckIcon />
-                          <p className="ml-2 font-bold">{service}</p>
+                          <p className="ml-2 font-bold text-black/80 dark:text-white">
+                            {service}
+                          </p>
                         </div>
                       </div>
                     ))}

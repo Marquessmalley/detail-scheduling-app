@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import AuthProvider from "context/AuthProvider";
 import AvailabilityProvider from "context/AvailabilityContext";
 import AppointmentProvider from "context/AppointmentContext";
+import DarkModeProvider from "context/DarkModeContext";
 import PrivateRoute from "components/routes/PrivateRoute";
 import RootLayout from "components/layouts/rootlayout/RootLayout";
 import AdminLayout from "components/layouts/adminlayout/AdminLayout";
@@ -15,7 +16,11 @@ import AppointmentConfirm from "pages/booking/AppointmentConfirm";
 const router: any = createBrowserRouter([
   {
     path: "/",
-    element: <RootLayout />,
+    element: (
+      <DarkModeProvider>
+        <RootLayout />
+      </DarkModeProvider>
+    ),
     children: [
       {
         index: true,
@@ -25,7 +30,7 @@ const router: any = createBrowserRouter([
         path: "/booking",
         element: (
           <AppointmentProvider>
-            <Booking />,
+            <Booking />
           </AppointmentProvider>
         ),
       },

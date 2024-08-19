@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <NextUIProvider>
-        <RouterProvider router={router} />;
+        <RouterProvider router={router} />
       </NextUIProvider>
     </>
   );
