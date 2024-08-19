@@ -10,7 +10,7 @@ import {
   sortedAppointments,
 } from "utils/sortAvailabilities";
 
-const AdminPage = () => {
+const Admin = () => {
   const [availabilities, setAvailabilities] = useState<
     [string, { availability: AdminAvailabilityType }][] | null
   >(null);
@@ -140,4 +140,4 @@ const AdminPage = () => {
   );
 };
 
-export default AdminPage;
+export default Admin;
