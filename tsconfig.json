@@ -4,7 +4,9 @@
     "module": "commonjs",
     "baseUrl": "./src",
     "paths": {
-      "*": ["*"]
+      "*": ["*"],
+      "pages/*": ["pages/*"],
+      "sections/*": ["sections/*"]
       // "react": ["./node_modules/@types/react"]
     },
     "esModuleInterop": true,
