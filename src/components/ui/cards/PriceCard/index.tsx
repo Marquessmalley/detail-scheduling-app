@@ -1,6 +1,6 @@
 import car from "assets/images/car-wash.png";
 import { DetailPackage } from "constants/interfaces";
-import { CheckIcon, ClockIcon } from "components/ui/icons";
+import { CheckIcon } from "components/ui/icons";
 import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
 
 interface PriceCardProps {
