@@ -8,7 +8,7 @@ import Footer from "sections/Footer";
 
 const Home: React.FC = () => {
   return (
-    <div className="">
+    <div>
       <Landing />
       <Services />
       <Pricing />
