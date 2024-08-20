@@ -22,11 +22,11 @@ export default function Navbar() {
     <Disclosure as="nav" className="">
       {({ open }) => (
         <>
-          <div className="mx-auto max-w-7xl rounded-xl border-b px-2 dark:border-teal-600 dark:shadow-lg dark:shadow-slate-700 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl rounded-xl border-b px-2 shadow-lg dark:border-teal-600 dark:shadow-lg dark:shadow-slate-700 sm:px-6 lg:px-8">
             <div className="relative flex h-20 flex-1 items-center justify-between">
               {/* MOBILE MENU */}
 
-              <div className="flex items-center sm:hidden">
+              <div className="flex flex-1 items-center sm:hidden">
                 {/* Mobile menu button*/}
                 <DisclosureButton className="relative inline-flex items-center justify-center rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="absolute -inset-0.5" />
@@ -40,7 +40,7 @@ export default function Navbar() {
               </div>
 
               {/* logo*/}
-              <div className="flex flex-1 items-center justify-end sm:items-stretch sm:justify-start">
+              <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
                   <Link to="/">
                     <img
@@ -71,28 +71,6 @@ export default function Navbar() {
 
               {/* search */}
               <div className="mr-2 flex flex-1 items-center justify-end">
-                {/* <Link to="/booking">
-                  <button
-                    type="button"
-                    className="relative flex rounded-full border border-slate-300 bg-teal-400 px-4 py-2.5 transition duration-200 hover:bg-teal-500 dark:border-slate-700 dark:bg-teal-700/5 dark:shadow-sm dark:shadow-teal-600 dark:hover:bg-slate-800"
-                  >
-                    <p className="mr-1 text-sm font-semibold text-white">
-                      Book Now
-                    </p>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                      className="size-5 text-white dark:text-teal-400"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16ZM6.75 9.25a.75.75 0 0 0 0 1.5h4.59l-2.1 1.95a.75.75 0 0 0 1.02 1.1l3.5-3.25a.75.75 0 0 0 0-1.1l-3.5-3.25a.75.75 0 1 0-1.02 1.1l2.1 1.95H6.75Z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </button>
-                </Link> */}
                 {isDarkMode ? (
                   <MoonIcon toggleTheme={toggleTheme} />
                 ) : (

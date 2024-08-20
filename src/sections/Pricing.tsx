@@ -23,7 +23,11 @@ const Pricing: React.FC = () => {
 
       <div className="mx-auto grid max-w-7xl justify-items-center sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {specialPackages.map((plan) => {
-          return <PriceCard plan={plan} />;
+          return (
+            <div key={plan.id} className="">
+              <PriceCard plan={plan} />
+            </div>
+          );
         })}
       </div>
     </div>
