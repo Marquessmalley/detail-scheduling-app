@@ -22,20 +22,22 @@ export default function Navbar() {
     <Disclosure as="nav" className="">
       {({ open }) => (
         <>
-          <div className="mx-auto max-w-7xl rounded-xl border-b px-2 shadow-lg dark:border-teal-600 dark:shadow-lg dark:shadow-slate-700 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl rounded-xl border-b px-2 shadow-lg shadow-slate-300 dark:border-teal-600 dark:shadow-lg dark:shadow-slate-700 sm:px-6 lg:px-8">
             <div className="relative flex h-20 flex-1 items-center justify-between">
               {/* MOBILE MENU */}
 
               <div className="flex flex-1 items-center sm:hidden">
                 {/* Mobile menu button*/}
-                <DisclosureButton className="relative inline-flex items-center justify-center rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-                  <span className="absolute -inset-0.5" />
-                  <span className="sr-only">Open main menu</span>
-                  {open ? (
-                    <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
-                  ) : (
-                    <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
-                  )}
+                <DisclosureButton className="relative inline-flex items-center justify-center rounded-md p-2">
+                  <div className="rounded-lg border border-slate-300 bg-slate-50 p-2 transition duration-200 hover:bg-slate-100 dark:border-slate-700 dark:bg-transparent dark:hover:bg-slate-800">
+                    <span className="absolute -inset-0.5" />
+                    <span className="sr-only">Open main menu</span>
+                    {open ? (
+                      <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
+                    ) : (
+                      <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
+                    )}
+                  </div>
                 </DisclosureButton>
               </div>
 
