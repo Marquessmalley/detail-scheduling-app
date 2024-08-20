@@ -13,7 +13,7 @@ const Services: React.FC = () => {
             Detailing Services
           </span>
         </p>
-        <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-400">
+        <p className="mt-6 text-justify text-lg leading-8 text-gray-600 dark:text-gray-400">
           We are dedicated to providing the best car wash experience for our
           customers. Whether you need a quick exterior wash or a thorough
           interior cleaning, we have you covered.

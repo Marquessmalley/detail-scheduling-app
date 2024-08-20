@@ -12,7 +12,7 @@ const Pricing: React.FC = () => {
         <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
           Choose the right package for you
         </p>
-        <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-400">
+        <p className="mt-6 text-justify text-lg leading-8 text-gray-600 dark:text-gray-400">
           At ShineTime, we offer a range of detailing packages designed to fit
           your budget and your car's needs. Whether you're looking for a basic
           clean or a comprehensive detailing service, our pricing is transparent

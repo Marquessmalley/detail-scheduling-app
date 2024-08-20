@@ -7,7 +7,7 @@ const Landing = () => {
       className="mx-auto grid max-w-7xl grid-cols-1 gap-x-4 sm:grid-cols-12"
       style={{ height: "80vh" }}
     >
-      <div className="s col-span-12 ml-4 flex flex-col items-start justify-center text-center md:col-span-7">
+      <div className="col-span-12 ml-4 flex flex-col items-start justify-center text-center md:col-span-7">
         <p className="leading-12 mb-8 text-left text-4xl font-bold text-black dark:text-white sm:text-5xl">
           Your Car, Our Care -{" "}
           <span className="text-teal-400">Anywhere, Anytime</span>
