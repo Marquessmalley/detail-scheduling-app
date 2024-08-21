@@ -22,7 +22,7 @@ export default function Navbar() {
     <Disclosure as="nav" className="">
       {({ open }) => (
         <>
-          <div className="mx-auto max-w-7xl rounded-xl border-b px-2 shadow-lg shadow-slate-300 dark:border-teal-600 dark:shadow-lg dark:shadow-slate-700 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl border-b border-teal-400 px-2 shadow-lg shadow-slate-300 dark:border-teal-600 dark:bg-slate-900/60 dark:shadow-lg dark:shadow-slate-700 sm:px-6 lg:rounded-xl lg:px-8">
             <div className="relative flex h-20 flex-1 items-center justify-between">
               {/* MOBILE MENU */}
 
