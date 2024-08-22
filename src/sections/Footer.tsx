@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <footer className="">
-      <div className="mx-auto grid max-w-7xl gap-y-4 border-b p-4 sm:grid-cols-12">
+      <div className="mx-auto grid max-w-7xl gap-y-4 p-4 sm:grid-cols-12">
         {/* LOGO */}
         <div className="col-span-12 grid grid-cols-1 items-center sm:col-span-6">
           <p className="text-sm font-semibold">
@@ -117,18 +117,6 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-      </div>
-      <div className="flex justify-center py-4">
-        <p className="text-sm font-semibold">
-          Developed by{" "}
-          <a
-            href="https://marquessmalley.netlify.app/"
-            className="bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent"
-          >
-            {" "}
-            Marques Smalley
-          </a>
-        </p>
       </div>
     </footer>
   );

@@ -2,7 +2,7 @@ import BookingStepper from "components/ui/bookingStepper";
 
 const Booking: React.FC = () => {
   return (
-    <div className="mx-auto flex max-w-sm flex-col items-center justify-center sm:container">
+    <div className="mx-auto flex max-w-sm flex-col items-center justify-center pb-4 sm:container">
       <div className="my-10 w-full max-w-3xl">
         <span className="text-4xl font-bold text-gray-800 dark:bg-gradient-to-r dark:from-teal-400 dark:to-pink-400 dark:bg-clip-text dark:text-transparent">
           Set Appointment
