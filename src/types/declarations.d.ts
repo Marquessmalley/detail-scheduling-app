@@ -66,10 +66,10 @@ declare module "components/layouts/rootlayout" {
   const RootLayout: React.FC;
   export default RootLayout;
 }
-declare module "components/ui/bookingStepper" {
-  const BookingStepper: React.FC;
-  export default BookingStepper;
-}
+// declare module "components/ui/bookingStepper" {
+//   const BookingStepper: React.FC;
+//   export default BookingStepper;
+// }
 
 declare module "components/ui/cards/PriceCard" {
   const PriceCard: React.FC<PriceCardProps>;
@@ -80,7 +80,7 @@ declare module "components/ui/cards/ServiceCard" {
   export default PriceCard;
 }
 declare module "components/ui/bookingStepper" {
-  const BookingStepper: React.FC;
+  const BookingStepper: React.FC<BookingStepperProps>;
   export default BookingStepper;
 }
 

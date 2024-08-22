@@ -72,7 +72,7 @@ const AddAvailability: React.FC<AddAvailabilityProps> = ({ handleClose }) => {
           </div>
           <div className="text-end">
             <button
-              className="rounded-2xl border p-2 text-sm font-extrabold shadow hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800"
+              className="rounded-2xl border p-2 text-sm font-extrabold text-slate-900 shadow hover:bg-slate-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"
               onClick={handleConfirmAvailability}
             >
               Confirm

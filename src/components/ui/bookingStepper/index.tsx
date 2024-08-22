@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react";
-import { database } from "firebaseConfig";
-import { onValue, ref } from "firebase/database";
+import { useState } from "react";
+
 import { bookingSteps } from "constants/bookingSteps";
 import { MobileStepper } from "@mui/material";
-import { sortedAvailabilities } from "utils/sortAvailabilities";
+
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import ScheduleAppointment from "components/features/ScheduleAppointment/ScheduleAppointment";
@@ -12,15 +11,17 @@ import { useUserAppointmentContext } from "context/AppointmentContext";
 import { calculatePrice } from "utils/calculatePrice";
 import calculateEndTime from "utils/calculateEndTime";
 
-const BookingStepper: React.FC = () => {
+interface BookingStepperProps {
+  availableDates: [string, { availability: AdminAvailabilityType }][] | null;
+}
+
+const BookingStepper: React.FC<BookingStepperProps> = ({ availableDates }) => {
   const [activeStep, setActiveStep] = useState<number>(0);
   const [appointmentError, setAppointmentError] = useState({
     errorType: "",
     errorMsg: "",
   });
-  const [availableDates, setAvailableDates] = useState<
-    [string, { availability: AdminAvailabilityType }][] | null
-  >(null);
+
   const maxSteps = bookingSteps.length;
 
   const { userAppointment, setUserAppointment } = useUserAppointmentContext();
@@ -68,18 +69,18 @@ const BookingStepper: React.FC = () => {
     setActiveStep((prevStep) => prevStep - 1);
   };
 
-  useEffect(() => {
-    const dbRef = ref(database, "/availability");
-    onValue(dbRef, (snapshot) => {
-      if (snapshot.exists()) {
-        const sortedData = sortedAvailabilities(snapshot.val());
-        setAvailableDates(sortedData);
-      } else {
-        console.log("not found");
-        // setAvailableDates(null);
-      }
-    });
-  }, []);
+  // useEffect(() => {
+  //   const dbRef = ref(database, "/availability");
+  //   onValue(dbRef, (snapshot) => {
+  //     if (snapshot.exists()) {
+  //       const sortedData = sortedAvailabilities(snapshot.val());
+  //       setAvailableDates(sortedData);
+  //     } else {
+  //       console.log("not found");
+  //       // setAvailableDates(null);
+  //     }
+  //   });
+  // }, []);
 
   return (
     <div className="flex h-full flex-col">
