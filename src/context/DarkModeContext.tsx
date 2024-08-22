@@ -6,7 +6,7 @@ interface DarkModeType {
 }
 
 export const DarkModeContext = createContext<DarkModeType | undefined>(
-  undefined
+  undefined,
 );
 
 export const useDarkMode = (): DarkModeType => {
@@ -23,7 +23,7 @@ interface DarkModeProviderType {
 }
 
 const DarkModeProvider = ({ children }: DarkModeProviderType) => {
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(true);
 
   return (
     <DarkModeContext.Provider
