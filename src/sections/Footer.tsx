@@ -93,7 +93,7 @@ const Footer = () => {
             </li>
             <li>
               <a
-                href="/prices"
+                href="https://main--ptshinetime.netlify.app/prices"
                 className="text-sm font-medium transition duration-200 hover:text-gray-600"
               >
                 Pricing
@@ -101,7 +101,7 @@ const Footer = () => {
             </li>
             <li>
               <a
-                href="/contact"
+                href="https://main--ptshinetime.netlify.app/contact"
                 className="text-sm font-medium transition duration-200 hover:text-gray-600"
               >
                 Contact
@@ -109,7 +109,7 @@ const Footer = () => {
             </li>
             <li>
               <a
-                href="#faq"
+                href="https://main--ptshinetime.netlify.app/#faq"
                 className="text-sm font-medium transition duration-200 hover:text-gray-600"
               >
                 FAQ
