@@ -46,7 +46,7 @@ export default function Navbar() {
                 <div className="flex flex-shrink-0 items-center">
                   <Link to="/">
                     <img
-                      className="h-20 w-auto"
+                      className="h-16 w-auto"
                       src={shinelogo}
                       alt="Your Company"
                     />
@@ -62,7 +62,7 @@ export default function Navbar() {
                     <a
                       key={item.name}
                       href={item.href}
-                      className="rounded-full px-3 py-2 text-sm font-semibold hover:text-slate-700 dark:text-slate-200"
+                      className="rounded-full px-3 py-2 text-sm font-medium hover:text-slate-700 dark:text-slate-200"
                       aria-current={item.current ? "page" : undefined}
                     >
                       {item.name}

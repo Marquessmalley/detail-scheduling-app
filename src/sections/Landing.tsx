@@ -8,9 +8,11 @@ const Landing = () => {
       style={{ height: "100vh" }}
     >
       <div className="col-span-12 row-span-4 mx-4 flex flex-col items-start justify-center text-center sm:row-span-12 md:col-span-7">
-        <p className="leading-12 mb-8 text-left text-3xl font-bold text-black dark:text-white sm:text-5xl">
+        <p className="leading-12 mb-8 text-left text-3xl font-bold text-black dark:text-slate-300 sm:text-5xl">
           Your Car, Our Care -{" "}
-          <span className="text-teal-400">Anywhere, Anytime</span>
+          <span className="bg-gradient-to-r from-teal-400 to-pink-400 bg-clip-text text-transparent">
+            Anywhere, Anytime
+          </span>
         </p>
         <p className="mb-8 text-justify text-sm font-medium text-slate-700 dark:text-gray-400 sm:mx-0 sm:text-lg">
           Book effortlessly through our app. Our detailers come to you, ensuring
