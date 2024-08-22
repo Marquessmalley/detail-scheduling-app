@@ -1,5 +1,4 @@
 import React from "react";
-import { PhoneIcon, EmailIcon, BuildingIcon } from "components/ui/icons";
 
 const Contact = () => {
   return (
