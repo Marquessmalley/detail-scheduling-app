@@ -7,7 +7,7 @@ const Landing = () => {
       className="mx-auto mt-20 grid max-w-7xl grid-cols-1 grid-rows-12 gap-x-4 sm:grid-cols-12 md:mt-0"
       style={{ height: "100vh" }}
     >
-      <div className="col-span-12 row-span-12 mx-4 flex flex-col items-start justify-center text-center md:col-span-7">
+      <div className="col-span-12 row-span-4 mx-4 flex flex-col items-start justify-center text-center sm:row-span-12 md:col-span-7">
         <p className="leading-12 mb-8 text-left text-3xl font-bold text-black dark:text-white sm:text-5xl">
           Your Car, Our Care -{" "}
           <span className="text-teal-400">Anywhere, Anytime</span>
@@ -38,7 +38,7 @@ const Landing = () => {
           </button>
         </Link>
       </div>
-      <div className="col-span-12 row-span-12 mx-4 flex items-center justify-center md:col-span-5">
+      <div className="col-span-12 row-span-4 mx-4 flex items-center justify-center sm:row-span-12 md:col-span-5">
         <img
           src={landing}
           alt="landingImg"
