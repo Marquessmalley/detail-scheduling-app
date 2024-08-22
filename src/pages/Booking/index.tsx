@@ -12,9 +12,11 @@ const Booking: React.FC = () => {
 
   useEffect(() => {
     const dbRef = ref(database, "/availability");
+    console.log("searching");
 
     onValue(dbRef, (snapshot) => {
       if (snapshot.exists()) {
+        console.log("availabilities exists");
         const sortedData = sortedAvailabilities(snapshot.val());
         setAvailableDates(sortedData);
       } else {
