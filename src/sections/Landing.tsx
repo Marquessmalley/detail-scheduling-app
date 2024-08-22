@@ -38,7 +38,7 @@ const Landing = () => {
           </button>
         </Link>
       </div>
-      <div className="col-span-12 row-span-4 mx-4 flex items-center justify-center sm:row-span-12 md:col-span-5">
+      <div className="col-span-12 row-span-6 mx-4 flex items-center justify-center sm:row-span-12 md:col-span-5">
         <img
           src={landing}
           alt="landingImg"
