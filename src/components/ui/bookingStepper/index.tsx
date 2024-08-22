@@ -1,8 +1,6 @@
 import { useState } from "react";
-
 import { bookingSteps } from "constants/bookingSteps";
 import { MobileStepper } from "@mui/material";
-
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import ScheduleAppointment from "components/features/ScheduleAppointment/ScheduleAppointment";
