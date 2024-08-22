@@ -1,23 +1,28 @@
 import { detailMenu } from "constants/detail-menu";
 import { DetailPackage } from "constants/interfaces";
 import PriceCard from "components/ui/cards/PriceCard";
+import { RightArrow } from "components/ui/icons";
 
 const Pricing: React.FC = () => {
   const specialPackages: DetailPackage[] = detailMenu.slice(0, 3);
 
   return (
-    <div className="my-10 pt-24">
+    <div id="pricing" className="my-10 pt-24">
       {/* PRICE HEADER */}
       <div className="mx-auto mb-10 max-w-md sm:max-w-xl md:max-w-3xl lg:text-center">
         <div className="mx-4">
           <p className="mt-2 text-center text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
             Choose the right package for you
           </p>
-          <p className="mt-6 text-center text-lg leading-8 text-gray-600 dark:text-gray-400">
-            At ShineTime, we offer a range of detailing packages designed to fit
-            your budget and your car's needs. Whether you're looking for a basic
-            clean or a comprehensive detailing service, our pricing is
-            transparent and competitive.
+          <p className="mt-6 text-justify text-lg leading-8 text-gray-600 dark:text-gray-400">
+            Whether you're looking for a basic clean or a comprehensive
+            detailing service, our pricing is transparent and competitive.{" "}
+            <a
+              href="/prices"
+              className="inline-flex items-center justify-center font-semibold dark:text-teal-400"
+            >
+              Check out our prices <RightArrow />
+            </a>
           </p>
         </div>
       </div>

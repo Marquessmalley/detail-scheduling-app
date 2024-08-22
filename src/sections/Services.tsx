@@ -3,7 +3,7 @@ import { services } from "constants/service";
 
 const Services: React.FC = () => {
   return (
-    <div className="mb-12 mt-14">
+    <div id="services" className="mb-12 mt-14">
       {/* SERVICE HEADER */}
       <div className="mx-auto mb-10 max-w-md sm:max-w-xl md:max-w-3xl">
         <div className="mx-4">

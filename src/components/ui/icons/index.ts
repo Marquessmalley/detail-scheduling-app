@@ -8,6 +8,7 @@ import LocationIcon from "components/ui/icons/location-icon/LocationIcon";
 import CheckIcon from "components/ui/icons/check-circle-icon/CheckIcon";
 import MoonIcon from "components/ui/icons/moon-icon/MoonIcon";
 import SunIcon from "components/ui/icons/sun-icon/SunIcon";
+import RightArrow from "components/ui/icons/right-arrow";
 
 export {
   PlusIcon,
@@ -20,4 +21,5 @@ export {
   CheckIcon,
   MoonIcon,
   SunIcon,
+  RightArrow,
 };

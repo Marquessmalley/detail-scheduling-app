@@ -8,6 +8,9 @@ interface PriceCardProps {
 }
 
 const PriceCard: React.FC<PriceCardProps> = ({ plan }) => {
+  if (plan.services.interior) {
+    console.log(plan);
+  }
   return (
     <div
       key={plan.id}
@@ -53,7 +56,7 @@ const PriceCard: React.FC<PriceCardProps> = ({ plan }) => {
         <div>
           <p className="text-md ml-2 font-semibold">Interior includes: </p>
           <ul className="flex flex-col">
-            {plan.services.interior &&
+            {plan.services.interior ? (
               plan.services.interior.map((service) => {
                 return (
                   <li key={service} className="mb-2 mt-2 flex">
@@ -64,13 +67,18 @@ const PriceCard: React.FC<PriceCardProps> = ({ plan }) => {
                     </p>
                   </li>
                 );
-              })}
+              })
+            ) : (
+              <p className="ml-2 w-full text-sm font-bold dark:text-slate-600">
+                Interior not included.
+              </p>
+            )}
           </ul>
         </div>
         <div>
           <p className="text-md ml-2 font-semibold">Exterior includes: </p>
           <ul className="flex flex-col">
-            {plan.services.exterior &&
+            {plan.services.exterior ? (
               plan.services.exterior.map((service) => {
                 return (
                   <li key={service} className="mb-2 mt-2 flex">
@@ -85,7 +93,12 @@ const PriceCard: React.FC<PriceCardProps> = ({ plan }) => {
                     </p>
                   </li>
                 );
-              })}
+              })
+            ) : (
+              <p className="ml-2 w-full text-sm font-bold dark:text-slate-600">
+                Exterior not included.
+              </p>
+            )}
           </ul>
         </div>
       </div>

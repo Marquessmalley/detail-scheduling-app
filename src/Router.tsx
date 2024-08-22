@@ -12,6 +12,7 @@ import Admin from "pages/admin";
 import Signup from "pages/auth/signup";
 import Login from "pages/auth/login";
 import AppointmentConfirm from "pages/Booking/AppointmentConfirm";
+import Prices from "pages/prices";
 
 const router: any = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router: any = createBrowserRouter([
       {
         index: true,
         element: <Home />,
+      },
+      {
+        path: "/prices",
+        element: <Prices />,
       },
       {
         path: "/booking",
