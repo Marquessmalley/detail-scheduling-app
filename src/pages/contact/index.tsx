@@ -87,7 +87,7 @@ const Contact = () => {
               // onChange={handlePhoneChange}
             ></textarea>
           </div>
-          <button className="w-full rounded-xl border border-slate-300 p-2 font-semibold text-slate-900 transition duration-200 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800">
+          <button className="w-full rounded-xl border border-slate-300 p-2 font-semibold text-slate-900 transition duration-500 hover:bg-gradient-to-r hover:from-pink-500 hover:to-amber-400 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-gradient-to-r dark:hover:from-pink-500 dark:hover:to-amber-400">
             Send message
           </button>
         </div>
