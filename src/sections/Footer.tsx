@@ -85,7 +85,7 @@ const Footer = () => {
           <ul className="flex justify-between">
             <li>
               <a
-                href="#V"
+                href="/about"
                 className="text-sm font-medium transition duration-200 hover:text-gray-600"
               >
                 About
@@ -93,7 +93,7 @@ const Footer = () => {
             </li>
             <li>
               <a
-                href="#V"
+                href="/prices"
                 className="text-sm font-medium transition duration-200 hover:text-gray-600"
               >
                 Pricing
@@ -101,7 +101,7 @@ const Footer = () => {
             </li>
             <li>
               <a
-                href="#V"
+                href="/contact"
                 className="text-sm font-medium transition duration-200 hover:text-gray-600"
               >
                 Contact
@@ -109,7 +109,7 @@ const Footer = () => {
             </li>
             <li>
               <a
-                href="#V"
+                href="#faq"
                 className="text-sm font-medium transition duration-200 hover:text-gray-600"
               >
                 FAQ

@@ -8,9 +8,6 @@ interface PriceCardProps {
 }
 
 const PriceCard: React.FC<PriceCardProps> = ({ plan }) => {
-  if (plan.services.interior) {
-    console.log(plan);
-  }
   return (
     <div
       key={plan.id}

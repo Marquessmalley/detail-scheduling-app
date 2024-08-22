@@ -9,6 +9,9 @@ import CheckIcon from "components/ui/icons/check-circle-icon/CheckIcon";
 import MoonIcon from "components/ui/icons/moon-icon/MoonIcon";
 import SunIcon from "components/ui/icons/sun-icon/SunIcon";
 import RightArrow from "components/ui/icons/right-arrow";
+import PhoneIcon from "components/ui/icons/phone-icon/PhoneIcon";
+import EmailIcon from "components/ui/icons/email-icon/EmailIcon";
+import BuildingIcon from "components/ui/icons/building-icon/BuildingIcon";
 
 export {
   PlusIcon,
@@ -22,4 +25,7 @@ export {
   MoonIcon,
   SunIcon,
   RightArrow,
+  PhoneIcon,
+  EmailIcon,
+  BuildingIcon,
 };

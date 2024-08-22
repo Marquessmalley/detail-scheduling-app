@@ -13,6 +13,7 @@ import Signup from "pages/auth/signup";
 import Login from "pages/auth/login";
 import AppointmentConfirm from "pages/Booking/AppointmentConfirm";
 import Prices from "pages/prices";
+import Contact from "pages/contact";
 
 const router: any = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router: any = createBrowserRouter([
       {
         path: "/prices",
         element: <Prices />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
       },
       {
         path: "/booking",
