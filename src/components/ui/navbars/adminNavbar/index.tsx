@@ -35,7 +35,7 @@ const AdminNavbar = () => {
         <Menu>
           <div className="flex items-center">
             <MenuButton className="">
-              <div className="inline-flex w-full justify-center gap-x-1.5 rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50 dark:bg-transparent dark:text-slate-200 dark:hover:bg-slate-800">
+              <div className="inline-flex w-full justify-center gap-x-1.5 rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50 dark:border-slate-700 dark:bg-transparent dark:text-slate-200 dark:hover:bg-slate-800">
                 Menu
                 <svg
                   className="-mr-1 h-5 w-5 text-gray-400"
