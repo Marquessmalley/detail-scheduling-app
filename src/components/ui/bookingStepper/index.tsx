@@ -67,24 +67,13 @@ const BookingStepper: React.FC<BookingStepperProps> = ({ availableDates }) => {
     setActiveStep((prevStep) => prevStep - 1);
   };
 
-  // useEffect(() => {
-  //   const dbRef = ref(database, "/availability");
-  //   onValue(dbRef, (snapshot) => {
-  //     if (snapshot.exists()) {
-  //       const sortedData = sortedAvailabilities(snapshot.val());
-  //       setAvailableDates(sortedData);
-  //     } else {
-  //       console.log("not found");
-  //       // setAvailableDates(null);
-  //     }
-  //   });
-  // }, []);
-
   return (
     <div className="flex h-full flex-col">
       {/* HEADER */}
       <div className="my-5 flex flex-col items-center justify-center p-2">
-        <h2 className="text-2xl font-bold">{bookingSteps[activeStep].title}</h2>
+        <h2 className="text-2xl font-bold text-slate-300">
+          {bookingSteps[activeStep].title}
+        </h2>
 
         <p className="text-center text-sm leading-6 text-slate-600 dark:text-gray-400">
           {bookingSteps[activeStep]?.desc}{" "}

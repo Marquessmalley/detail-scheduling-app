@@ -11,7 +11,7 @@ const Pricing: React.FC = () => {
       {/* PRICE HEADER */}
       <div className="mx-auto mb-10 max-w-md sm:max-w-xl md:max-w-3xl lg:text-center">
         <div className="mx-4">
-          <p className="mt-2 text-center text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+          <p className="mt-2 text-center text-3xl font-bold tracking-tight text-gray-900 dark:text-slate-300 sm:text-4xl">
             Choose the right package for you
           </p>
           <p className="mt-6 text-center text-lg leading-8 text-gray-600 dark:text-gray-400">

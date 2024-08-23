@@ -12,12 +12,9 @@ const Booking: React.FC = () => {
 
   useEffect(() => {
     const dbRef = ref(database, "/availability");
-    console.log("searching");
 
     onValue(dbRef, (snapshot) => {
-      console.log("snapshot", snapshot);
       if (snapshot.exists()) {
-        console.log("availabilities exists");
         const sortedData = sortedAvailabilities(snapshot.val());
         setAvailableDates(sortedData);
       } else {
@@ -33,8 +30,6 @@ const Booking: React.FC = () => {
       }
     });
   }, []);
-
-  console.log(availableDates);
 
   return (
     <div className="mx-auto flex max-w-sm flex-col items-center justify-center pb-4 sm:container">

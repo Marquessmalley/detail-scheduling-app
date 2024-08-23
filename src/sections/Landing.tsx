@@ -8,7 +8,7 @@ const Landing = () => {
       style={{ height: "100vh" }}
     >
       <div className="col-span-12 row-span-4 mx-4 flex flex-col items-start justify-center text-center sm:row-span-12 md:col-span-7">
-        <p className="leading-12 mb-8 text-left text-3xl font-bold text-black dark:text-slate-300 sm:text-5xl">
+        <p className="leading-12 mb-8 text-left text-3xl font-bold text-slate-900/80 dark:text-slate-300 sm:text-5xl">
           Your Car, Our Care -{" "}
           <span className="bg-gradient-to-r from-teal-400 to-pink-400 bg-clip-text text-transparent">
             Anywhere, Anytime

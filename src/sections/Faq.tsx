@@ -10,7 +10,7 @@ const Faq: React.FC = () => {
   return (
     <div id="faq" className="mb-10 w-full px-4 pt-32">
       <div className="mx-auto mb-5 grid max-w-7xl grid-cols-1">
-        <h2 className="mb-8 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+        <h2 className="mb-8 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-slate-300">
           Frequently asked questions
         </h2>
       </div>

@@ -89,7 +89,7 @@ const SelectDate: React.FC<SelectDateProps> = ({
                   key={availability[0]}
                   className={
                     isSelected
-                      ? "m-2 flex h-12 cursor-pointer justify-center rounded-2xl border border-slate-300 bg-gradient-to-br from-teal-400 via-pink-300 to-teal-500 p-4 shadow transition duration-200 dark:bg-gradient-to-br dark:from-teal-600 dark:via-pink-500 dark:to-teal-600"
+                      ? "m-2 flex h-12 cursor-pointer justify-center rounded-2xl border border-slate-300 bg-gradient-to-br from-teal-400 via-pink-300 to-teal-500 p-4 shadow transition duration-200 dark:border-slate-700 dark:bg-gradient-to-br dark:from-teal-600 dark:via-pink-500 dark:to-teal-600"
                       : "m-2 flex h-12 cursor-pointer justify-center rounded-2xl border border-slate-300 p-4 shadow transition duration-200 hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800"
                   }
                   onClick={() => {
