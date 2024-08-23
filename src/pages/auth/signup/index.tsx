@@ -5,23 +5,19 @@ import { useAuth } from "context/AuthProvider";
 import Alert from "components/ui/alert";
 
 const Signup: React.FC = () => {
+  const [userName, setUserName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const [confirmPassword, setConfirmPassword] = useState<string>("");
 
   const { signUp, error, setError } = useAuth();
 
   const handleSignup = (e: any): void => {
     e.preventDefault();
-    if (password !== confirmPassword) {
-      setError({ name: "Error", message: "Passwords must match." });
-      return;
-    }
 
-    signUp(email, password);
+    signUp(userName, email, password);
+    setUserName("");
     setEmail("");
     setPassword("");
-    setConfirmPassword("");
     setError(null);
   };
 
@@ -41,6 +37,27 @@ const Signup: React.FC = () => {
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form className="space-y-6" onSubmit={handleSignup}>
+            <div>
+              <label
+                htmlFor="userName"
+                className="block text-sm font-medium leading-6 text-gray-900 dark:text-slate-300"
+              >
+                User Name
+              </label>
+              <div className="mt-2">
+                <input
+                  id="userName"
+                  name="userName"
+                  type="text"
+                  value={userName}
+                  onChange={(e) => setUserName(e.target.value)}
+                  autoComplete="userName"
+                  placeholder="User Name"
+                  required
+                  className="block w-full rounded-md border border-slate-700 p-1 py-1.5 text-gray-900 dark:bg-slate-950 dark:text-slate-100 dark:placeholder-slate-300 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
             <div>
               <label
                 htmlFor="email"
@@ -83,29 +100,6 @@ const Signup: React.FC = () => {
                   placeholder="Password"
                   required
                   className="block w-full rounded-md border p-1 py-1.5 text-gray-900 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:placeholder-slate-300 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-            <div>
-              <div className="flex items-center justify-between">
-                <label
-                  htmlFor="confirmPassword"
-                  className="block text-sm font-medium leading-6 text-gray-900 dark:text-slate-300"
-                >
-                  Confirm Password
-                </label>
-              </div>
-              <div className="mt-2">
-                <input
-                  id="confirmPassword"
-                  name="confirmPassword"
-                  type="password"
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                  autoComplete="current-password"
-                  placeholder="Confirm Password"
-                  required
-                  className="block w-full rounded-md border p-1 py-1.5 text-gray-900 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>

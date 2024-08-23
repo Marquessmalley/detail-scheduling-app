@@ -3,6 +3,7 @@ import {
   User,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
   signOut,
   onAuthStateChanged,
   setPersistence,
@@ -20,7 +21,7 @@ interface FirebaseError {
 interface AuthContextType {
   user: User | null;
   login: (email: string, password: string) => void;
-  signUp: (email: string, password: string) => void;
+  signUp: (userName: string, email: string, password: string) => void;
   signUserOut: () => void;
   loading: boolean;
   error: FirebaseError | null;
@@ -76,9 +77,17 @@ const AuthProvider: React.FC<AuthProps> = ({ children }) => {
   };
 
   // FIREBASE SIGN UP
-  const signUp = async (email: string, password: string) => {
+  const signUp = async (userName: string, email: string, password: string) => {
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
+      const userCred = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password,
+      );
+      const user = userCred.user;
+      await updateProfile(user, {
+        displayName: userName,
+      });
       console.log("sign up sucess");
       navigate("/admin");
     } catch (err: any) {

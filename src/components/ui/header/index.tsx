@@ -22,10 +22,10 @@ const AdminHeader = () => {
   return (
     <div className="mx-auto my-8 grid max-w-7xl grid-cols-2">
       <div className="ml-2 sm:ml-0">
-        <h1 className="text-lg font-bold text-gray-900 dark:text-slate-200 sm:text-4xl">
-          Welcome, {user?.email ? user.email.split("@")[0] : "Guest"}!
+        <h1 className="text-lg font-bold text-gray-900 dark:text-slate-300 sm:text-4xl">
+          Welcome, {user?.displayName}!
         </h1>
-        <p className="mt-2 text-sm text-gray-600 dark:text-gray-200 sm:text-lg">
+        <p className="mt-2 text-sm text-gray-600 dark:text-slate-200 sm:text-lg">
           We're glad to have you here.
         </p>
       </div>
@@ -52,7 +52,7 @@ const AdminHeader = () => {
       >
         <AddAvailability handleClose={handleClose} />
       </Backdrop>
-      <span className="col-span-full border-t border-solid"></span>
+      <span className="col-span-full border-t border-solid border-slate-700"></span>
     </div>
   );
 };
