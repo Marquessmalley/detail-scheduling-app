@@ -12,8 +12,8 @@ export const navigation: Navigation[] = [
     current: false,
   },
   {
-    name: "https://main--ptshinetime.netlify.app/#FAQs",
-    href: "#faq",
+    name: "FAQs",
+    href: "https://main--ptshinetime.netlify.app/#faq",
     current: false,
   },
 ];
