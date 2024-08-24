@@ -22,7 +22,7 @@ const AdminNavbar = () => {
 
   return (
     <nav className="mt-3">
-      <div className="mx-auto flex max-w-7xl rounded-xl border-b px-2 dark:border-teal-600 dark:bg-slate-900 dark:shadow-lg dark:shadow-slate-800 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-7xl border-b p-2 dark:border-teal-600 dark:bg-slate-900 dark:shadow-lg dark:shadow-slate-800 sm:px-6 lg:rounded-xl lg:px-8">
         <div className="flex flex-1">
           <div className="flex-shrink-0 items-center">
             <img
