@@ -27,6 +27,10 @@ export const detailMenu: DetailPackage[] = [
         price: 80,
         estimatedTime: "1h 20m",
       },
+      truck: {
+        price: 100,
+        estimatedTime: "1h 45m",
+      },
       suvTwoRows: {
         price: 100,
         estimatedTime: "1h 45m",
@@ -69,6 +73,10 @@ export const detailMenu: DetailPackage[] = [
         price: 250,
         estimatedTime: "4h",
       },
+      truck: {
+        price: 280,
+        estimatedTime: "4h 30m",
+      },
       suvTwoRows: {
         price: 280,
         estimatedTime: "4h 30m",
@@ -110,6 +118,10 @@ export const detailMenu: DetailPackage[] = [
         price: 175,
         estimatedTime: "3h 20m",
       },
+      truck: {
+        price: 185,
+        estimatedTime: "3h 40m",
+      },
       suvTwoRows: {
         price: 185,
         estimatedTime: "3h 40m",
@@ -140,6 +152,10 @@ export const detailMenu: DetailPackage[] = [
       sedan: {
         price: 60,
         estimatedTime: "3h 20m",
+      },
+      truck: {
+        price: 60,
+        estimatedTime: "3h 40m",
       },
       suvTwoRows: {
         price: 60,
@@ -173,6 +189,10 @@ export const detailMenu: DetailPackage[] = [
         price: 150,
         estimatedTime: "3h",
       },
+      truck: {
+        price: 160,
+        estimatedTime: "3h",
+      },
       suvTwoRows: {
         price: 160,
         estimatedTime: "3h",
@@ -201,6 +221,10 @@ export const detailMenu: DetailPackage[] = [
     vehicleType: {
       sedan: {
         price: 100,
+        estimatedTime: "1h 30m",
+      },
+      truck: {
+        price: 120,
         estimatedTime: "1h 30m",
       },
       suvTwoRows: {

@@ -6,7 +6,7 @@ export const calculatePrice = (userAppointment: Appointment) => {
 
   // Retrieve correct detail package
   const filteredPackage = detailMenu.filter(
-    (item) => item.packageName === userAppointment.selectedPackage
+    (item) => item.packageName === userAppointment.selectedPackage,
   );
 
   if (filteredPackage[0].vehicleType && userAppointment.vehicleType) {
@@ -22,6 +22,9 @@ export const calculatePrice = (userAppointment: Appointment) => {
             break;
           case "suvTwoRows":
             price = filteredPackage[0].vehicleType["suvTwoRows"].price;
+            break;
+          case "truck":
+            price = filteredPackage[0].vehicleType["truck"].price;
             break;
           case "suvThreeRows":
             price = filteredPackage[0].vehicleType["suvThreeRows"].price;

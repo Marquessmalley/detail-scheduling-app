@@ -58,6 +58,9 @@ const SelectPackage: React.FC<SelectVehicleType> = ({
             case "suvThreeRows":
               carType = "suvThreeRows";
               break;
+            case "truck":
+              carType = "truck";
+              break;
 
             default:
               break;

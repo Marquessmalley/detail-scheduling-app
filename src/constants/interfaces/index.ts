@@ -7,7 +7,7 @@ export interface ContactInfo {
 }
 
 export interface Appointment {
-  vehicleType: "sedan" | "suvTwoRows" | "suvThreeRows" | undefined;
+  vehicleType: "sedan" | "suvTwoRows" | "suvThreeRows" | "truck" | undefined;
   date: string;
   startTime: string;
   endTime: string;
@@ -60,6 +60,10 @@ export interface Services {
 
 export interface VehicleType {
   sedan: {
+    price: number;
+    estimatedTime: string;
+  };
+  truck: {
     price: number;
     estimatedTime: string;
   };

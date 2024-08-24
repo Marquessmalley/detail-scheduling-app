@@ -29,7 +29,7 @@ const SelectVehicle: React.FC<SelectVehicleType> = ({
           <Alert alertType="Error" alertMsg={appointmentError.errorMsg} />
         </>
       )}
-      <div className="my-5 grid grid-cols-2 justify-items-center gap-y-2 p-2 sm:grid-cols-3">
+      <div className="my-5 grid grid-cols-2 justify-items-center gap-y-2 p-2 sm:grid-cols-12">
         {carType.map((car) => {
           const isSelected = car.type === selectedCar;
           let carType;
@@ -40,6 +40,9 @@ const SelectVehicle: React.FC<SelectVehicleType> = ({
             case "suvTwoRows":
               carType = "SUV(2 Rows)";
               break;
+            case "truck":
+              carType = "Truck";
+              break;
             case "suvThreeRows":
               carType = "SUV(3 Rows)";
               break;
@@ -48,7 +51,7 @@ const SelectVehicle: React.FC<SelectVehicleType> = ({
               break;
           }
           return (
-            <div key={car.id}>
+            <div key={car.id} className="sm:col-span-3">
               <div
                 className={
                   isSelected
