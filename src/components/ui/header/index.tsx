@@ -20,9 +20,9 @@ const AdminHeader = () => {
   const { user } = useAuth();
 
   return (
-    <div className="mx-auto my-8 grid max-w-7xl grid-cols-2">
-      <div className="ml-2 sm:ml-0">
-        <h1 className="text-lg font-bold text-gray-900 dark:text-slate-300 sm:text-4xl">
+    <div className="mx-auto my-8 grid max-w-7xl grid-cols-12">
+      <div className="col-span-11 ml-2 sm:col-span-8 sm:ml-0">
+        <h1 className="text-md font-bold text-gray-900 dark:text-slate-300 sm:text-4xl">
           Welcome, {user?.displayName}!
         </h1>
         <p className="mt-2 text-sm text-gray-600 dark:text-slate-200 sm:text-lg">
@@ -30,7 +30,7 @@ const AdminHeader = () => {
         </p>
       </div>
 
-      <div className="flex items-center justify-end">
+      <div className="col-span-1 flex items-center justify-end sm:col-span-4">
         <Tooltip content="Add Availability" className="text-sm font-semibold">
           <button
             className="rounded-xl border p-2 transition hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800"

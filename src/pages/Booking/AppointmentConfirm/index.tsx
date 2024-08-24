@@ -10,8 +10,7 @@ const AppointmentConfirm = () => {
   return (
     <div className="m-8">
       {location.state !== null ? (
-        <div className="mx-auto grid h-fit max-w-lg grid-cols-1 gap-y-10 rounded-2xl p-12 dark:bg-slate-800 lg:max-w-6xl lg:grid-cols-12">
-          {/* TEXT */}
+        <div className="mx-auto grid h-fit max-w-lg grid-cols-1 gap-y-10 rounded-2xl border border-slate-700 p-12 dark:bg-slate-900/80 lg:max-w-6xl lg:grid-cols-12">
           <div className="col-span-12 flex flex-col items-center justify-center sm:col-span-6">
             <div className="mb-4 flex items-center">
               <h1 className="mr-2 whitespace-nowrap text-lg font-bold text-gray-800 dark:text-slate-300 sm:text-3xl">
@@ -32,7 +31,7 @@ const AppointmentConfirm = () => {
               </p>
             </div>
           </div>
-          {/* IMG */}
+
           <div className="col-span-12 grid sm:col-span-6">
             <img className="" src={washAsset} alt="Your Company" />
           </div>

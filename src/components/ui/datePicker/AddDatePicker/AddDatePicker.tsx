@@ -31,8 +31,8 @@ const AddDatePicker: React.FC = () => {
       setStartTime(timeFormatter.format(dateValue.toDate(getLocalTimeZone())));
     }
 
-    if (user?.email) {
-      setDetailer(user.email);
+    if (user?.displayName) {
+      setDetailer(user.displayName);
     }
   }, [
     dateValue,
@@ -41,7 +41,7 @@ const AddDatePicker: React.FC = () => {
     timeFormatter,
     setStartTime,
     setDetailer,
-    user?.email,
+    user?.displayName,
   ]);
 
   return (
