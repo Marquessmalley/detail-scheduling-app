@@ -69,9 +69,9 @@ const Admin: React.FC = () => {
 
   return (
     <div>
-      <div className="grid grid-cols-1 sm:mx-auto sm:max-w-7xl lg:grid lg:grid-cols-2">
+      <div className="grid grid-cols-1 sm:mx-auto sm:max-w-7xl lg:grid lg:grid-cols-12">
         {/* AVAILABILITIES */}
-        <div className="p-8">
+        <div className="col-span-6 p-8">
           <div className="px-4 sm:px-0 lg:mx-auto lg:max-w-xl">
             <h3 className="text-base font-semibold leading-7 text-gray-900 dark:text-slate-300">
               View your available openings
@@ -81,7 +81,7 @@ const Admin: React.FC = () => {
             </p>
           </div>
 
-          <div className="h-4/5 overflow-y-scroll">
+          <div className="">
             {availabilities && availabilities.length > 0 ? (
               availabilities.map((slot) => {
                 return (
@@ -98,7 +98,9 @@ const Admin: React.FC = () => {
                 {loading ? (
                   <SpinnerIcon />
                 ) : (
-                  <p className="text-4xl font-bold">No Openings Scheduled</p>
+                  <p className="text-lg font-bold sm:text-4xl">
+                    No Openings Scheduled
+                  </p>
                 )}
               </div>
             )}
@@ -106,8 +108,8 @@ const Admin: React.FC = () => {
         </div>
 
         {/* UPCOMING APPOINTMENTS */}
-        <div className="p-8">
-          <div className="px-4 sm:px-0 lg:mx-auto lg:max-w-xl">
+        <div className="col-span-6 p-8">
+          <div className="px-4 sm:px-0">
             <h3 className="text-base font-semibold leading-7 text-gray-900 dark:text-slate-300">
               Upcoming Appointments...
             </h3>
@@ -115,7 +117,7 @@ const Admin: React.FC = () => {
               Apointment details.
             </p>
           </div>
-          <div className="h-4/5 overflow-y-scroll rounded-lg border dark:border-slate-700">
+          <div className="rounded-lg border dark:border-slate-700">
             {appointments && appointments.length > 0 ? (
               appointments.map((appointment) => (
                 <div key={appointment[0]}>
@@ -129,7 +131,9 @@ const Admin: React.FC = () => {
                 {loading ? (
                   <SpinnerIcon />
                 ) : (
-                  <p className="text-4xl font-bold">No Appointments Booked</p>
+                  <p className="text-lg font-bold sm:text-4xl">
+                    No Appointments Booked
+                  </p>
                 )}
               </div>
             )}
