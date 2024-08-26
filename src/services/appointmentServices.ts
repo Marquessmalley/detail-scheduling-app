@@ -1,10 +1,10 @@
 import { AdminAvailabilityType, Appointment } from "constants/interfaces";
-import { ref, set, push, update } from "firebase/database";
+import { ref, set, push, update, remove } from "firebase/database";
 import { database } from "firebaseConfig";
 
 export const addUserAppointment = async (
   userAppointment: Appointment,
-  adminAvailability: [string, { availability: AdminAvailabilityType }] | null
+  adminAvailability: [string, { availability: AdminAvailabilityType }] | null,
 ): Promise<void> => {
   const dbLocation = push(ref(database, "/appointments"));
   if (!adminAvailability) {
@@ -26,6 +26,28 @@ export const addUserAppointment = async (
       appointment,
     });
     await update(dbAdminLocation, newAvailability);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const updateUserAppointment = async (
+  appointment: Appointment,
+  key: string,
+) => {
+  const dbRef = ref(database, `/appointments/${key}/appointment`);
+
+  try {
+    await update(dbRef, appointment);
+  } catch (err) {
+    console.log(err);
+  }
+};
+export const deleteUserAppointment = async (key: string) => {
+  const dbRef = ref(database, `/appointments/${key}/appointment`);
+
+  try {
+    await remove(dbRef);
   } catch (err) {
     console.log(err);
   }

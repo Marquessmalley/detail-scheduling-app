@@ -6,7 +6,7 @@ import { database } from "firebaseConfig";
 // push: create child nodes at a specified location, with unique ids
 
 export const addAdminAvailability = async (
-  availability: AdminAvailabilityType
+  availability: AdminAvailabilityType,
 ): Promise<void> => {
   const dbLocation = push(ref(database, "/availability"));
   try {
@@ -34,7 +34,7 @@ export const readAdminAvailability = async () => {
 
 export const updateAdminAvailability = async (
   availability: AdminAvailabilityType,
-  key: string
+  key: string,
 ) => {
   const dbRef = ref(database, `/availability/${key}/availability`);
   await update(dbRef, availability);
@@ -46,9 +46,9 @@ export const updateAdminAvailability = async (
 };
 export const deleteAdminAvailability = async (key: string) => {
   const dbRef = ref(database, `/availability/${key}/availability`);
-  await remove(dbRef);
 
   try {
+    await remove(dbRef);
   } catch (err) {
     console.log(err);
   }
