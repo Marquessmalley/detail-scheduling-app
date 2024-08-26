@@ -66,7 +66,7 @@ const AvailableDate: React.FC<AvailableDateProps> = ({ id, availability }) => {
             textColor={isDarkMode ? "text-slate-200" : "text-gray-500"}
           />
           <p className="text-sm text-gray-500 dark:text-slate-200">
-            {availability.startTime}-untill
+            {availability.startTime}
           </p>
         </div>
       </div>

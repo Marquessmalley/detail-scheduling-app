@@ -11,8 +11,8 @@ const Alert: React.FC<AlertProps> = ({ alertType, alertMsg }) => {
       <div
         className={
           alertType === "Error" || alertType === "FirebaseError"
-            ? "flex items-center bg-red-600 p-2 leading-none text-red-100 lg:inline-flex lg:rounded-full"
-            : "flex items-center bg-emerald-700 p-2 leading-none text-emerald-100 lg:inline-flex lg:rounded-full"
+            ? "inline-flex items-center rounded-full bg-red-600 p-2 leading-none text-red-100"
+            : "inline-flex items-center rounded-full bg-emerald-700 p-2 leading-none text-emerald-100"
         }
         role="alert"
       >

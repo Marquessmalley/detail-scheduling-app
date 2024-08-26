@@ -7,7 +7,7 @@ const Services: React.FC = () => {
       {/* SERVICE HEADER */}
       <div className="mx-auto mb-10 max-w-md sm:max-w-xl md:max-w-3xl">
         <div className="mx-4">
-          <p className="mt-2 text-center text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+          <p className="mt-2 text-center text-3xl font-bold tracking-tight text-gray-900 dark:text-slate-300 sm:text-4xl">
             Comprehensive Car
             <span className="bg-gradient-to-r from-teal-400 to-pink-300 bg-clip-text text-transparent">
               {" "}

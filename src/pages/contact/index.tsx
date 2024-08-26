@@ -1,6 +1,49 @@
-import React from "react";
+import { useState } from "react";
+import Alert from "components/ui/alert";
 
 const Contact = () => {
+  const [contactInfo, setContactInfo] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    message: "",
+  });
+  const [contactError, setContactError] = useState({
+    error: false,
+    message: "",
+  });
+  const [contactSuccess, setContactSucess] = useState(false);
+
+  const handleContactForm = (e: any) => {
+    setContactInfo((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const submitForm = () => {
+    const { firstName, lastName, email, message } = contactInfo;
+
+    // CHECK EMPTY VALUE
+    if (!firstName || !lastName || !email || !message) {
+      setContactError({ error: true, message: "Please fill out all fields." });
+      setContactSucess(false);
+      return;
+    }
+
+    // USE REGEX TO VALIDATE EMAIL
+    const expression = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!expression.test(email)) {
+      setContactError({ error: true, message: "Invalid email." });
+      setContactSucess(false);
+      return;
+    }
+
+    // RESETS STATE
+    setContactError({ error: false, message: "" });
+    setContactInfo({ firstName: "", lastName: "", email: "", message: "" });
+    setContactSucess(true);
+  };
   return (
     <div className="grid grid-cols-12">
       <div className="col-span-12 text-center">
@@ -8,13 +51,19 @@ const Contact = () => {
           Get in touch
         </h1>
         <p className="sm:text-md m-4 text-center text-sm font-semibold text-slate-400">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus
-          distinctio aliquid error soluta rerum architecto.
+          Feel free to reach out to us, and our team will get back to you as
+          soon as possible.
         </p>
       </div>
 
       <div className="col-span-12 mx-4 my-6">
         <div className="mx-auto max-w-4xl">
+          {contactError.error && (
+            <Alert alertType="Error" alertMsg={contactError.message} />
+          )}
+          {contactSuccess && (
+            <Alert alertType="Success" alertMsg="Message successfully sent." />
+          )}
           <div className="mb-4">
             <label
               htmlFor="firstName"
@@ -26,10 +75,10 @@ const Contact = () => {
               type="text"
               name="firstName"
               id="firstName"
-              // value={userAppointment.contactInfo.firstName}
+              value={contactInfo.firstName}
               className="block w-full cursor-pointer rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 transition duration-200 hover:bg-slate-100 focus:border-teal-500 focus:ring-teal-400 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200"
               placeholder="John"
-              // onChange={handleContactChange}
+              onChange={handleContactForm}
               required
             />
           </div>
@@ -44,10 +93,10 @@ const Contact = () => {
               type="text"
               name="lastName"
               id="lastName"
-              // value={userAppointment.contactInfo.lastName}
+              value={contactInfo.lastName}
               className="block w-full cursor-pointer rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 transition duration-200 hover:bg-slate-100 focus:border-blue-500 focus:ring-blue-500 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200"
               placeholder="Doe"
-              // onChange={handleContactChange}
+              onChange={handleContactForm}
               required
             />
           </div>
@@ -62,10 +111,10 @@ const Contact = () => {
               type="email"
               name="email"
               id="email"
-              // value={userAppointment.contactInfo.email}
+              value={contactInfo.email}
               className="block w-full cursor-pointer rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 transition duration-200 hover:bg-slate-100 focus:border-blue-500 focus:ring-blue-500 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200"
               placeholder="Email"
-              // onChange={handleContactChange}
+              onChange={handleContactForm}
               required
             />
           </div>
@@ -81,12 +130,14 @@ const Contact = () => {
               id="message"
               className="block w-full cursor-pointer rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 transition duration-200 hover:bg-slate-100 focus:border-blue-500 focus:ring-blue-500 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200"
               placeholder="Leave us a meassge"
-              // value={userAppointment.contactInfo.phone}
-
-              // onChange={handlePhoneChange}
+              value={contactInfo.message}
+              onChange={handleContactForm}
             ></textarea>
           </div>
-          <button className="w-full rounded-xl border border-slate-300 p-2 font-semibold text-slate-900 transition duration-500 hover:bg-gradient-to-r hover:from-pink-500 hover:to-amber-400 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-gradient-to-r dark:hover:from-pink-500 dark:hover:to-amber-400">
+          <button
+            onClick={submitForm}
+            className="w-full rounded-xl border border-slate-300 p-2 font-semibold text-slate-900 transition duration-200 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800"
+          >
             Send message
           </button>
         </div>
