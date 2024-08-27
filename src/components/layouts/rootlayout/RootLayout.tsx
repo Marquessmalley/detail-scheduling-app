@@ -1,5 +1,6 @@
 import Navbar from "components/ui/navbars/rootNavbar";
 import { Outlet } from "react-router-dom";
+import Footer from "sections/Footer";
 
 const RootLayout: React.FC = () => {
   return (
@@ -10,17 +11,7 @@ const RootLayout: React.FC = () => {
           <Outlet />
         </div>
       </div>
-      <footer className="flex justify-center border-t border-b-slate-300 py-4 dark:border-t-slate-700">
-        <p className="text-sm font-semibold">
-          Developed by{" "}
-          <a
-            href="https://marquessmalley.netlify.app/"
-            className="bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent"
-          >
-            Marques Smalley
-          </a>
-        </p>
-      </footer>
+      <Footer />
     </div>
   );
 };

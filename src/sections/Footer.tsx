@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="">
+    <footer className="py-4">
       <div className="mx-auto grid max-w-7xl gap-y-4 p-4 sm:grid-cols-12">
         {/* LOGO */}
         <div className="col-span-12 grid grid-cols-1 items-center sm:col-span-6">
@@ -86,7 +86,7 @@ const Footer = () => {
             <li>
               <a
                 href="/about"
-                className="text-sm font-medium transition duration-200 hover:text-gray-600 dark:text-slate-300 dark:hover:text-slate-100"
+                className="text-sm font-medium transition duration-200 hover:text-gray-600 dark:text-slate-200 dark:hover:text-slate-100"
               >
                 About
               </a>
@@ -94,7 +94,7 @@ const Footer = () => {
             <li>
               <a
                 href="https://main--ptshinetime.netlify.app/prices"
-                className="text-sm font-medium transition duration-200 hover:text-gray-600 dark:text-slate-300 dark:hover:text-slate-100"
+                className="text-sm font-medium transition duration-200 hover:text-gray-600 dark:text-slate-200 dark:hover:text-slate-100"
               >
                 Pricing
               </a>
@@ -102,7 +102,7 @@ const Footer = () => {
             <li>
               <a
                 href="https://main--ptshinetime.netlify.app/contact"
-                className="text-sm font-medium transition duration-200 hover:text-gray-600 dark:text-slate-300 dark:hover:text-slate-100"
+                className="text-sm font-medium transition duration-200 hover:text-gray-600 dark:text-slate-200 dark:hover:text-slate-100"
               >
                 Contact
               </a>
@@ -110,7 +110,7 @@ const Footer = () => {
             <li>
               <a
                 href="https://main--ptshinetime.netlify.app/#faq"
-                className="text-sm font-medium transition duration-200 hover:text-gray-600 dark:text-slate-300 dark:hover:text-slate-100"
+                className="text-sm font-medium transition duration-200 hover:text-gray-600 dark:text-slate-200 dark:hover:text-slate-100"
               >
                 FAQ
               </a>
@@ -118,6 +118,17 @@ const Footer = () => {
           </ul>
         </div>
       </div>
+      <footer className="flex justify-center border-t border-b-slate-300 py-4 dark:border-t-slate-700">
+        <p className="text-sm font-semibold">
+          Developed by{" "}
+          <a
+            href="https://marquessmalley.netlify.app/"
+            className="bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent"
+          >
+            Marques Smalley
+          </a>
+        </p>
+      </footer>
     </footer>
   );
 };

@@ -71,7 +71,7 @@ const BookingStepper: React.FC<BookingStepperProps> = ({ availableDates }) => {
     <div className="flex h-full flex-col">
       {/* HEADER */}
       <div className="my-5 flex flex-col items-center justify-center p-2">
-        <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-300">
+        <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-200">
           {bookingSteps[activeStep].title}
         </h2>
 

@@ -4,7 +4,7 @@ import Faq from "sections/Faq";
 // import Video from "sections/Video";
 import Services from "sections/Services";
 // import CompanyLogos from "sections/CompanyLogos";
-import Footer from "sections/Footer";
+// import Footer from "sections/Footer";
 
 const Home: React.FC = () => {
   return (
@@ -13,7 +13,7 @@ const Home: React.FC = () => {
       <Services />
       <Pricing />
       <Faq />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
