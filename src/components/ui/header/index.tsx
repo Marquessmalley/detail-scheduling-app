@@ -22,9 +22,12 @@ const AdminHeader = () => {
   return (
     <div className="mx-auto my-8 grid max-w-7xl grid-cols-12">
       <div className="col-span-11 ml-2 sm:col-span-8 sm:ml-0">
-        <h1 className="text-md font-bold text-gray-900 dark:text-slate-300 sm:text-4xl">
-          Welcome, {user?.displayName}!
-        </h1>
+        <span className="text-md font-bold text-gray-900 dark:text-slate-200 sm:text-4xl">
+          Welcome,{" "}
+          <span className="dark:bg-gradient-to-r dark:from-teal-400 dark:to-pink-400 dark:bg-clip-text dark:text-transparent">
+            {user?.displayName}!
+          </span>
+        </span>
         <p className="mt-2 text-sm text-gray-600 dark:text-slate-200 sm:text-lg">
           We're glad to have you here.
         </p>
