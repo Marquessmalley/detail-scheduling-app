@@ -64,7 +64,7 @@ const UpcomingDescription: React.FC<UpcomingDescriptionProps> = ({
       </div>
       {/* DATE & LOCATION */}
 
-      <div className="col-span-12 grid grid-cols-12 gap-y-3 divide-gray-300 whitespace-nowrap px-2 dark:divide-slate-500 sm:flex sm:space-x-4 sm:divide-x sm:py-2">
+      <div className="col-span-12 grid grid-cols-12 gap-y-3 divide-gray-300 whitespace-nowrap px-2 pb-2 dark:divide-slate-500 sm:flex sm:space-x-4 sm:divide-x sm:py-2">
         <div className="col-span-12 flex items-center sm:pr-4">
           <CalendarIcon />
           <p className="text-sm text-gray-500 dark:text-slate-300">

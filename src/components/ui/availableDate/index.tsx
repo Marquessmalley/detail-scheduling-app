@@ -45,7 +45,7 @@ const AvailableDate: React.FC<AvailableDateProps> = ({ id, availability }) => {
 
   return (
     <div className="mt-4 grid grid-cols-12 rounded-lg border bg-white dark:border-slate-700 dark:bg-slate-900">
-      <div className="col-span-4 m-2 rounded-lg bg-slate-100 px-4 py-2 dark:bg-slate-800">
+      <div className="col-span-5 m-2 rounded-lg bg-slate-100 px-4 py-2 dark:bg-slate-800 sm:col-span-4">
         <p className="text-lg font-semibold text-gray-400">{day}</p>
         <p className="text-3xl font-bold text-black dark:text-slate-200">
           {" "}
@@ -53,7 +53,7 @@ const AvailableDate: React.FC<AvailableDateProps> = ({ id, availability }) => {
         </p>
       </div>
 
-      <div className="col-span-7 m-2 grid grid-cols-12">
+      <div className="col-span-6 m-2 grid grid-cols-12 sm:col-span-7">
         <div className="col-span-12 flex flex-col justify-center gap-y-2">
           <div className="sm:pr-2">
             <p className="text-md whitespace-nowrap font-bold text-black dark:text-slate-200 sm:text-lg">
