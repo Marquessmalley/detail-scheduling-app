@@ -44,33 +44,40 @@ const AvailableDate: React.FC<AvailableDateProps> = ({ id, availability }) => {
   const date = availability.date.split(" ")[2].replace(",", "");
 
   return (
-    <div className="mt-2 flex justify-between rounded-lg border bg-white dark:border-slate-700 dark:bg-slate-900 lg:mx-auto lg:max-w-xl">
-      <div className="m-2 rounded-lg bg-slate-100 px-4 py-2 dark:bg-slate-800">
+    <div className="mt-4 grid grid-cols-12 rounded-lg border bg-white dark:border-slate-700 dark:bg-slate-900">
+      <div className="col-span-4 m-2 rounded-lg bg-slate-100 px-4 py-2 dark:bg-slate-800">
         <p className="text-lg font-semibold text-gray-400">{day}</p>
         <p className="text-3xl font-bold text-black dark:text-slate-200">
           {" "}
           {month} {date}{" "}
         </p>
       </div>
-      <div className="m-2 flex flex-col justify-center">
-        <p className="mb-1 font-semibold text-black dark:text-white">
-          Detailer:{" "}
-          <span className="font-light text-gray-500 dark:text-slate-300">
-            {availability.detailer}
-          </span>
-        </p>
-        <div className="flex items-center">
-          <ClockIcon
-            size="size-4"
-            mr="mr-1"
-            textColor={isDarkMode ? "text-slate-200" : "text-gray-500"}
-          />
-          <p className="text-sm text-gray-500 dark:text-slate-200">
-            {availability.startTime}
-          </p>
+
+      <div className="col-span-7 m-2 grid grid-cols-12">
+        <div className="col-span-12 flex flex-col justify-center gap-y-2">
+          <div className="sm:pr-2">
+            <p className="text-md whitespace-nowrap font-bold text-black dark:text-slate-200 sm:text-lg">
+              Detailer:{" "}
+              <span className="whitespace-nowrap font-light text-gray-500 dark:text-slate-300">
+                {availability.detailer}
+              </span>
+            </p>
+          </div>
+
+          <div className="flex items-center">
+            <ClockIcon
+              size="size-5 "
+              mr="mr-1"
+              textColor={isDarkMode ? "text-slate-200" : "text-gray-500"}
+            />
+            <p className="text-md whitespace-nowrap font-light text-gray-500 dark:text-slate-300 sm:text-lg">
+              {availability.startTime}
+            </p>
+          </div>
         </div>
       </div>
-      <div className="m-2">
+
+      <div className="col-span-1 m-1 text-end">
         <Menu>
           <MenuButton>
             <EllipsisIcon />

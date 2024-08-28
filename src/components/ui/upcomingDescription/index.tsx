@@ -1,7 +1,13 @@
 import React from "react";
 import { Appointment } from "constants/interfaces";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
-import { EllipsisIcon, LocationIcon, CalendarIcon } from "components/ui/icons";
+import {
+  EllipsisIcon,
+  LocationIcon,
+  CalendarIcon,
+  ClockIcon,
+} from "components/ui/icons";
+import { useDarkMode } from "context/DarkModeContext";
 
 interface UpcomingDescriptionProps {
   appointment: Appointment;
@@ -10,37 +16,20 @@ interface UpcomingDescriptionProps {
 const UpcomingDescription: React.FC<UpcomingDescriptionProps> = ({
   appointment,
 }) => {
+  const { isDarkMode } = useDarkMode();
+
   return (
     <div
       key={"i"}
-      className="grid grid-cols-12 border-b dark:border-slate-700 dark:bg-slate-900 lg:mx-auto lg:max-w-xl"
+      className="mt-4 grid grid-cols-12 rounded-lg border dark:border-slate-700 dark:bg-slate-900"
     >
-      <div className="col-span-11 my-2 w-full p-2">
+      <div className="col-span-11 w-full p-2">
         {/* User name */}
         <div className="flex p-2">
           <p className="text-md font-semibold leading-6 text-gray-900 dark:text-slate-200">
             {appointment.contactInfo.firstName}{" "}
             {appointment.contactInfo.lastName}
           </p>
-        </div>
-
-        {/* DATE & LOCATION */}
-        <div className="grid grid-cols-1 p-2 sm:grid-cols-12">
-          <div className="col-span-6 flex items-center sm:border-r sm:pr-4">
-            <CalendarIcon />
-
-            <p className="text-sm text-gray-500 dark:text-slate-300">
-              {appointment.date}
-            </p>
-          </div>
-
-          <div className="col-span-6 mt-2 flex items-center sm:pl-4">
-            <LocationIcon />
-
-            <p className="text-sm text-gray-500 dark:text-slate-300">
-              {appointment.contactInfo.address}
-            </p>
-          </div>
         </div>
       </div>
 
@@ -72,6 +61,32 @@ const UpcomingDescription: React.FC<UpcomingDescriptionProps> = ({
             </MenuItem>
           </MenuItems>
         </Menu>
+      </div>
+      {/* DATE & LOCATION */}
+
+      <div className="col-span-12 grid grid-cols-12 gap-y-3 divide-gray-300 whitespace-nowrap px-2 dark:divide-slate-500 sm:flex sm:space-x-4 sm:divide-x sm:py-2">
+        <div className="col-span-12 flex items-center sm:pr-4">
+          <CalendarIcon />
+          <p className="text-sm text-gray-500 dark:text-slate-300">
+            {appointment.date}
+          </p>
+        </div>
+        <div className="col-span-12 flex items-center sm:px-4">
+          <ClockIcon
+            size="size-4"
+            mr="mr-1"
+            textColor={isDarkMode ? "text-slate-200" : "text-gray-500"}
+          />
+          <p className="sm:text-md whitespace-nowrap text-sm font-light text-gray-500 dark:text-slate-300">
+            {appointment.startTime}
+          </p>
+        </div>
+        <div className="col-span-12 flex items-center sm:pl-4">
+          <LocationIcon />
+          <p className="text-sm text-gray-500 dark:text-slate-300">
+            {appointment.contactInfo.address}
+          </p>
+        </div>
       </div>
     </div>
   );

@@ -69,11 +69,11 @@ const Admin: React.FC = () => {
 
   return (
     <div>
-      <div className="grid grid-cols-1 sm:mx-auto sm:max-w-7xl lg:grid lg:grid-cols-12">
+      <div className="grid grid-cols-12 gap-y-10 sm:mx-auto sm:max-w-7xl">
         {/* AVAILABILITIES */}
-        <div className="col-span-6 p-8">
-          <div className="px-4 sm:px-0 lg:mx-auto lg:max-w-xl">
-            <h3 className="text-base font-semibold leading-7 text-gray-900 dark:text-slate-300">
+        <div className="col-span-12 p-2 lg:col-span-6">
+          <div className="">
+            <h3 className="text-2xl font-semibold leading-7 text-gray-900 dark:text-slate-300">
               View your available openings
             </h3>
             <p className="mt-1 max-w-2xl text-sm leading-6 text-gray-500 dark:text-slate-400">
@@ -108,16 +108,16 @@ const Admin: React.FC = () => {
         </div>
 
         {/* UPCOMING APPOINTMENTS */}
-        <div className="col-span-6 p-8">
-          <div className="px-4 sm:px-0">
-            <h3 className="text-base font-semibold leading-7 text-gray-900 dark:text-slate-300">
+        <div className="col-span-12 p-2 lg:col-span-6">
+          <div className="">
+            <h3 className="text-2xl font-semibold leading-7 text-gray-900 dark:text-slate-300">
               Upcoming Appointments...
             </h3>
             <p className="mt-1 max-w-2xl text-sm leading-6 text-gray-500 dark:text-slate-400">
               Apointment details.
             </p>
           </div>
-          <div className="rounded-lg border dark:border-slate-700">
+          <div className="">
             {appointments && appointments.length > 0 ? (
               appointments.map((appointment) => (
                 <div key={appointment[0]}>

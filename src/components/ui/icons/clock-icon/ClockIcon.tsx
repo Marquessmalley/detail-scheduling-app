@@ -4,17 +4,23 @@ interface ClockIconProps {
   mr?: string;
   textColor?: string;
   size?: string;
+  fontWeight?: string;
 }
 
-const ClockIcon: React.FC<ClockIconProps> = ({ mr, textColor, size }) => {
+const ClockIcon: React.FC<ClockIconProps> = ({
+  mr,
+  textColor,
+  size,
+  fontWeight,
+}) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
-      strokeWidth={1.5}
+      strokeWidth={2}
       stroke="currentColor"
-      className={` ${size} ${mr && mr} ${textColor && textColor} `}
+      className={` ${size} ${mr && mr} ${textColor && textColor} ${fontWeight && fontWeight}`}
     >
       <path
         strokeLinecap="round"
