@@ -22,7 +22,7 @@ const Landing = () => {
         <Link to="/booking">
           <button
             type="button"
-            className="relative flex rounded-full border border-slate-300 bg-teal-400 px-4 py-2.5 transition duration-200 hover:bg-teal-500 dark:border-slate-700 dark:shadow-sm dark:shadow-teal-600 dark:hover:bg-teal-500"
+            className="relative flex rounded-full border border-slate-300 bg-teal-400 px-4 py-2.5 transition duration-200 hover:bg-teal-600 dark:border-slate-700 dark:bg-teal-600 dark:hover:bg-teal-500"
           >
             <p className="mr-1 text-sm font-semibold text-white">Book Now</p>
             <svg

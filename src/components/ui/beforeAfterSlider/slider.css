@@ -1,0 +1,5 @@
+.slider-example-split-line {
+  --divider-width: 4px;
+  --divider-color: #10b981;
+  --default-handle-opacity: 0;
+}
