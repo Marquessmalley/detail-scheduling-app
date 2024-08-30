@@ -1,14 +1,21 @@
 import { useState, useEffect } from "react";
-import { AdminAvailabilityType, Appointment } from "constants/interfaces";
+import {
+  AdminAvailabilityType,
+  Appointment,
+  FirebaseAppointments,
+  FirebaseAvailabilities,
+} from "constants/interfaces";
 import UpcomingDescription from "components/ui/upcomingDescription";
 import AvailableDate from "components/ui/availableDate";
 import { database } from "firebaseConfig";
-import { ref, onValue, off } from "firebase/database";
+import { ref, onValue, off, DataSnapshot } from "firebase/database";
 import { SpinnerIcon } from "components/ui/icons";
 import {
   sortedAvailabilities,
   sortedAppointments,
 } from "utils/sortAvailabilities";
+import { checkExpiredAvailabilities } from "utils/validAvailabilities";
+import { checkExpiredAppointments } from "utils/validAppointments";
 
 const Admin: React.FC = () => {
   const [availabilities, setAvailabilities] = useState<
@@ -21,49 +28,50 @@ const Admin: React.FC = () => {
 
   const [loading, setLoading] = useState(true);
 
+  const handleAvailabilitiesSnapshot = (snapshot: DataSnapshot) => {
+    if (snapshot.exists()) {
+      const availabilities: FirebaseAvailabilities = snapshot.val();
+
+      const validAvailabilites = checkExpiredAvailabilities(availabilities);
+
+      setAvailabilities(
+        sortedAvailabilities(Object.fromEntries(validAvailabilites)),
+      );
+
+      setLoading(false);
+    } else {
+      setAvailabilities(null);
+      setLoading(false);
+    }
+  };
+  const handleAppointmentsSnapshot = (snapshot: DataSnapshot) => {
+    if (snapshot.exists()) {
+      const appointments: FirebaseAppointments = snapshot.val();
+
+      const validAppointments = checkExpiredAppointments(appointments);
+
+      setAppointments(
+        sortedAppointments(Object.fromEntries(validAppointments)),
+      );
+
+      setLoading(false);
+    } else {
+      setAvailabilities(null);
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
     const dbRef = ref(database, "/availability");
     const dbAppointmentsRef = ref(database, "/appointments");
-    onValue(dbRef, (snapshot) => {
-      if (snapshot.exists()) {
-        const sortedAva = sortedAvailabilities(snapshot.val());
-        setAvailabilities(sortedAva);
-        setLoading(false);
-      } else {
-        setAvailabilities(null);
-        setLoading(false);
-      }
-    });
-    onValue(dbAppointmentsRef, (snapshot) => {
-      if (snapshot.exists()) {
-        const sortedApt = sortedAppointments(snapshot.val());
-        setAppointments(sortedApt);
-        setLoading(false);
-      } else {
-        setAppointments(null);
-        setLoading(false);
-      }
-    });
+
+    onValue(dbRef, handleAvailabilitiesSnapshot);
+
+    onValue(dbAppointmentsRef, handleAppointmentsSnapshot);
 
     return () => {
-      off(dbRef, "value", (snapshot) => {
-        if (snapshot.exists()) {
-          setAvailabilities(snapshot.val());
-          setLoading(false);
-        } else {
-          setAvailabilities(null);
-          setLoading(false);
-        }
-      });
-      off(dbAppointmentsRef, "value", (snapshot) => {
-        if (snapshot.exists()) {
-          setAppointments(snapshot.val());
-          setLoading(false);
-        } else {
-          // setAppointments(null);
-          setLoading(false);
-        }
-      });
+      off(dbRef, "value", handleAvailabilitiesSnapshot);
+      off(dbAppointmentsRef, "value", handleAppointmentsSnapshot);
     };
   }, []);
 

@@ -34,6 +34,16 @@ export interface AdminAvailabilityType {
   isBooked: boolean;
   detailPackage: string;
 }
+export interface FirebaseAvailabilities {
+  [key: string]: {
+    availability: AdminAvailabilityType;
+  };
+}
+export interface FirebaseAppointments {
+  [key: string]: {
+    appointment: Appointment;
+  };
+}
 
 export interface Faq {
   id: number;
