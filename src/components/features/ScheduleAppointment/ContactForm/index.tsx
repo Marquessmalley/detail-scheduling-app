@@ -1,5 +1,6 @@
 import { useUserAppointmentContext } from "context/AppointmentContext";
 import { addUserAppointment } from "services/appointmentServices";
+import { sendEmail } from "utils/sendConfirmationEmail";
 import Alert from "components/ui/alert";
 import { AdminAvailabilityType } from "constants/interfaces";
 import { useNavigate } from "react-router-dom";
@@ -70,6 +71,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
     }
 
     addUserAppointment(userAppointment, updateAvailability);
+    sendEmail(userAppointment);
     navigate("/booking-confirm", {
       state: {
         userName: `${userAppointment.contactInfo.firstName} ${userAppointment.contactInfo.lastName} `,
@@ -243,7 +245,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
 
           <div className="my-4 grid grid-cols-2 sm:m-6 sm:gap-x-6">
             <h3 className="sm:text-md text-sm font-bold text-teal-400">
-              Price
+              Estimated Price
             </h3>
             <p className="text-sm font-medium text-gray-700 dark:text-slate-200">
               ${userAppointment.price}

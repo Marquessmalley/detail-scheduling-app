@@ -27,7 +27,8 @@ const AppointmentConfirm = () => {
                 , for booking with us. Your appointment is scheduled for{" "}
                 <span className="font-semibold text-gray-900 dark:text-slate-200">
                   {date} at {time}.
-                </span>
+                </span>{" "}
+                Please check your email for confirmation.
               </p>
             </div>
           </div>
