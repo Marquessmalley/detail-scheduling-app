@@ -2,6 +2,7 @@ import { useUserAppointmentContext } from "context/AppointmentContext";
 import { AdminAvailabilityType } from "constants/interfaces";
 import { addUserAppointment } from "services/appointmentServices";
 import { useNavigate } from "react-router-dom";
+import { sendEmail } from "utils/sendConfirmationEmail";
 
 interface AppointmentSummaryProp {
   updateAvailability: [string, { availability: AdminAvailabilityType }] | null;
@@ -15,6 +16,7 @@ const AppointmentSummary: React.FC<AppointmentSummaryProp> = ({
 
   const handleSubmitAppointment = () => {
     addUserAppointment(userAppointment, updateAvailability);
+    sendEmail(userAppointment);
     navigate("/booking-confirm", {
       state: {
         userName: `${userAppointment.contactInfo.firstName} ${userAppointment.contactInfo.lastName} `,

@@ -56,7 +56,7 @@ const Admin: React.FC = () => {
 
       setLoading(false);
     } else {
-      setAvailabilities(null);
+      setAppointments(null);
       setLoading(false);
     }
   };

@@ -14,7 +14,7 @@ const Pricing: React.FC = () => {
           <p className="mt-2 text-center text-3xl font-bold tracking-tight text-slate-900/80 dark:text-slate-200 sm:text-4xl">
             Choose the right package for you
           </p>
-          <p className="mt-6 text-center text-lg leading-8 text-gray-600 dark:text-gray-400">
+          <p className="mt-6 text-center text-lg text-gray-600 dark:text-gray-400 lg:text-justify">
             Whether you're looking for a basic clean or a comprehensive
             detailing service, our pricing is transparent and competitive.{" "}
             <a
