@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect, useRef } from "react";
 import { Appointment } from "constants/interfaces";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import {
@@ -8,6 +8,9 @@ import {
   ClockIcon,
 } from "components/ui/icons";
 import { useDarkMode } from "context/DarkModeContext";
+import Clipboard from "clipboard";
+import { Tooltip } from "@nextui-org/react";
+import { toast } from "react-toastify";
 
 interface UpcomingDescriptionProps {
   appointment: Appointment;
@@ -17,6 +20,27 @@ const UpcomingDescription: React.FC<UpcomingDescriptionProps> = ({
   appointment,
 }) => {
   const { isDarkMode } = useDarkMode();
+  const addressRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (addressRef.current) {
+      const clipboard = new Clipboard(addressRef.current, {
+        text: () => appointment.contactInfo.address,
+      });
+
+      clipboard.on("success", () => {
+        toast.success("Address copied to clipboard!");
+      });
+
+      clipboard.on("error", () => {
+        toast.error("Failed to copy address.");
+      });
+
+      return () => {
+        clipboard.destroy(); // Clean up the clipboard instance
+      };
+    }
+  }, [appointment.contactInfo.address]);
 
   return (
     <div
@@ -27,8 +51,11 @@ const UpcomingDescription: React.FC<UpcomingDescriptionProps> = ({
         {/* User name */}
         <div className="flex p-2">
           <p className="text-md font-semibold leading-6 text-gray-900 dark:text-slate-200">
-            {appointment.contactInfo.firstName}{" "}
-            {appointment.contactInfo.lastName}
+            Customer Name:{" "}
+            <span className="text-sm font-light">
+              {appointment.contactInfo.firstName}{" "}
+              {appointment.contactInfo.lastName}
+            </span>
           </p>
         </div>
       </div>
@@ -64,7 +91,7 @@ const UpcomingDescription: React.FC<UpcomingDescriptionProps> = ({
       </div>
       {/* DATE & LOCATION */}
 
-      <div className="col-span-12 grid grid-cols-12 gap-y-3 divide-gray-300 whitespace-nowrap px-2 pb-2 dark:divide-slate-500 sm:flex sm:space-x-4 sm:divide-x sm:py-2">
+      <div className="col-span-12 grid grid-cols-12 gap-y-3 divide-gray-300 px-2 pb-2 dark:divide-slate-500 sm:flex sm:divide-x sm:py-2">
         <div className="col-span-12 flex items-center sm:pr-4">
           <CalendarIcon />
           <p className="text-sm text-gray-500 dark:text-slate-300">
@@ -82,10 +109,17 @@ const UpcomingDescription: React.FC<UpcomingDescriptionProps> = ({
           </p>
         </div>
         <div className="col-span-12 flex items-center sm:pl-4">
-          <LocationIcon />
-          <p className="text-sm text-gray-500 dark:text-slate-300">
-            {appointment.contactInfo.address}
-          </p>
+          <Tooltip content="Copy Address" className="text-sm font-semibold">
+            <button
+              ref={addressRef}
+              className="flex rounded-lg border border-slate-700 p-1 transition duration-200 dark:hover:bg-slate-800"
+            >
+              <LocationIcon />
+              <p className="text-sm text-gray-500 dark:text-slate-300">
+                {appointment.contactInfo.address}
+              </p>
+            </button>
+          </Tooltip>
         </div>
       </div>
     </div>
