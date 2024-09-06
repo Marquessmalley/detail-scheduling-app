@@ -92,21 +92,25 @@ const UpcomingDescription: React.FC<UpcomingDescriptionProps> = ({
       {/* DATE & LOCATION */}
 
       <div className="col-span-12 grid grid-cols-12 gap-y-3 divide-gray-300 px-2 pb-2 dark:divide-slate-500 sm:flex sm:divide-x sm:py-2">
-        <div className="col-span-12 flex items-center sm:pr-4">
-          <CalendarIcon />
-          <p className="text-sm text-gray-500 dark:text-slate-300">
-            {appointment.date}
-          </p>
+        <div className="col-span-12 sm:pr-4">
+          <div className="inline-flex items-center rounded-md border border-transparent bg-slate-800 p-0.5 text-sm text-white shadow-sm transition-all">
+            <CalendarIcon />
+            <p className="text-sm text-gray-500 dark:text-slate-300">
+              {appointment.date}
+            </p>
+          </div>
         </div>
-        <div className="col-span-12 flex items-center sm:px-4">
-          <ClockIcon
-            size="size-4"
-            mr="mr-1"
-            textColor={isDarkMode ? "text-slate-200" : "text-gray-500"}
-          />
-          <p className="sm:text-md whitespace-nowrap text-sm font-light text-gray-500 dark:text-slate-300">
-            {appointment.startTime}
-          </p>
+        <div className="col-span-12 sm:px-4">
+          <div className="inline-flex items-center rounded-md border border-transparent bg-slate-800 p-0.5 text-sm text-white shadow-sm transition-all">
+            <ClockIcon
+              size="size-4"
+              mr="mr-1"
+              textColor={isDarkMode ? "text-slate-200" : "text-gray-500"}
+            />
+            <p className="sm:text-md whitespace-nowrap text-sm font-light text-gray-500 dark:text-slate-300">
+              {appointment.startTime}
+            </p>
+          </div>
         </div>
         <div className="col-span-12 flex items-center sm:pl-4">
           <Tooltip content="Copy Address" className="text-sm font-semibold">

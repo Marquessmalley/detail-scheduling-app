@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import washAsset from "assets/images/wash-asset-1.png";
-import { CheckIcon } from "components/ui/icons";
+import { CheckIcon, RightArrow } from "components/ui/icons";
 
 const AppointmentConfirm = () => {
   const location = useLocation();
@@ -29,6 +29,17 @@ const AppointmentConfirm = () => {
                   {date} at {time}.
                 </span>{" "}
                 Please check your email for confirmation.
+              </p>
+            </div>
+            <div className="mt-4 flex w-full items-center">
+              <button className="mr-2 rounded-lg border border-slate-700 p-1 text-sm font-semibold text-slate-200 transition duration-200 dark:bg-teal-600 dark:hover:bg-teal-500">
+                Book Again
+              </button>
+              <p className="flex text-sm font-semibold text-slate-200">
+                View Pricing Table
+                <span className="text-teal-500">
+                  <RightArrow />
+                </span>
               </p>
             </div>
           </div>

@@ -68,14 +68,16 @@ const AvailableDate: React.FC<AvailableDateProps> = ({ id, availability }) => {
             </div>
 
             <div className="flex items-center">
-              <ClockIcon
-                size="size-4"
-                mr="mr-1"
-                textColor={isDarkMode ? "text-slate-200" : "text-gray-500"}
-              />
-              <p className="whitespace-nowrap text-sm font-light text-gray-500 dark:text-slate-300 sm:text-medium">
-                {availability.startTime}
-              </p>
+              <div className="inline-flex items-center rounded-md border border-transparent bg-slate-800 p-0.5 text-sm text-white shadow-sm transition-all">
+                <ClockIcon
+                  size="size-4"
+                  mr="mr-1"
+                  textColor={isDarkMode ? "text-slate-200" : "text-gray-500"}
+                />
+                <p className="whitespace-nowrap text-sm font-light text-gray-500 dark:text-slate-300 sm:text-medium">
+                  {availability.startTime}
+                </p>
+              </div>
             </div>
           </div>
         </div>
